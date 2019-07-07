@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-'use strict';
+'use strict'
 
-const Command = require('..');
+const Command = require('..')
 
-new Command().start();
+new Command().start()

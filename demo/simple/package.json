@@ -1,0 +1,22 @@
+{
+  "name": "rubik-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build-cdn": "cross-env NODE_ENV=production CDN_ENV=true rubik build",
+    "build-no-hash": "cross-env NODE_ENV=production NO_HASH_ENV=true rubik build",
+    "build": "cross-env NODE_ENV=production rubik build",
+    "start": "rubik serve",
+    "newpage": "rubik newpage",
+    "preinstall": "rubik check-yarn",
+    "lint": "rubik lint",
+    "rubik": "rubik",
+    "egg-bin": "egg-bin"
+  },
+  "author": "Fancy <fancyboynet@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@vue/cli-service": "^3.9.2"
+  }
+}
