@@ -8,7 +8,7 @@ const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const ip = require('ip')
 const buildConfig = require('../config/build')
 const pages = require('../script/pages')
-const { mockDir } = require('../script/directory')
+const { rootDir, mockDir } = require('../script/directory')
 
 let host = buildConfig.host === '0.0.0.0' ? ip.address() : buildConfig.host
 
@@ -54,10 +54,10 @@ let config = merge(common, {
     publicPath: buildConfig.publicPath,
     filename: '[name].js',
     chunkFilename: '[name].js',
-    path: path.resolve(__dirname, `../${buildConfig.outputName}`)
+    path: path.resolve(rootDir, `../${buildConfig.outputName}`)
   },
   devServer: {
-    contentBase: [path.resolve(__dirname, `../mock`), path.resolve(__dirname, `../${buildConfig.outputName}`)],
+    contentBase: [path.resolve(rootDir, `../mock`), path.resolve(rootDir, `../${buildConfig.outputName}`)],
     hot: true,
     host: buildConfig.host,
     port: buildConfig.port,

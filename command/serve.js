@@ -5,7 +5,7 @@ const Webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
 const webpackConfig = require('../webpack/webpack.dev')
 
-class SubCommand extends Command {
+class ServeCommand extends Command {
   async run () {
     const compiler = Webpack(webpackConfig)
     const server = new WebpackDevServer(compiler, webpackConfig.devServer)
@@ -17,4 +17,4 @@ class SubCommand extends Command {
   }
 }
 
-module.exports = SubCommand
+module.exports = ServeCommand

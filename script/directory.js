@@ -3,7 +3,9 @@ const path = require('path')
 const { log } = require('./utils')
 const shell = require('shelljs')
 
-const srcDir = path.join(process.cwd(), './src')
+const rootDir = process.cwd()
+
+const srcDir = path.join(rootDir, './src')
 
 if (!fs.existsSync(srcDir)) {
   log.error('Need src directory.')
@@ -17,7 +19,7 @@ if (!fs.existsSync(pageDir)) {
   shell.exit(1)
 }
 
-const mockDir = path.join(process.cwd(), './mock')
+const mockDir = path.join(rootDir, './mock')
 
 if (!fs.existsSync(mockDir)) {
   log.error('Need mock router.')
@@ -27,6 +29,7 @@ if (!fs.existsSync(mockDir)) {
 const staticDir = path.join(srcDir, './static')
 
 module.exports = {
+  rootDir,
   srcDir,
   pageDir,
   mockDir,
