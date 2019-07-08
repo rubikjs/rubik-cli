@@ -4,8 +4,8 @@ const Command = require('common-bin')
 const fs = require('fs')
 const path = require('path')
 const inquirer = require('inquirer')
-const {log} = require('../script/utils')
-const {pageDir} = require('../script/directory')
+const { log } = require('../script/utils')
+const { pageDir } = require('../script/directory')
 
 class NewPageCommand extends Command {
   async run () {
@@ -14,8 +14,8 @@ class NewPageCommand extends Command {
         {
           type: 'input',
           name: 'name',
-          message: "Please enter the new page name",
-          validate: function(value) {
+          message: 'Please enter the new page name',
+          validate: function (value) {
             if (!value) {
               return 'The page name is required'
             }
