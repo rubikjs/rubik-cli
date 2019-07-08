@@ -1,0 +1,15 @@
+li {
+    margin: 0 0 2em;
+    border-bottom: 1px solid #ccc;
+}
+.test-autoprefixer{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    -webkit-text-size-adjust: 100%;
+    -webkit-box-sizing: border-box;
+    -webkit-text-decoration: underline dotted;
+    box-sizing: border-box;
+}

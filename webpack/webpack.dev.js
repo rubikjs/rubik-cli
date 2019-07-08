@@ -6,14 +6,11 @@ const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const ip = require('ip')
-let mockRouter = require('../mock/router')
 const buildConfig = require('../config/build')
 const pages = require('../script/pages')
-let host = buildConfig.host === '0.0.0.0' ? ip.address() : buildConfig.host
+const { mockDir } = require('../script/directory')
 
-if (!fs.existsSync(mockRouter)) {
-  mockRouter = {}
-}
+let host = buildConfig.host === '0.0.0.0' ? ip.address() : buildConfig.host
 
 function createDevHistoryApiFallback () {
   if(!pages || !pages.length){
@@ -67,7 +64,7 @@ let config = merge(common, {
     clientLogLevel: 'error',
     historyApiFallback: createDevHistoryApiFallback(),
     quiet: true,
-    before: mockRouter,
+    before: require(mockDir),
     publicPath: buildConfig.publicPath
   }
 })

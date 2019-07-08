@@ -17,7 +17,13 @@ if (!fs.existsSync(pageDir)) {
   shell.exit(1)
 }
 
-const mockDir = path.join(srcDir, './mock')
+const mockDir = path.join(process.cwd(), './mock')
+
+if (!fs.existsSync(mockDir)) {
+  log.error('Need mock router.')
+  shell.exit(1)
+}
+
 const staticDir = path.join(srcDir, './static')
 
 module.exports = {

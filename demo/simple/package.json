@@ -10,13 +10,11 @@
     "start": "rubik serve",
     "newpage": "rubik newpage",
     "preinstall": "rubik check-yarn",
-    "lint": "rubik lint",
-    "rubik": "rubik",
-    "egg-bin": "egg-bin"
+    "lint": "rubik lint"
   },
   "author": "Fancy <fancyboynet@gmail.com>",
   "license": "ISC",
-  "devDependencies": {
-    "@vue/cli-service": "^3.9.2"
+  "dependencies": {
+    "axios": "^0.19.0"
   }
 }

@@ -9,7 +9,7 @@ const pages = require('../script/pages')
 const isDevMode = process.env.NODE_ENV !== 'production'
 const isNoHash = process.env.NO_HASH_ENV === 'true'
 const needEslint = isDevMode && buildConfig.openStandardJs
-const { srcDir, pageDir, staticDir } = require('./directory')
+const { srcDir, pageDir, staticDir } = require('../script/directory')
 
 let hasStaticRoot = fs.existsSync(staticDir)
 
@@ -18,7 +18,6 @@ let plugins = []
 
 if (buildConfig.vendor.length) {
   entry['vendor'] = buildConfig.vendor
-
 }
 
 // 遍历pages目录

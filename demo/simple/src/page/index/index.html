@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+    <title>App</title>
+</head>
+<body>
+<ol>
+    <li>
+        <header>引入片段part.html</header>
+        <div id="part"></div>
+    </li>
+    <li>
+        <header>引入data.json</header>
+        <div id="json"></div>
+    </li>
+    <li>
+        <header>import异步加载js</header>
+        <div id="async"></div>
+    </li>
+    <li>
+        <header>数据模拟get('/data')</header>
+        <div id="mock"></div>
+    </li>
+    <li>
+        <header>img插入图片</header>
+        <img src="./bg.png" alt="">
+    </li>
+    <li>
+        <header>js插入svg</header>
+        <div id="svg" style="width: 100px;"></div>
+    </li>
+    <li>
+        <header>引入不同目录下的同名资源(应该显示不同的图片)</header>
+        <img src="./bg.png" alt="">
+        <img src="~assets/image/bg.png" alt="">
+    </li>
+</ol>
+</body>
+</html>
