@@ -6,12 +6,7 @@
     "rubik": "bin/rubik.js"
   },
   "scripts": {
-    "build-cdn": "cross-env NODE_ENV=production CDN_ENV=true webpack --config ./config/webpack.prod.js",
-    "build-no-hash": "cross-env NODE_ENV=production NO_HASH_ENV=true webpack --config ./config/webpack.prod.js",
-    "build": "cross-env NODE_ENV=production webpack --config ./config/webpack.prod.js",
-    "start": "webpack-dev-server --progress --config ./config/webpack.dev.js",
-    "newpage": "node script/newpage.js",
-    "preinstall": "node script/check-install-with-yarn.js",
+    "preinstall": "node lib/check-install-with-yarn.js",
     "lint": "eslint --fix src/**/*.js"
   },
   "keywords": [

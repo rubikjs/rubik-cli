@@ -1,11 +1,10 @@
 const merge = require('webpack-merge')
 const webpack = require('webpack')
-const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-const { distDir } = require('../script/directory')
+const { distDir } = require('../lib/directory')
 const common = require('./webpack.common.js')
 const buildConfig = require('../config')
 const isCDN = process.env.CDN_ENV === 'true'

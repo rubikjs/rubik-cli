@@ -1,15 +1,14 @@
 const fs = require('fs')
-const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const buildConfig = require('../config')
-const pages = require('../script/pages')
+const pages = require('../lib/pages')
 const isDevMode = process.env.NODE_ENV !== 'production'
 const isNoHash = process.env.NO_HASH_ENV === 'true'
 const needEslint = isDevMode && buildConfig.openStandardJs
-const { srcDir, pageDir, staticDir } = require('../script/directory')
+const { srcDir, pageDir, staticDir } = require('../lib/directory')
 
 let hasStaticRoot = fs.existsSync(staticDir)
 

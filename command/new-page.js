@@ -4,8 +4,8 @@ const Command = require('common-bin')
 const fs = require('fs')
 const path = require('path')
 const inquirer = require('inquirer')
-const { log } = require('../script/utils')
-const { pageDir } = require('../script/directory')
+const { log } = require('../lib/utils')
+const { pageDir } = require('../lib/directory')
 
 class NewPageCommand extends Command {
   async run () {

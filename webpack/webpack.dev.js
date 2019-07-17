@@ -1,14 +1,12 @@
 const merge = require('webpack-merge')
 const common = require('./webpack.common.js')
-const path = require('path')
-const fs = require('fs')
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const ip = require('ip')
 const buildConfig = require('../config')
-const pages = require('../script/pages')
-const { rootDir, mockDir, distDir } = require('../script/directory')
+const pages = require('../lib/pages')
+const { mockDir, distDir } = require('../lib/directory')
 let host = buildConfig.host === '0.0.0.0' ? ip.address() : buildConfig.host
 
 function createDevHistoryApiFallback () {
