@@ -2,10 +2,10 @@ const merge = require('webpack-merge')
 const webpack = require('webpack')
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-const { rootDir } = require('../script/directory')
+const { distDir } = require('../script/directory')
 const common = require('./webpack.common.js')
 const buildConfig = require('../config')
 const isCDN = process.env.CDN_ENV === 'true'
@@ -41,9 +41,7 @@ module.exports = merge(common, {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(buildConfig.outputName, {
-      root: process.cwd()
-    }),
+    new CleanWebpackPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': '"production"'
@@ -58,6 +56,6 @@ module.exports = merge(common, {
     publicPath: isCDN ? buildConfig.cdnPublicPath : buildConfig.publicPath,
     filename: isNoHash ? `${buildConfig.staticName}/[name].js` : `${buildConfig.staticName}/[name].[contenthash:${buildConfig.hashLength}].js`,
     chunkFilename: isNoHash ? `${buildConfig.staticName}/[name].bundle.js` : `${buildConfig.staticName}/[name].[chunkhash:${buildConfig.hashLength}].bundle.js`,
-    path: path.resolve(rootDir, `../${buildConfig.outputName}`)
+    path: distDir
   }
 })

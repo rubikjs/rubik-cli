@@ -1,5 +1,5 @@
 {
-  "outputName": "dist",
+  "output": "dist",
   "staticName": "static",
   "templateName": "",
   "publicPath": "/",

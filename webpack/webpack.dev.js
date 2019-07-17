@@ -8,7 +8,7 @@ const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const ip = require('ip')
 const buildConfig = require('../config')
 const pages = require('../script/pages')
-const { rootDir, mockDir } = require('../script/directory')
+const { rootDir, mockDir, distDir } = require('../script/directory')
 let host = buildConfig.host === '0.0.0.0' ? ip.address() : buildConfig.host
 
 function createDevHistoryApiFallback () {
@@ -53,10 +53,10 @@ let config = merge(common, {
     publicPath: buildConfig.publicPath,
     filename: '[name].js',
     chunkFilename: '[name].js',
-    path: path.resolve(rootDir, `../${buildConfig.outputName}`)
+    path: distDir
   },
   devServer: {
-    contentBase: [path.resolve(rootDir, `../mock`), path.resolve(rootDir, `../${buildConfig.outputName}`)],
+    contentBase: [mockDir, distDir],
     hot: true,
     host: buildConfig.host,
     port: buildConfig.port,
