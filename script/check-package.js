@@ -8,8 +8,7 @@ if (!shell.which('git')) {
   log.error('Sorry, this script requires git.')
   shell.exit(1)
 }
-const stdout = shell.exec('git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD', { silent: true }).stdout
-console.log(...stdout.split('\n'))
+const stdout = shell.exec('git diff-tree -r --name-only --no-commit-id HEAD HEAD@{1}', { silent: true }).stdout
 const currentBranch = shell.exec('git rev-parse --abbrev-ref HEAD', { silent: true }).stdout.replace(/\s$/, '')
 const notReInstallOnPkgChangeFeatures = buildConfig.notReInstallOnPkgChangeFeatures
 if (Array.isArray(notReInstallOnPkgChangeFeatures) && notReInstallOnPkgChangeFeatures.includes(currentBranch)) {
@@ -21,7 +20,6 @@ const noTargetChange = targetFiles.every((file) => {
   return stdout.indexOf(file) === -1
 })
 if (noTargetChange) {
-  log.info('The package.json is not change.')
   shell.exit(0)
 }
 log.info('The package.json file has been changed, it will auto reinstall now.')

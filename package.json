@@ -78,9 +78,6 @@
       "standard"
     ]
   },
-  "eslintIgnore": [
-    "src/static/**/*.js"
-  ],
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
