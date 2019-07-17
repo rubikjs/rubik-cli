@@ -1,4 +1,4 @@
-const buildConfig = require('../config/build')
+const buildConfig = require('../config')
 const shell = require('shelljs')
 const { log } = require('./utils')
 if (!buildConfig.reInstallOnPkgChange) {

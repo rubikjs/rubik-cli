@@ -1,6 +1,6 @@
 const fs = require('fs')
 const path = require('path')
-const buildConfig = require('../config/build')
+const buildConfig = require('../config')
 const { pageDir } = require('./directory')
 
 let pages = fs.readdirSync(pageDir)
