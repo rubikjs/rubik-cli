@@ -6,7 +6,7 @@
     "rubik": "bin/rubik.js"
   },
   "scripts": {
-    "preinstall": "node lib/check-install-with-yarn.js",
+    "preinstall": "node script/check-install-with-yarn.js",
     "lint": "eslint --fix src/**/*.js"
   },
   "keywords": [

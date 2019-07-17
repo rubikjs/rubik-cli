@@ -1,6 +1,6 @@
 const buildConfig = require('../config')
 const shell = require('shelljs')
-const { log } = require('./utils')
+const { log } = require('../lib/utils')
 if (!buildConfig.reInstallOnPkgChange) {
   shell.exit(0)
 }
@@ -20,9 +20,9 @@ const noTargetChange = targetFiles.every((file) => {
   return stdout.indexOf(file) === -1
 })
 if (noTargetChange) {
-  log.info('no target files changed.')
+  log.info('The package.json is not change.')
   shell.exit(0)
 }
-log.info('package.json changed, re-install now.')
+log.info('The package.json file has been changed, it will auto reinstall now.')
 shell.exec('yarn')
 shell.exit(0)

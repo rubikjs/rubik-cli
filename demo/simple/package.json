@@ -9,6 +9,7 @@
     "build": "cross-env NODE_ENV=production rubik build",
     "start": "rubik serve",
     "new-page": "rubik new-page",
+    "check-package": "cross-env DEBUG=common-bin rubik check-package",
     "preinstall": "rubik check-yarn",
     "lint": "eslint --fix src/**/*.js",
     "rubik": "rubik"

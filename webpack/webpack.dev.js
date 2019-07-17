@@ -29,7 +29,6 @@ function createDevHistoryApiFallback () {
 let config = merge(common, {
   mode: 'development',
   plugins: [
-    new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
