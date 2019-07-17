@@ -9,6 +9,7 @@ if (!shell.which('git')) {
   shell.exit(1)
 }
 const stdout = shell.exec('git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD', { silent: true }).stdout
+console.log(...stdout.split('\n'))
 const currentBranch = shell.exec('git rev-parse --abbrev-ref HEAD', { silent: true }).stdout.replace(/\s$/, '')
 const notReInstallOnPkgChangeFeatures = buildConfig.notReInstallOnPkgChangeFeatures
 if (Array.isArray(notReInstallOnPkgChangeFeatures) && notReInstallOnPkgChangeFeatures.includes(currentBranch)) {
