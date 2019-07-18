@@ -20,6 +20,7 @@ const noTargetChange = targetFiles.every((file) => {
   return stdout.indexOf(file) === -1
 })
 if (noTargetChange) {
+  log.info('The package.json file is not change.')
   shell.exit(0)
 }
 log.info('The package.json file has been changed, it will auto reinstall now.')

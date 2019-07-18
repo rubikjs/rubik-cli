@@ -6,5 +6,6 @@ Just one command for web develop with ES/VUE/REACT/.
 $ npm i -g rubik-cli
 $ mkdir simple
 $ cd simple
+$ yarn
 $ rubik init
 ```
