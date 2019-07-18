@@ -9,6 +9,7 @@ class CheckYarnCommand extends Command {
   constructor (rawArgv) {
     super(rawArgv)
   }
+
   async run () {
     const child = spawn('node', [path.resolve(__dirname, '../script/check-yarn.js')], {
       cwd: rootDir
