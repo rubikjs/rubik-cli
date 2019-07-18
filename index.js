@@ -1,6 +1,6 @@
 const path = require('path')
 const Command = require('common-bin')
-const pkg = require('./package.json')
+const config = require('./config')
 
 class MainCommand extends Command {
   constructor (rawArgv) {

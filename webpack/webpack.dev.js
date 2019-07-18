@@ -4,29 +4,28 @@ const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const ip = require('ip')
-const buildConfig = require('../config')
+const { config, mockDir, distDir } = require('../config')
 const pages = require('../lib/pages')
-const { mockDir, distDir } = require('../lib/directory')
-let host = buildConfig.host === '0.0.0.0' ? ip.address() : buildConfig.host
+let host = config.host === '0.0.0.0' ? ip.address() : config.host
 
 function createDevHistoryApiFallback () {
   if(!pages || !pages.length){
     return true
   }
-  let reg = new RegExp('^' + buildConfig.publicPath + '(' + pages.join('|') + ')(\\/|$)')
+  let reg = new RegExp('^' + config.publicPath + '(' + pages.join('|') + ')(\\/|$)')
   return {
     rewrites: [
       {
         from: reg,
         to(context) {
-          return `${buildConfig.publicPath}${context.match[1]}.html`;
+          return `${config.publicPath}${context.match[1]}.html`;
         }
       }
     ]
   }
 }
 
-let config = merge(common, {
+module.exports = merge(common, {
   mode: 'development',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
@@ -41,13 +40,13 @@ let config = merge(common, {
     }),
     new FriendlyErrorsWebpackPlugin({
       compilationSuccessInfo: {
-        messages: [`Your application is running here: http://${host}:${buildConfig.port}${buildConfig.publicPath}`],
+        messages: [`Your application is running here: http://${host}:${config.port}${config.publicPath}`],
       }
     })
   ],
   devtool: 'inline-source-map',
   output: {
-    publicPath: buildConfig.publicPath,
+    publicPath: config.publicPath,
     filename: '[name].js',
     chunkFilename: '[name].js',
     path: distDir
@@ -55,15 +54,13 @@ let config = merge(common, {
   devServer: {
     contentBase: [mockDir, distDir],
     hot: true,
-    host: buildConfig.host,
-    port: buildConfig.port,
+    host: config.host,
+    port: config.port,
     clientLogLevel: 'error',
     historyApiFallback: createDevHistoryApiFallback(),
     quiet: true,
     before: require(mockDir),
-    publicPath: buildConfig.publicPath,
+    publicPath: config.publicPath,
     disableHostCheck: true
   }
 })
-
-module.exports = config

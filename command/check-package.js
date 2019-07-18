@@ -3,9 +3,12 @@
 const Command = require('common-bin')
 const { spawn } = require('child_process')
 const path = require('path')
-const { rootDir } = require('../lib/directory')
+const { rootDir } = require('../config')
 
 class CheckPackageCommand extends Command {
+  constructor (rawArgv) {
+    super(rawArgv)
+  }
   async run () {
     const child = spawn('node', [path.resolve(__dirname, '../script/check-package.js')], {
       cwd: rootDir

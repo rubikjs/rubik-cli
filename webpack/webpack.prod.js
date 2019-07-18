@@ -4,9 +4,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-const { distDir } = require('../lib/directory')
 const common = require('./webpack.common.js')
-const buildConfig = require('../config')
+const { config, distDir } = require('../config')
 const isCDN = process.env.CDN_ENV === 'true'
 const isNoHash = process.env.NO_HASH_ENV === 'true'
 
@@ -47,14 +46,14 @@ module.exports = merge(common, {
       }
     }),
     new MiniCssExtractPlugin({
-      filename: `${buildConfig.staticName}/[name].css`,
-      chunkFilename: isNoHash ? `${buildConfig.staticName}/[name].css` : `${buildConfig.staticName}/[name].[chunkhash:${buildConfig.hashLength}].css`
+      filename: `${config.staticName}/[name].css`,
+      chunkFilename: isNoHash ? `${config.staticName}/[name].css` : `${config.staticName}/[name].[chunkhash:${config.hashLength}].css`
     })
   ],
   output: {
-    publicPath: isCDN ? buildConfig.cdnPublicPath : buildConfig.publicPath,
-    filename: isNoHash ? `${buildConfig.staticName}/[name].js` : `${buildConfig.staticName}/[name].[contenthash:${buildConfig.hashLength}].js`,
-    chunkFilename: isNoHash ? `${buildConfig.staticName}/[name].bundle.js` : `${buildConfig.staticName}/[name].[chunkhash:${buildConfig.hashLength}].bundle.js`,
+    publicPath: isCDN ? config.cdnPublicPath : config.publicPath,
+    filename: isNoHash ? `${config.staticName}/[name].js` : `${config.staticName}/[name].[contenthash:${config.hashLength}].js`,
+    chunkFilename: isNoHash ? `${config.staticName}/[name].bundle.js` : `${config.staticName}/[name].[chunkhash:${config.hashLength}].bundle.js`,
     path: distDir
   }
 })

@@ -5,10 +5,17 @@ const fs = require('fs')
 const path = require('path')
 const inquirer = require('inquirer')
 const { log } = require('../lib/utils')
-const { pageDir } = require('../lib/directory')
+const { pageDir } = require('../config')
+const { checkDir } = require('../lib/check-dir')
 
 class NewPageCommand extends Command {
+  constructor (rawArgv) {
+    super(rawArgv)
+  }
   async run () {
+    if (!checkDir()) {
+      return
+    }
     inquirer
       .prompt([
         {

@@ -3,20 +3,19 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const buildConfig = require('../config')
+const { config, srcDir, pageDir, staticDir } = require('../config')
 const pages = require('../lib/pages')
 const isDevMode = process.env.NODE_ENV !== 'production'
 const isNoHash = process.env.NO_HASH_ENV === 'true'
-const needEslint = isDevMode && buildConfig.openStandardJs
-const { srcDir, pageDir, staticDir } = require('../lib/directory')
+const needEslint = isDevMode && config.openStandardJs
 
 let hasStaticRoot = fs.existsSync(staticDir)
 
 let entry = {}
 let plugins = []
 
-if (buildConfig.vendor.length) {
-  entry['vendor'] = buildConfig.vendor
+if (config.vendor.length) {
+  entry['vendor'] = config.vendor
 }
 
 // 遍历pages目录
@@ -25,7 +24,7 @@ pages.map((v, i) => {
   plugins.push(new HtmlWebpackPlugin({
     publicPath: true,
     chunks: ['runtime', 'vendor', v],
-    filename: isDevMode ? `${v}.html` : `${buildConfig.templateName ? buildConfig.templateName + '/' : ''}${v}.html`,
+    filename: isDevMode ? `${v}.html` : `${config.templateName ? config.templateName + '/' : ''}${v}.html`,
     template: `${pageDir}/${v}/index.html`,
     minify: isDevMode ? false : {
       removeComments: true,
@@ -35,7 +34,7 @@ pages.map((v, i) => {
   }))
 })
 if (hasStaticRoot) {
-  plugins.push(new CopyWebpackPlugin([{from: staticDir, to: `${buildConfig.staticName}`}]))
+  plugins.push(new CopyWebpackPlugin([{from: staticDir, to: `${config.staticName}`}]))
 }
 
 module.exports = {
@@ -53,7 +52,7 @@ module.exports = {
       {
         test: /\.html$/,
         use: 'html-loader',
-        exclude: buildConfig.pageTemplateWithoutHtmlLoader ? srcDir : []
+        exclude: config.pageTemplateWithoutHtmlLoader ? srcDir : []
       },
       {
         test: /\.(png|jpg|jpeg|gif|woff|woff2|eot|ttf|otf|mp4|webm|ogg|mp3|wav|flac|aac)$/,
@@ -63,7 +62,7 @@ module.exports = {
             options: {
               limit: 8192,
               context: srcDir,
-              name: isDevMode ? '[path][name].[ext]' : (isNoHash ? `${buildConfig.staticName}/[path][name].[ext]` : `${buildConfig.staticName}/[name].[hash:${buildConfig.hashLength}].[ext]`)
+              name: isDevMode ? '[path][name].[ext]' : (isNoHash ? `${config.staticName}/[path][name].[ext]` : `${config.staticName}/[name].[hash:${config.hashLength}].[ext]`)
             }
           }
         ]
