@@ -10,10 +10,10 @@ const isDevMode = process.env.NODE_ENV !== 'production'
 const isNoHash = process.env.NO_HASH_ENV === 'true'
 const needEslint = isDevMode && config.openStandardJs
 
-let hasStaticRoot = fs.existsSync(staticDir)
+const hasStaticRoot = fs.existsSync(staticDir)
 
-let entry = {}
-let plugins = []
+const entry = {}
+const plugins = []
 
 if (config.vendor.length) {
   entry['vendor'] = config.vendor
@@ -35,7 +35,7 @@ pages.map((v, i) => {
   }))
 })
 if (hasStaticRoot) {
-  plugins.push(new CopyWebpackPlugin([{from: staticDir, to: `${config.staticName}`}]))
+  plugins.push(new CopyWebpackPlugin([{ from: staticDir, to: `${config.staticName}` }]))
 }
 
 module.exports = {
@@ -43,8 +43,11 @@ module.exports = {
   entry: entry,
   plugins: plugins,
   resolve: {
-    modules: [srcDir, 'node_modules'],
+    modules: [path.resolve(__dirname, '../node_modules'), srcDir, 'node_modules'],
     extensions: ['.js', '.json']
+  },
+  resolveLoader: {
+    modules: [path.resolve(__dirname, '../node_modules'), 'node_modules']
   },
   module: {
     rules: [
@@ -81,7 +84,7 @@ module.exports = {
               plugins: [
                 '@babel/plugin-transform-runtime',
                 '@babel/plugin-syntax-dynamic-import',
-                '@babel/plugin-proposal-object-rest-spread',
+                '@babel/plugin-proposal-object-rest-spread'
               ]
             }
           }

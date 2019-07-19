@@ -6,19 +6,19 @@ const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const ip = require('ip')
 const { config, mockDir, distDir } = require('../config')
 const pages = require('../lib/pages')
-let host = config.host === '0.0.0.0' ? ip.address() : config.host
+const host = config.host === '0.0.0.0' ? ip.address() : config.host
 
 function createDevHistoryApiFallback () {
-  if(!pages || !pages.length){
+  if (!pages || !pages.length) {
     return true
   }
-  let reg = new RegExp('^' + config.publicPath + '(' + pages.join('|') + ')(\\/|$)')
+  const reg = new RegExp('^' + config.publicPath + '(' + pages.join('|') + ')(\\/|$)')
   return {
     rewrites: [
       {
         from: reg,
-        to(context) {
-          return `${config.publicPath}${context.match[1]}.html`;
+        to (context) {
+          return `${config.publicPath}${context.match[1]}.html`
         }
       }
     ]
@@ -31,7 +31,7 @@ module.exports = merge(common, {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': '"development"'
+        NODE_ENV: '"development"'
       }
     }),
     new MiniCssExtractPlugin({
@@ -40,7 +40,7 @@ module.exports = merge(common, {
     }),
     new FriendlyErrorsWebpackPlugin({
       compilationSuccessInfo: {
-        messages: [`Your application is running here: http://${host}:${config.port}${config.publicPath}`],
+        messages: [`Your application is running here: http://${host}:${config.port}${config.publicPath}`]
       },
       onErrors: function (severity, errors) {
         errors.map(v => {
