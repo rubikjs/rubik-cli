@@ -26,7 +26,7 @@ class NewPageCommand extends Command {
             if (!value) {
               return 'The page name is required'
             }
-            if (fs.existsSync(path.join(pageDir, value))) {
+            if (fs.existsSync(path.resolve(pageDir, value))) {
               return 'The page is existed'
             }
             return true

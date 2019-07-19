@@ -20,7 +20,7 @@ class ServeCommand extends Command {
   }
 
   get description () {
-    return 'Start a server'
+    return 'Start a http server.'
   }
 }
 

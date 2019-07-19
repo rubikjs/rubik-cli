@@ -8,7 +8,6 @@ const common = require('./webpack.common.js')
 const { config, distDir } = require('../config')
 const isCDN = process.env.CDN_ENV === 'true'
 const isNoHash = process.env.NO_HASH_ENV === 'true'
-
 module.exports = merge(common, {
   mode: 'production',
   optimization: {

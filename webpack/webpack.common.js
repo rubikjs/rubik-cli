@@ -1,9 +1,10 @@
 const fs = require('fs')
+const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const { config, srcDir, pageDir, staticDir } = require('../config')
+const { config, srcDir, pageDir, staticDir, rootDir } = require('../config')
 const pages = require('../lib/pages')
 const isDevMode = process.env.NODE_ENV !== 'production'
 const isNoHash = process.env.NO_HASH_ENV === 'true'
@@ -20,12 +21,12 @@ if (config.vendor.length) {
 
 // 遍历pages目录
 pages.map((v, i) => {
-  entry[v] = `${pageDir}/${v}/index.js`
+  entry[v] = path.join(pageDir, `${v}/index.js`)
   plugins.push(new HtmlWebpackPlugin({
     publicPath: true,
     chunks: ['runtime', 'vendor', v],
     filename: isDevMode ? `${v}.html` : `${config.templateName ? config.templateName + '/' : ''}${v}.html`,
-    template: `${pageDir}/${v}/index.html`,
+    template: path.join(pageDir, `${v}/index.html`),
     minify: isDevMode ? false : {
       removeComments: true,
       collapseWhitespace: true,
@@ -38,14 +39,12 @@ if (hasStaticRoot) {
 }
 
 module.exports = {
+  context: rootDir,
   entry: entry,
   plugins: plugins,
   resolve: {
     modules: [srcDir, 'node_modules'],
-    extensions: ['.js', '.json'],
-    alias: {
-      '@': srcDir
-    }
+    extensions: ['.js', '.json']
   },
   module: {
     rules: [

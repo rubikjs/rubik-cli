@@ -41,6 +41,11 @@ module.exports = merge(common, {
     new FriendlyErrorsWebpackPlugin({
       compilationSuccessInfo: {
         messages: [`Your application is running here: http://${host}:${config.port}${config.publicPath}`],
+      },
+      onErrors: function (severity, errors) {
+        errors.map(v => {
+          console.error(v.message, v)
+        })
       }
     })
   ],
@@ -56,7 +61,7 @@ module.exports = merge(common, {
     hot: true,
     host: config.host,
     port: config.port,
-    clientLogLevel: 'error',
+    clientLogLevel: 'info',
     historyApiFallback: createDevHistoryApiFallback(),
     quiet: true,
     before: require(mockDir),
