@@ -8,8 +8,9 @@
     "build": "yarn run rubik build",
     "start": "yarn run rubik serve",
     "preinstall": "yarn run rubik check-yarn",
-    "lint": "eslint --fix src/**/*.js",
-    "rubik": "node ../../bin/rubik.js"
+    "lint": "yarn run rubik lint",
+    "rubik": "node ../../bin/rubik.js",
+    "lint2": "eslint --fix src/**/*.js"
   },
   "keywords": [
     "webpack",
@@ -19,13 +20,16 @@
   "author": "Fancy <fancyboynet@gmail.com>",
   "license": "ISC",
   "devDependencies": {
+    "babel-eslint": "^10.0.2",
     "cross-env": "^5.2.0",
-    "eslint": "^6.0.1",
+    "eslint": "^6.1.0",
+    "eslint-config-standard": "^13.0.1",
+    "eslint-plugin-standard": "^4.0.0",
     "husky": "^3.0.0",
     "lint-staged": "^9.1.0"
   },
   "dependencies": {
-    "axios": "^0.18.0"
+    "axios": "^0.19.0"
   },
   "browserslist": [
     "> 1%",
@@ -40,9 +44,6 @@
       "standard"
     ]
   },
-  "eslintIgnore": [
-    "src/static/**/*.js"
-  ],
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
@@ -52,7 +53,7 @@
   },
   "lint-staged": {
     "src/**/*.js": [
-      "eslint --fix",
+      "yarn run rubik lint",
       "git add"
     ]
   }

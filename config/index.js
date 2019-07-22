@@ -4,7 +4,9 @@ const defaultConfig = require('./default')
 const rootDir = process.cwd()
 const customPath = path.resolve(rootDir, './rubik.config.js')
 const customWebpackPath = path.resolve(rootDir, './rubik.webpack.js')
+const customEslintPath = path.resolve(rootDir, './.eslintrc.js')
 const customConfig = fs.existsSync(customPath) ? require(customPath) : {}
+const customEslintConfig = fs.existsSync(customEslintPath) ? require(customEslintPath) : {}
 const config = Object.assign(defaultConfig, customConfig)
 const srcDir = path.resolve(rootDir, './src')
 const mockDir = path.resolve(rootDir, './mock')
@@ -20,5 +22,6 @@ module.exports = {
   mockDir,
   staticDir,
   config,
-  customWebpackPath
+  customWebpackPath,
+  customEslintConfig
 }
