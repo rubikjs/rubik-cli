@@ -25,6 +25,9 @@ class LintCommand extends Command {
     CLIEngine.outputFixes(report)
     const errorReport = CLIEngine.getErrorResults(report.results)
     console.log(formatter(errorReport))
+    if (errorReport.length) {
+      process.exit(1)
+    }
   }
 
   get description () {
