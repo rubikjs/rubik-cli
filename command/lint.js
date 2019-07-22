@@ -13,8 +13,10 @@ class LintCommand extends Command {
 
   async run () {
     const cli = new CLIEngine({
-      ...eslintConfig,
-      ...customEslintConfig,
+      baseConfig: {
+        ...eslintConfig,
+        ...customEslintConfig
+      },
       ignorePattern: ['static/**/*.*'],
       fix: true,
       cwd: srcDir
@@ -22,11 +24,11 @@ class LintCommand extends Command {
     const report = cli.executeOnFiles([srcDir])
     CLIEngine.outputFixes(report)
     const errorReport = CLIEngine.getErrorResults(report.results)
-    console.log(formatter(errorReport));
+    console.log(formatter(errorReport))
   }
 
   get description () {
-    return 'Eslint'
+    return 'Eslint.'
   }
 }
 
