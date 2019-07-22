@@ -4,6 +4,7 @@ const Command = require('common-bin')
 const { spawn } = require('child_process')
 const path = require('path')
 const { rootDir } = require('../config')
+const { log } = require('../lib/utils')
 
 class CheckYarnCommand extends Command {
   constructor (rawArgv) {
@@ -15,7 +16,7 @@ class CheckYarnCommand extends Command {
       cwd: rootDir
     })
     child.stdout.on('data', function (data) {
-      console.log(data.toString())
+      log.info(data.toString())
     })
   }
 

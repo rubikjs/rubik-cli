@@ -1,6 +1,6 @@
 {
   "name": "rubik-cli",
-  "version": "0.0.5",
+  "version": "0.0.9",
   "description": "",
   "bin": {
     "rubik": "bin/rubik.js"
@@ -36,6 +36,7 @@
     "download-git-repo": "^2.0.0",
     "eslint": "^6.0.1",
     "eslint-config-standard": "^13.0.1",
+    "eslint-friendly-formatter": "^4.0.1",
     "eslint-loader": "^2.2.1",
     "eslint-plugin-import": "^2.18.1",
     "eslint-plugin-node": "^9.1.0",

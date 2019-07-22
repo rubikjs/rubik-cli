@@ -1,28 +1,48 @@
 {
-  "name": "rubik-demo",
+  "name": "rubik-pure-scaffold",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "build-cdn": "cross-env NODE_ENV=production CDN_ENV=true rubik build",
-    "build-no-hash": "cross-env NODE_ENV=production NO_HASH_ENV=true rubik build",
-    "build": "cross-env NODE_ENV=production rubik build",
-    "start": "rubik serve",
-    "new-page": "rubik new-page",
-    "preinstall": "rubik check-yarn",
-    "lint": "eslint --fix src/**/*.js",
-    "rubik": "rubik"
+    "build-cdn": "cross-env CDN_ENV=true yarn run rubik build",
+    "build-no-hash": "cross-env NO_HASH_ENV=true yarn run rubik build",
+    "build": "yarn run rubik build",
+    "start": "yarn run rubik serve",
+    "preinstall": "yarn run rubik check-yarn",
+    "lint": "yarn run rubik lint",
+    "rubik": "node ../../bin/rubik.js",
+    "lint2": "eslint --fix src/**/*.js"
   },
+  "keywords": [
+    "webpack",
+    "multiple",
+    "pages"
+  ],
   "author": "Fancy <fancyboynet@gmail.com>",
   "license": "ISC",
+  "devDependencies": {
+    "babel-eslint": "^10.0.2",
+    "cross-env": "^5.2.0",
+    "eslint": "^6.1.0",
+    "eslint-config-standard": "^13.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "husky": "^3.0.0",
+    "lint-staged": "^9.1.0"
+  },
   "dependencies": {
     "axios": "^0.19.0"
   },
-  "devDependencies": {
-    "cross-env": "^5.2.0",
-    "eslint": "^6.0.1",
-    "husky": "^3.0.0",
-    "lint-staged": "^9.1.0"
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "sourceType": "module"
+    },
+    "extends": [
+      "standard"
+    ]
   },
   "husky": {
     "hooks": {
@@ -33,7 +53,7 @@
   },
   "lint-staged": {
     "src/**/*.js": [
-      "eslint --fix",
+      "yarn run rubik lint",
       "git add"
     ]
   }

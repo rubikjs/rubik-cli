@@ -1,7 +1,7 @@
-const buildConfig = require('../config')
+const {  config} = require('../config')
 const shell = require('shelljs')
 const { log } = require('../lib/utils')
-if (!buildConfig.reInstallOnPkgChange) {
+if (!config.reInstallOnPkgChange) {
   shell.exit(0)
 }
 if (!shell.which('git')) {
@@ -10,7 +10,7 @@ if (!shell.which('git')) {
 }
 const stdout = shell.exec('git diff-tree -r --name-only --no-commit-id HEAD HEAD@{1}', { silent: true }).stdout
 const currentBranch = shell.exec('git rev-parse --abbrev-ref HEAD', { silent: true }).stdout.replace(/\s$/, '')
-const notReInstallOnPkgChangeFeatures = buildConfig.notReInstallOnPkgChangeFeatures
+const notReInstallOnPkgChangeFeatures = config.notReInstallOnPkgChangeFeatures
 if (Array.isArray(notReInstallOnPkgChangeFeatures) && notReInstallOnPkgChangeFeatures.includes(currentBranch)) {
   log.info(`Current branch ${currentBranch} does not need check.`)
   shell.exit(0)
