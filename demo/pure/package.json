@@ -7,8 +7,6 @@
     "build-no-hash": "cross-env NODE_ENV=production NO_HASH_ENV=true rubik build",
     "build": "cross-env NODE_ENV=production rubik build",
     "start": "rubik serve",
-    "new-page": "rubik new-page",
-    "rubik": "rubik",
     "preinstall": "rubik check-yarn",
     "lint": "eslint --fix src/**/*.js"
   },
