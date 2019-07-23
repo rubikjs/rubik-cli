@@ -19,7 +19,8 @@ class LintCommand extends Command {
       },
       ignorePattern: ['static/**/*.*'],
       fix: true,
-      cwd: srcDir
+      cwd: srcDir,
+      extensions: ['.js', '.jsx', '.vue']
     })
     const report = cli.executeOnFiles([srcDir])
     CLIEngine.outputFixes(report)

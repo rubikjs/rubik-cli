@@ -14,6 +14,7 @@
         class="child-view"
       />
     </transition>
+    <div v-text/>
   </div>
 </template>
 
