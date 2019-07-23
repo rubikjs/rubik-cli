@@ -62,12 +62,16 @@ const dev = merge(common, {
     hot: true,
     host: config.host,
     port: config.port,
-    clientLogLevel: 'info',
+    clientLogLevel: 'error',
     historyApiFallback: createDevHistoryApiFallback(),
     quiet: true,
     before: require(mockDir),
     publicPath: config.publicPath,
-    disableHostCheck: true
+    disableHostCheck: true,
+    overlay: {
+      warnings: false,
+      errors: true
+    }
   }
 })
 
