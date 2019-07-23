@@ -72,13 +72,13 @@ module.exports = {
         loader: 'svg-inline-loader'
       },
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         use: [
           'cache-loader',
           {
             loader: 'babel-loader',
             options: {
-              presets: ['@babel/preset-env'],
+              presets: ['@babel/preset-env', '@babel/preset-react'],
               plugins: [
                 '@babel/plugin-transform-runtime',
                 '@babel/plugin-syntax-dynamic-import',
