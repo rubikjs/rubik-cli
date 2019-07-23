@@ -3,6 +3,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const { config, srcDir, pageDir, staticDir, rootDir } = require('../config')
 const pages = require('../lib/pages')
 const { isDevMode, needEslint } = require('../lib/utils')
@@ -32,6 +33,7 @@ pages.map((v, i) => {
     }
   }))
 })
+plugins.push(new VueLoaderPlugin())
 if (hasStaticRoot) {
   plugins.push(new CopyWebpackPlugin([{ from: staticDir, to: `${config.staticName}` }]))
 }
@@ -42,7 +44,7 @@ module.exports = {
   plugins: plugins,
   resolve: {
     modules: [path.resolve(__dirname, '../node_modules'), srcDir, 'node_modules'],
-    extensions: ['.js', '.json']
+    extensions: ['.js', '.jsx', '.vue', '.json']
   },
   resolveLoader: {
     modules: [path.resolve(__dirname, '../node_modules'), 'node_modules']
@@ -70,26 +72,6 @@ module.exports = {
       {
         test: /\.svg$/,
         loader: 'svg-inline-loader'
-      },
-      {
-        test: /\.(js|jsx)$/,
-        use: [
-          'cache-loader',
-          {
-            loader: 'babel-loader',
-            options: {
-              presets: ['@babel/preset-env', '@babel/preset-react'],
-              plugins: [
-                '@babel/plugin-transform-runtime',
-                '@babel/plugin-syntax-dynamic-import',
-                '@babel/plugin-proposal-object-rest-spread'
-              ]
-            }
-          }
-        ].concat(needEslint() ? ['eslint-loader'] : []),
-        include: [
-          srcDir
-        ]
       },
       {
         test: /\.css$/,
@@ -121,6 +103,33 @@ module.exports = {
           isDevMode() ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
           'sass-loader'
+        ]
+      },
+      {
+        test: /\.(js|jsx)$/,
+        use: [
+          'cache-loader',
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env', '@babel/preset-react'],
+              plugins: [
+                '@babel/plugin-transform-runtime',
+                '@babel/plugin-syntax-dynamic-import',
+                '@babel/plugin-proposal-object-rest-spread'
+              ]
+            }
+          }
+        ].concat(needEslint() ? ['eslint-loader'] : []),
+        include: [
+          srcDir
+        ]
+      },
+      {
+        test: /\.vue$/,
+        use: ['cache-loader', 'vue-loader'].concat(needEslint() ? ['eslint-loader'] : []),
+        include: [
+          srcDir
         ]
       }
     ]

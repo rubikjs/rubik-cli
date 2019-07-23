@@ -5,8 +5,9 @@ module.exports = {
     "sourceType": "module"
   },
   "extends": [
-    "eslint:recommended",
+    "plugin:vue/essential",
+    "standard-jsx",
     "standard",
-    "standard-jsx"
+    "eslint:recommended"
   ]
 }

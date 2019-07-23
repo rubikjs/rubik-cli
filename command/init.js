@@ -3,11 +3,13 @@
 const Command = require('common-bin')
 const inquirer = require('inquirer')
 const download = require('download-git-repo')
+const shell = require('shelljs')
 const { rootDir } = require('../config')
 const { log } = require('../lib/utils')
 const rep = {
   pure: 'fancyboynet/rubik-pure-scaffold',
-  vue: 'fancyboynet/rubik-vue-scaffold'
+  vue: 'fancyboynet/rubik-vue-scaffold',
+  react: 'fancyboynet/rubik-react-scaffold'
 }
 
 class NewPageCommand extends Command {
@@ -21,10 +23,7 @@ class NewPageCommand extends Command {
           choices: [
             'pure',
             'vue',
-            {
-              name: 'react',
-              disabled: 'Unavailable at this time'
-            }
+            'react'
           ]
         }
       ])
@@ -39,13 +38,31 @@ class NewPageCommand extends Command {
 
   download (type) {
     const url = rep[type]
-    download(url, rootDir, {}, function (err) {
+    download(url, rootDir, {}, (err) => {
       if (err) {
         log.error(err.message)
-      } else {
-        log.info('Init complete.')
+        return
       }
+      log.info('Download completed.')
+      this.toInstallPkg()
     })
+  }
+
+  toInstallPkg () {
+    inquirer
+      .prompt([
+        {
+          type: 'confirm',
+          name: 'toInstall',
+          message: 'Do you want to run \'yarn install\' now?',
+          default: true
+        }
+      ])
+      .then(answers => {
+        if (answers.name) {
+          shell.exec('yarn')
+        }
+      })
   }
 }
 
