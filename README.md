@@ -33,8 +33,9 @@ $ rubik init
 │       └── index.js
 │
 │
-├── rubik.config.js
-├── .eslintrc.js
+├── rubik.config.js (optional)
+├── webpack.config.js (optional)
+├── .eslintrc.js (optional)
 │
 
 ```
@@ -51,7 +52,7 @@ module.exports = function (app) {
 }
 ```
 
-## Config
+## Custom Config
 `rubik.config.js`
 ```
 {
@@ -69,6 +70,38 @@ module.exports = function (app) {
   "pageTemplateWithoutHtmlLoader": false,
   "reInstallOnPkgChange": true,
   "notReInstallOnPkgChangeFeatures": []
+}
+
+```
+
+## Custom Webpack Config
+`webpack.config.js`
+```
+const path = require('path')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const isDevMode = process.env.NODE_ENV === 'development'
+
+
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.scss/,
+        use: [
+          isDevMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader',
+          {
+            loader: 'sass-resources-loader',
+            options: {
+              // Provide path to the file with resources
+              resources: path.resolve(__dirname, './src/style/mixins.scss')
+            }
+          }
+        ]
+      }
+    ]
+  }
 }
 
 ```

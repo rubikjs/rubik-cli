@@ -1,5 +1,6 @@
 const merge = require('webpack-merge')
 const common = require('./webpack.common.js')
+const custom = require('./webpack.custom.js')
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
@@ -25,7 +26,7 @@ function createDevHistoryApiFallback () {
   }
 }
 
-module.exports = merge(common, {
+const dev = merge(common, {
   mode: 'development',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
@@ -69,3 +70,5 @@ module.exports = merge(common, {
     disableHostCheck: true
   }
 })
+
+module.exports = merge(dev, custom)

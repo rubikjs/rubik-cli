@@ -1,0 +1,6 @@
+$color: red;
+
+@mixin color {
+  margin: 0 auto;
+  color: $color;
+}

@@ -17,8 +17,6 @@ export default {
 
 <style lang="scss" scoped>
   .page {
-    div {
-      color: red;
-    }
+    @include color;
   }
 </style>

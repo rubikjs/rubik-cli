@@ -16,5 +16,8 @@
   "dependencies": {
     "vue": "^2.6.10",
     "vue-router": "^3.0.7"
+  },
+  "devDependencies": {
+    "sass-resources-loader": "^2.0.1"
   }
 }

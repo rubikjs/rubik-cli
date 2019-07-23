@@ -5,10 +5,11 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const common = require('./webpack.common.js')
+const custom = require('./webpack.custom.js')
 const { config, distDir } = require('../config')
 const isCDN = process.env.CDN_ENV === 'true'
 const isNoHash = process.env.NO_HASH_ENV === 'true'
-module.exports = merge(common, {
+const prod = merge(common, {
   mode: 'production',
   optimization: {
     splitChunks: {
@@ -56,3 +57,5 @@ module.exports = merge(common, {
     path: distDir
   }
 })
+
+module.exports = merge(prod, custom)
