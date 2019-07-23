@@ -6,7 +6,7 @@ Only one command for web development with Pure/Vue/React/
 $ npx rubik-cli init
 or
 $ npm i -g rubik-cli
-rubik init
+$ rubik init
 ```
 
 ## Structure

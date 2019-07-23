@@ -1,6 +1,6 @@
 {
   "name": "rubik-cli",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "",
   "bin": {
     "rubik": "bin/rubik.js"
@@ -14,7 +14,14 @@
     "pages"
   ],
   "author": "Fancy <fancyboynet@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fancyboynet/rubik-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fancyboynet/rubik-cli/issues"
+  },
   "dependencies": {
     "@babel/core": "^7.5.5",
     "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
