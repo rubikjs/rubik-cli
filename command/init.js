@@ -59,7 +59,7 @@ class NewPageCommand extends Command {
         }
       ])
       .then(answers => {
-        if (answers.name) {
+        if (answers.toInstall) {
           shell.exec('yarn')
         }
       })
