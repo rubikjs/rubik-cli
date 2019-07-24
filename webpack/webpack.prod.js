@@ -40,11 +40,6 @@ const prod = merge(common, {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': '"production"'
-      }
-    }),
     new MiniCssExtractPlugin({
       filename: `${config.staticName}/[name].css`,
       chunkFilename: isNoHash ? `${config.staticName}/[name].css` : `${config.staticName}/[name].[chunkhash:${config.hashLength}].css`

@@ -1,18 +1,22 @@
 const fs = require('fs')
 const path = require('path')
+const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const { config, srcDir, pageDir, staticDir, rootDir } = require('../config')
 const pages = require('../lib/pages')
-const { isDevMode, needEslint } = require('../lib/utils')
+const isDevMode = process.env.NODE_ENV === 'development'
 const isNoHash = process.env.NO_HASH_ENV === 'true'
+const needEslint = config.openStandardJs
 
 const hasStaticRoot = fs.existsSync(staticDir)
 
 const entry = {}
-const plugins = []
+const plugins = [new webpack.DefinePlugin({
+  'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+})]
 
 if (config.vendor.length) {
   entry['vendor'] = config.vendor
@@ -24,9 +28,9 @@ pages.map((v, i) => {
   plugins.push(new HtmlWebpackPlugin({
     publicPath: true,
     chunks: ['runtime', 'vendor', v],
-    filename: isDevMode() ? `${v}.html` : `${config.templateName ? config.templateName + '/' : ''}${v}.html`,
+    filename: isDevMode ? `${v}.html` : `${config.templateName ? config.templateName + '/' : ''}${v}.html`,
     template: path.join(pageDir, `${v}/index.html`),
-    minify: isDevMode() ? false : {
+    minify: isDevMode ? false : {
       removeComments: true,
       collapseWhitespace: true,
       removeAttributeQuotes: true
@@ -64,7 +68,7 @@ module.exports = {
             options: {
               limit: 8192,
               context: srcDir,
-              name: isDevMode() ? '[path][name].[ext]' : (isNoHash ? `${config.staticName}/[path][name].[ext]` : `${config.staticName}/[name].[hash:${config.hashLength}].[ext]`)
+              name: isDevMode ? '[path][name].[ext]' : (isNoHash ? `${config.staticName}/[path][name].[ext]` : `${config.staticName}/[name].[hash:${config.hashLength}].[ext]`)
             }
           }
         ]
@@ -76,7 +80,7 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          isDevMode() ? 'style-loader' : MiniCssExtractPlugin.loader,
+          isDevMode ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
           {
             loader: 'postcss-loader',
@@ -92,7 +96,7 @@ module.exports = {
       {
         test: /\.less$/,
         use: [
-          isDevMode() ? 'style-loader' : MiniCssExtractPlugin.loader,
+          isDevMode ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
           'less-loader'
         ]
@@ -100,7 +104,7 @@ module.exports = {
       {
         test: /\.scss/,
         use: [
-          isDevMode() ? 'style-loader' : MiniCssExtractPlugin.loader,
+          isDevMode ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
           'sass-loader'
         ]
@@ -120,14 +124,14 @@ module.exports = {
               ]
             }
           }
-        ].concat(needEslint() ? ['eslint-loader'] : []),
+        ].concat(needEslint ? ['eslint-loader'] : []),
         include: [
           srcDir
         ]
       },
       {
         test: /\.vue$/,
-        use: ['cache-loader', 'vue-loader'].concat(needEslint() ? ['eslint-loader'] : []),
+        use: ['cache-loader', 'vue-loader'].concat(needEslint ? ['eslint-loader'] : []),
         include: [
           srcDir
         ]

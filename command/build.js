@@ -3,6 +3,7 @@
 const Command = require('common-bin')
 const Webpack = require('webpack')
 const { checkDir } = require('../lib/check-dir')
+const { setProdMode } = require('../lib/utils')
 
 class BuildCommand extends Command {
   constructor (rawArgv) {
@@ -12,6 +13,7 @@ class BuildCommand extends Command {
     if (!checkDir()) {
       return
     }
+    setProdMode()
     const webpackConfig = require('../webpack/webpack.prod')
     const compiler = Webpack(webpackConfig)
     compiler.run()

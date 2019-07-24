@@ -18,6 +18,7 @@
     "vue-router": "^3.0.7"
   },
   "devDependencies": {
+    "cross-env": "^5.2.0",
     "sass-resources-loader": "^2.0.1"
   }
 }

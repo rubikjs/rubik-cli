@@ -30,11 +30,6 @@ const dev = merge(common, {
   mode: 'development',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: '"development"'
-      }
-    }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[name].css'
@@ -44,9 +39,13 @@ const dev = merge(common, {
         messages: [`Your application is running here: http://${host}:${config.port}${config.publicPath}`]
       },
       onErrors: function (severity, errors) {
+        if (severity !== 'error') {
+          return
+        }
         errors.map(v => {
           console.error(v.message, v)
         })
+        process.exit(1)
       }
     })
   ],

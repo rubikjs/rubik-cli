@@ -3,7 +3,10 @@
 const Command = require('common-bin')
 const Webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
+const Dashboard = require('webpack-dashboard')
+const DashboardPlugin = require('webpack-dashboard/plugin')
 const { checkDir } = require('../lib/check-dir')
+const { setDevMode } = require('../lib/utils')
 
 class ServeCommand extends Command {
   constructor (rawArgv) {
@@ -13,6 +16,7 @@ class ServeCommand extends Command {
     if (!checkDir()) {
       return
     }
+    setDevMode()
     const webpackConfig = require('../webpack/webpack.dev')
     const compiler = Webpack(webpackConfig)
     const server = new WebpackDevServer(compiler, webpackConfig.devServer)
