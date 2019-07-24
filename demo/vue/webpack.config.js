@@ -5,6 +5,7 @@ const isDevMode = process.env.NODE_ENV === 'development'
 
 module.exports = {
   module: {
+    resolve: { alias: { vue: 'vue/dist/vue.esm.js' } },
     rules: [
       {
         test: /\.scss/,
