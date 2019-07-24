@@ -109,6 +109,21 @@ module.exports = {
         ]
       },
       {
+        test: /\.(js|jsx|vue)$/,
+        enforce: 'pre',
+        use: needEslint ? [{
+          loader: 'eslint-loader',
+          options: {
+            ...eslintCLIEngineConfig,
+            formatter
+          }
+        }] : [],
+        include: [
+          srcDir
+        ],
+        exclude: staticDir
+      },
+      {
         test: /\.(js|jsx)$/,
         use: [
           'cache-loader',
@@ -123,26 +138,14 @@ module.exports = {
               ]
             }
           }
-        ].concat(needEslint ? [{
-          loader: 'eslint-loader',
-          options: {
-            ...eslintCLIEngineConfig,
-            formatter
-          }
-        }] : []),
+        ],
         include: [
           srcDir
         ]
       },
       {
         test: /\.vue$/,
-        use: ['cache-loader', 'vue-loader'].concat(needEslint ? [{
-          loader: 'eslint-loader',
-          options: {
-            ...eslintCLIEngineConfig,
-            formatter
-          }
-        }] : []),
+        use: ['cache-loader', 'vue-loader'],
         include: [
           srcDir
         ]
