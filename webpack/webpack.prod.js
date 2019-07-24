@@ -9,7 +9,8 @@ const custom = require('./webpack.custom.js')
 const { config, distDir } = require('../config')
 const isCDN = process.env.CDN_ENV === 'true'
 const isNoHash = process.env.NO_HASH_ENV === 'true'
-const prod = merge(common, {
+
+module.exports = merge.smart(common, {
   mode: 'production',
   optimization: {
     splitChunks: {
@@ -51,6 +52,4 @@ const prod = merge(common, {
     chunkFilename: isNoHash ? `${config.staticName}/[name].bundle.js` : `${config.staticName}/[name].[chunkhash:${config.hashLength}].bundle.js`,
     path: distDir
   }
-})
-
-module.exports = merge(prod, custom)
+}, custom)

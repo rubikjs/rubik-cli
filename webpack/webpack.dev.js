@@ -26,7 +26,7 @@ function createDevHistoryApiFallback () {
   }
 }
 
-const dev = merge(common, {
+module.exports = merge.smart(common, {
   mode: 'development',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
@@ -72,6 +72,4 @@ const dev = merge(common, {
       errors: true
     }
   }
-})
-
-module.exports = merge(dev, custom)
+}, custom)
