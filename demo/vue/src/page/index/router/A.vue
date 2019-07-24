@@ -4,7 +4,6 @@
     <router-link to="/b">
       跳到B页
     </router-link>
-    <div v-text></div>
   </div>
 </template>
 
