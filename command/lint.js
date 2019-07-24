@@ -1,7 +1,7 @@
 'use strict'
 
 const Command = require('common-bin')
-const { srcDir, eslintConfig } = require('../config')
+const { srcDir, eslintCLIEngineConfig } = require('../config')
 const { CLIEngine } = require("eslint")
 const formatter = require("eslint-friendly-formatter")
 
@@ -12,11 +12,9 @@ class LintCommand extends Command {
 
   async run () {
     const cli = new CLIEngine({
-      baseConfig: eslintConfig,
+      ...eslintCLIEngineConfig,
       ignorePattern: ['static/**/*.*'],
-      fix: true,
-      cwd: srcDir,
-      extensions: ['.js', '.jsx', '.vue']
+      cwd: srcDir
     })
     const report = cli.executeOnFiles([srcDir])
     CLIEngine.outputFixes(report)

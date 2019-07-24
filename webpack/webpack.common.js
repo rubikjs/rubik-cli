@@ -5,7 +5,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
-const { config, srcDir, pageDir, staticDir, rootDir, eslintConfig } = require('../config')
+const formatter = require("eslint-friendly-formatter")
+const { config, srcDir, pageDir, staticDir, rootDir, eslintCLIEngineConfig } = require('../config')
 const pages = require('../lib/pages')
 const isDevMode = process.env.NODE_ENV === 'development'
 const isNoHash = process.env.NO_HASH_ENV === 'true'
@@ -124,7 +125,10 @@ module.exports = {
           }
         ].concat(needEslint ? [{
           loader: 'eslint-loader',
-          options: eslintConfig
+          options: {
+            ...eslintCLIEngineConfig,
+            formatter
+          }
         }] : []),
         include: [
           srcDir
@@ -134,7 +138,10 @@ module.exports = {
         test: /\.vue$/,
         use: ['cache-loader', 'vue-loader'].concat(needEslint ? [{
           loader: 'eslint-loader',
-          options: eslintConfig
+          options: {
+            ...eslintCLIEngineConfig,
+            formatter
+          }
         }] : []),
         include: [
           srcDir

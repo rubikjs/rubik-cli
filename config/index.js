@@ -15,6 +15,12 @@ const mockDir = path.resolve(rootDir, './mock')
 const pageDir = path.resolve(srcDir, './page')
 const staticDir = path.resolve(srcDir, './static')
 const distDir = path.resolve(rootDir, config.output)
+const eslintCLIEngineConfig = {
+  baseConfig: eslintConfig,
+  fix: true,
+  extensions: ['.js', '.jsx', '.vue']
+}
+
 
 module.exports = {
   rootDir,
@@ -25,5 +31,6 @@ module.exports = {
   staticDir,
   config,
   customWebpackPath,
-  eslintConfig
+  eslintConfig,
+  eslintCLIEngineConfig
 }
