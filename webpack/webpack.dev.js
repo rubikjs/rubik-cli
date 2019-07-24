@@ -43,7 +43,7 @@ const dev = merge(common, {
           return
         }
         errors.map(v => {
-          console.error(v.message, v)
+          console.log(v.message)
         })
         process.exit(1)
       }

@@ -10,9 +10,7 @@ const pages = require('../lib/pages')
 const isDevMode = process.env.NODE_ENV === 'development'
 const isNoHash = process.env.NO_HASH_ENV === 'true'
 const needEslint = config.openStandardJs
-
 const hasStaticRoot = fs.existsSync(staticDir)
-
 const entry = {}
 const plugins = [new webpack.DefinePlugin({
   'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)

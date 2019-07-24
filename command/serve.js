@@ -3,8 +3,6 @@
 const Command = require('common-bin')
 const Webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
-const Dashboard = require('webpack-dashboard')
-const DashboardPlugin = require('webpack-dashboard/plugin')
 const { checkDir } = require('../lib/check-dir')
 const { setDevMode } = require('../lib/utils')
 
