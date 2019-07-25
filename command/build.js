@@ -1,7 +1,7 @@
 'use strict'
 
 const Command = require('common-bin')
-const Webpack = require('webpack')
+const webpack = require('webpack')
 const { checkDir } = require('../lib/check-dir')
 const { setProdMode } = require('../lib/utils')
 
@@ -15,7 +15,8 @@ class BuildCommand extends Command {
     }
     setProdMode()
     const webpackConfig = require('../webpack/webpack.prod')
-    const compiler = Webpack(webpackConfig)
+    const compiler = webpack(webpackConfig)
+    new webpack.ProgressPlugin().apply(compiler)
     compiler.run()
   }
 

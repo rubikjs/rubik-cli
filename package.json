@@ -1,6 +1,6 @@
 {
   "name": "rubik-cli",
-  "version": "0.0.20",
+  "version": "0.1.0",
   "description": "",
   "bin": {
     "rubik": "bin/rubik.js"
@@ -9,6 +9,7 @@
     "lint": "eslint --fix src/**/*.js"
   },
   "keywords": [
+    "rubik",
     "webpack",
     "multiple",
     "pages"

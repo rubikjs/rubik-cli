@@ -1,7 +1,7 @@
 'use strict'
 
 const Command = require('common-bin')
-const Webpack = require('webpack')
+const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
 const { checkDir } = require('../lib/check-dir')
 const { setDevMode } = require('../lib/utils')
@@ -16,7 +16,8 @@ class ServeCommand extends Command {
     }
     setDevMode()
     const webpackConfig = require('../webpack/webpack.dev')
-    const compiler = Webpack(webpackConfig)
+    const compiler = webpack(webpackConfig)
+    new webpack.ProgressPlugin().apply(compiler)
     const server = new WebpackDevServer(compiler, webpackConfig.devServer)
     server.listen(webpackConfig.devServer.port, webpackConfig.devServer.host)
   }
