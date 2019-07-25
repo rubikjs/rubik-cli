@@ -3,9 +3,13 @@ Only one command for web development with Pure/Vue/React/
 
 ## Init
 ```
+$ mkdir project
+$ cd project
 $ npx rubik-cli init
 or
 $ npm i -g rubik-cli
+$ mkdir project
+$ cd project
 $ rubik init
 ```
 
