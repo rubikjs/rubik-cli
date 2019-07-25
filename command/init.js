@@ -9,7 +9,8 @@ const { log } = require('../lib/utils')
 const rep = {
   pure: 'fancyboynet/rubik-pure-scaffold',
   vue: 'fancyboynet/rubik-vue-scaffold',
-  react: 'fancyboynet/rubik-react-scaffold'
+  react: 'fancyboynet/rubik-react-scaffold',
+  library: 'fancyboynet/rubik-library-scaffold'
 }
 
 class NewPageCommand extends Command {
@@ -23,7 +24,8 @@ class NewPageCommand extends Command {
           choices: [
             'pure',
             'vue',
-            'react'
+            'react',
+            'library'
           ]
         }
       ])

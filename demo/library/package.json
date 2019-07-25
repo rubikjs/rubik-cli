@@ -1,0 +1,35 @@
+{
+  "name": "my-library-js",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "build": "yarn run rubik build --lib",
+    "start": "yarn run rubik serve --lib",
+    "lint": "yarn run rubik lint",
+    "rubik": "node ../../bin/rubik.js"
+  },
+  "keywords": [],
+  "author": "Fancy <fancyboynet@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "husky": "^3.0.0",
+    "lint-staged": "^9.1.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "post-merge": "rubik check-package",
+      "post-checkout": "rubik check-package"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,vue}": [
+      "yarn run rubik lint",
+      "git add"
+    ]
+  }
+}

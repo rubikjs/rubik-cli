@@ -6,8 +6,10 @@ const rootDir = process.cwd()
 const customPath = path.resolve(rootDir, './rubik.config.js')
 const customWebpackPath = path.resolve(rootDir, './webpack.config.js')
 const customEslintPath = path.resolve(rootDir, './.eslintrc.js')
+const customPkgPath = path.resolve(rootDir, './package.json')
 const customConfig = fs.existsSync(customPath) ? require(customPath) : {}
 const customEslintConfig = fs.existsSync(customEslintPath) ? require(customEslintPath) : {}
+const customPkg = fs.existsSync(customPkgPath) ? require(customPkgPath) : {}
 const config = Object.assign(defaultConfig, customConfig)
 const eslintConfig = Object.assign(defaultEslintConfig, customEslintConfig)
 const srcDir = path.resolve(rootDir, './src')
@@ -31,6 +33,7 @@ module.exports = {
   staticDir,
   config,
   customWebpackPath,
+  customPkg,
   eslintConfig,
   eslintCLIEngineConfig
 }

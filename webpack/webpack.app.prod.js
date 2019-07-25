@@ -3,13 +3,13 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-const common = require('./webpack.common.js')
+const app = require('./webpack.app.js')
 const custom = require('./webpack.custom.js')
 const { config, distDir } = require('../config')
 const isCDN = process.env.CDN_ENV === 'true'
 const isNoHash = process.env.NO_HASH_ENV === 'true'
 
-module.exports = merge.smart(common, {
+module.exports = merge.smart(app, {
   mode: 'production',
   optimization: {
     splitChunks: {

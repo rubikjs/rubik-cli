@@ -1,5 +1,5 @@
 # rubik-cli
-Only one command for web development with Pure/Vue/React/
+Only one command for web app development with Pure/Vue/React or javascript libraries.
 
 ## Init
 ```
@@ -8,7 +8,7 @@ $ cd project
 $ npx rubik-cli init
 ```
 
-## Structure
+## App Structure
 
 ```
 ├── src
@@ -104,3 +104,23 @@ module.exports = {
 }
 
 ```
+
+## Library Structure
+
+```
+├── demo
+│       ├── index.html
+│       └── index.js
+├── src
+│       └── index.js
+│
+├── mock
+│       └── index.js
+│
+├── rubik.config.js (optional)
+├── webpack.config.js (optional)
+├── .eslintrc.js (optional)
+│
+
+```
+

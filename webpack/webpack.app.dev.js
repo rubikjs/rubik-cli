@@ -1,5 +1,5 @@
 const merge = require('webpack-merge')
-const common = require('./webpack.common.js')
+const app = require('./webpack.app.js')
 const custom = require('./webpack.custom.js')
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
@@ -26,7 +26,7 @@ function createDevHistoryApiFallback () {
   }
 }
 
-module.exports = merge.smart(common, {
+module.exports = merge.smart(app, {
   mode: 'development',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
@@ -45,7 +45,6 @@ module.exports = merge.smart(common, {
         errors.map(v => {
           console.log(v.message)
         })
-        process.exit(1)
       }
     })
   ],

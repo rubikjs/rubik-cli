@@ -4,18 +4,31 @@ const Command = require('common-bin')
 const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
 const { checkDir } = require('../lib/check-dir')
-const { setDevMode } = require('../lib/utils')
+const { setDevMode, setNoHashMode } = require('../lib/utils')
 
 class ServeCommand extends Command {
   constructor (rawArgv) {
     super(rawArgv)
-  }
-  async run () {
-    if (!checkDir()) {
-      return
+    this.options = {
+      lib: {
+        type: 'boolean',
+        default: false,
+        description: 'whether library mode'
+      }
     }
+  }
+  async run ({ argv }) {
     setDevMode()
-    const webpackConfig = require('../webpack/webpack.dev')
+    let webpackConfig = ''
+    if (argv.lib) {
+      setNoHashMode()
+      webpackConfig = require('../webpack/webpack.lib.dev')
+    } else {
+      if (!checkDir()) {
+        return
+      }
+      webpackConfig = require('../webpack/webpack.app.dev')
+    }
     const compiler = webpack(webpackConfig)
     new webpack.ProgressPlugin().apply(compiler)
     const server = new WebpackDevServer(compiler, webpackConfig.devServer)

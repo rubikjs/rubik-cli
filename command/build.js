@@ -3,18 +3,31 @@
 const Command = require('common-bin')
 const webpack = require('webpack')
 const { checkDir } = require('../lib/check-dir')
-const { setProdMode } = require('../lib/utils')
+const { setProdMode, setNoHashMode } = require('../lib/utils')
 
 class BuildCommand extends Command {
   constructor (rawArgv) {
     super(rawArgv)
-  }
-  async run () {
-    if (!checkDir()) {
-      return
+    this.options = {
+      lib: {
+        type: 'boolean',
+        default: false,
+        description: 'whether library mode'
+      }
     }
+  }
+  async run ({ argv }) {
     setProdMode()
-    const webpackConfig = require('../webpack/webpack.prod')
+    let webpackConfig = ''
+    if (argv.lib) {
+      setNoHashMode()
+      webpackConfig = require('../webpack/webpack.lib.prod')
+    } else {
+      if (!checkDir()) {
+        return
+      }
+      webpackConfig = require('../webpack/webpack.app.prod')
+    }
     const compiler = webpack(webpackConfig)
     new webpack.ProgressPlugin().apply(compiler)
     compiler.run()
