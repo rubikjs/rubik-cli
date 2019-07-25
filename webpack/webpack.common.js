@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
-const formatter = require("eslint-friendly-formatter")
+const formatter = require("eslint-formatter-friendly")
 const { config, srcDir, pageDir, staticDir, rootDir, eslintCLIEngineConfig } = require('../config')
 const pages = require('../lib/pages')
 const isDevMode = process.env.NODE_ENV === 'development'
@@ -22,7 +22,7 @@ if (config.vendor.length) {
 }
 
 // 遍历pages目录
-pages.map((v, i) => {
+pages.map((v) => {
   entry[v] = path.join(pageDir, `${v}/index.js`)
   plugins.push(new HtmlWebpackPlugin({
     publicPath: true,

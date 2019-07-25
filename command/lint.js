@@ -3,7 +3,7 @@
 const Command = require('common-bin')
 const { srcDir, eslintCLIEngineConfig } = require('../config')
 const { CLIEngine } = require("eslint")
-const formatter = require("eslint-friendly-formatter")
+const formatter = require("eslint-formatter-friendly")
 
 class LintCommand extends Command {
   constructor (rawArgv) {

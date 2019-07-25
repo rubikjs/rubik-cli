@@ -1,4 +1,4 @@
-{
+module.exports = {
   "output": "dist",
   "staticName": "static",
   "templateName": "",
