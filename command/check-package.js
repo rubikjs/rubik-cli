@@ -1,12 +1,12 @@
 'use strict'
 
-const Command = require('common-bin')
+const TakeVersionCommand = require('../lib/take-version-command')
 const { spawn } = require('child_process')
 const path = require('path')
 const { rootDir } = require('../config')
 const { log } = require('../lib/utils')
 
-class CheckPackageCommand extends Command {
+class CheckPackageCommand extends TakeVersionCommand {
   constructor (rawArgv) {
     super(rawArgv)
   }

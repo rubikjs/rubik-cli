@@ -1,11 +1,11 @@
 'use strict'
 
-const Command = require('common-bin')
+const TakeVersionCommand = require('../lib/take-version-command')
 const { srcDir, eslintCLIEngineConfig } = require('../config')
 const { CLIEngine } = require('eslint')
 const formatter = require('eslint-formatter-friendly')
 
-class LintCommand extends Command {
+class LintCommand extends TakeVersionCommand {
   constructor (rawArgv) {
     super(rawArgv)
   }

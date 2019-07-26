@@ -1,11 +1,11 @@
 'use strict'
 
-const Command = require('common-bin')
+const TakeVersionCommand = require('../lib/take-version-command')
 const webpack = require('webpack')
 const { checkDir } = require('../lib/check-dir')
 const { setProdMode, setNoHashMode } = require('../lib/utils')
 
-class BuildCommand extends Command {
+class BuildCommand extends TakeVersionCommand {
   constructor (rawArgv) {
     super(rawArgv)
     this.options = {
@@ -16,6 +16,7 @@ class BuildCommand extends Command {
       }
     }
   }
+
   async run ({ argv }) {
     setProdMode()
     let webpackConfig = ''

@@ -1,6 +1,6 @@
 'use strict'
 
-const Command = require('common-bin')
+const TakeVersionCommand = require('../lib/take-version-command')
 const inquirer = require('inquirer')
 const download = require('download-git-repo')
 const shell = require('shelljs')
@@ -13,7 +13,11 @@ const rep = {
   library: 'fancyboynet/rubik-library-scaffold'
 }
 
-class NewPageCommand extends Command {
+class NewPageCommand extends TakeVersionCommand {
+  constructor (rawArgv) {
+    super(rawArgv)
+  }
+
   async run () {
     inquirer
       .prompt([

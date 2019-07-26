@@ -12,7 +12,7 @@ const host = config.host === '0.0.0.0' ? ip.address() : config.host
 module.exports = merge.smart(lib, {
   mode: 'development',
   entry: {
-    'demo': path.resolve(rootDir, './demo/index.js')
+    demo: path.resolve(rootDir, './demo/index.js')
   },
   plugins: [
     new HtmlWebpackPlugin({

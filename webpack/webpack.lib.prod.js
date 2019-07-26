@@ -10,7 +10,7 @@ const { customPkg, srcDir } = require('../config')
 module.exports = merge.smart(lib, {
   mode: 'production',
   entry: {
-    'index': path.resolve(srcDir, './index.js')
+    index: path.resolve(srcDir, './index.js')
   },
   optimization: {
     minimizer: [

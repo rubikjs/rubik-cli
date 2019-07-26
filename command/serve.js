@@ -1,12 +1,12 @@
 'use strict'
 
-const Command = require('common-bin')
+const TakeVersionCommand = require('../lib/take-version-command')
 const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
 const { checkDir } = require('../lib/check-dir')
 const { setDevMode, setNoHashMode } = require('../lib/utils')
 
-class ServeCommand extends Command {
+class ServeCommand extends TakeVersionCommand {
   constructor (rawArgv) {
     super(rawArgv)
     this.options = {
@@ -17,6 +17,7 @@ class ServeCommand extends Command {
       }
     }
   }
+
   async run ({ argv }) {
     setDevMode()
     let webpackConfig = ''

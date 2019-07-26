@@ -1,6 +1,6 @@
 'use strict'
 
-const Command = require('common-bin')
+const TakeVersionCommand = require('../lib/take-version-command')
 const fs = require('fs')
 const path = require('path')
 const inquirer = require('inquirer')
@@ -8,10 +8,11 @@ const { log } = require('../lib/utils')
 const { pageDir } = require('../config')
 const { checkDir } = require('../lib/check-dir')
 
-class NewPageCommand extends Command {
+class NewPageCommand extends TakeVersionCommand {
   constructor (rawArgv) {
     super(rawArgv)
   }
+
   async run () {
     if (!checkDir()) {
       return
@@ -44,8 +45,8 @@ class NewPageCommand extends Command {
   }
 
   createNewPage () {
-    let dir = path.join(pageDir, this.pageName)
-    let html = `<!doctype html>
+    const dir = path.join(pageDir, this.pageName)
+    const html = `<!doctype html>
 <html>
 <head>
   <title></title>
