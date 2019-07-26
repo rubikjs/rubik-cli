@@ -21,7 +21,6 @@ class ServeCommand extends TakeVersionCommand {
   async run ({ argv }) {
     setDevMode()
     let webpackConfig = ''
-    return
     if (argv.lib) {
       if (!checkMock()) {
         return
