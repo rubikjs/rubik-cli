@@ -5,8 +5,10 @@
 
 <br>
 
-[![NPM version][npm-image]][npm-url]
-[![js-standard-style][standard-image]][standard-url]
+<p align="center">
+  <a href="https://www.npmjs.com/package/rubik-cli"><img alt="npm" src="https://img.shields.io/npm/v/rubik-cli?color=sucess"></a>
+  <a href="https://standardjs.com/"><img alt="npm" src="https://img.shields.io/badge/code%20style-standard-sucess"></a>
+</p>
 
 ## Init
 ```
