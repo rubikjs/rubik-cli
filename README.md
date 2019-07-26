@@ -1,5 +1,12 @@
-# rubik-cli
-Only one command for web app development with Pure/Vue/React or javascript libraries.
+<h1 align="center"> rubik </h1>
+<p align="center">
+  <b >Only one command for web app development with Pure/Vue/React or javascript libraries.</b>
+</p>
+
+<br>
+
+[![NPM version][npm-image]][npm-url]
+[![js-standard-style][standard-image]][standard-url]
 
 ## Init
 ```

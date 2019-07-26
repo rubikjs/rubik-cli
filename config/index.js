@@ -1,5 +1,6 @@
 const path = require('path')
 const fs = require('fs')
+const pkg = require('../package.json')
 const defaultConfig = require('./config')
 const defaultEslintConfig = require('./eslint')
 const rootDir = process.cwd()
@@ -25,6 +26,7 @@ const eslintCLIEngineConfig = {
 
 
 module.exports = {
+  pkg,
   rootDir,
   distDir,
   srcDir,
