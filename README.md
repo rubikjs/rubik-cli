@@ -1,3 +1,4 @@
+![rubik](assets/rubik.png?raw=true)
 <h1 align="center"> rubik </h1>
 <p align="center">
   <b >Only one command for web app development with Pure/Vue/React or javascript libraries.</b>
