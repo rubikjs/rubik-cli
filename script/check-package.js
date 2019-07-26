@@ -1,6 +1,6 @@
 const { config } = require('../config')
 const shell = require('shelljs')
-const { log } = require('../lib/utils')
+const { log, isYarn } = require('../lib/utils')
 if (!config.reInstallOnPkgChange) {
   shell.exit(0)
 }
@@ -24,5 +24,5 @@ if (noTargetChange) {
   shell.exit(0)
 }
 log.info('The package.json file has been changed, it will auto reinstall now.')
-shell.exec('yarn')
+shell.exec(isYarn() ? 'yarn' : 'npm i')
 shell.exit(0)

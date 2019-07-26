@@ -3,7 +3,7 @@
 const TakeVersionCommand = require('../lib/take-version-command')
 const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
-const { checkDir } = require('../lib/check-dir')
+const { checkDir, checkMock } = require('../lib/check-dir')
 const { setDevMode, setNoHashMode } = require('../lib/utils')
 
 class ServeCommand extends TakeVersionCommand {
@@ -21,7 +21,10 @@ class ServeCommand extends TakeVersionCommand {
   async run ({ argv }) {
     setDevMode()
     let webpackConfig = ''
-    if (argv.lib) {
+    if (argv.hasOwnProperty('lib')) {
+      if (!checkMock()) {
+        return
+      }
       setNoHashMode()
       webpackConfig = require('../webpack/webpack.lib.dev')
     } else {

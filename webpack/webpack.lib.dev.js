@@ -30,7 +30,6 @@ module.exports = merge.smart(lib, {
         errors.map(v => {
           console.log(v.message)
         })
-        // process.exit(1)
       }
     })
   ],

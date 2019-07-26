@@ -13,7 +13,7 @@ const rep = {
   library: 'fancyboynet/rubik-library-scaffold'
 }
 
-class NewPageCommand extends TakeVersionCommand {
+class InitCommand extends TakeVersionCommand {
   constructor (rawArgv) {
     super(rawArgv)
   }
@@ -58,18 +58,30 @@ class NewPageCommand extends TakeVersionCommand {
     inquirer
       .prompt([
         {
-          type: 'confirm',
-          name: 'toInstall',
-          message: 'Do you want to run \'yarn install\' now?',
-          default: true
+          type: 'list',
+          name: 'type',
+          message: 'Choose the package management type to install the dependencies',
+          choices: [
+            'npm',
+            'yarn',
+            'cancel(install manually)'
+          ],
+          default: 'yarn'
         }
       ])
       .then(answers => {
-        if (answers.toInstall) {
-          shell.exec('yarn')
+        switch (answers.type) {
+          case 'yarn':
+            shell.exec('yarn')
+            break
+          case 'npm':
+            shell.exec('npm i')
+            break
+          default:
+            break
         }
       })
   }
 }
 
-module.exports = NewPageCommand
+module.exports = InitCommand

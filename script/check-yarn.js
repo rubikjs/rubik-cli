@@ -1,6 +1,6 @@
-const { log } = require('../lib/utils')
+const { log, isYarn } = require('../lib/utils')
 const shell = require('shelljs')
-if (process.env.npm_execpath.indexOf('yarn') === -1) {
+if (!isYarn()) {
   log.error('Please use yarn for installing.')
   shell.exit(1)
 }
