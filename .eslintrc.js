@@ -8,9 +8,11 @@ module.exports = {
     "sourceType": "module"
   },
   "extends": [
-    "eslint:recommended"
+    "eslint:recommended",
+    "standard"
   ],
   rules: {
-    "no-console": "off"
+    "no-console": "off",
+    "no-useless-constructor": "off"
   }
 }

@@ -9,7 +9,6 @@ const ip = require('ip')
 const { config, mockDir, distDir, rootDir } = require('../config')
 const host = config.host === '0.0.0.0' ? ip.address() : config.host
 
-
 module.exports = merge.smart(lib, {
   mode: 'development',
   entry: {
@@ -17,7 +16,7 @@ module.exports = merge.smart(lib, {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(rootDir, "./demo/index.html")
+      template: path.resolve(rootDir, './demo/index.html')
     }),
     new webpack.HotModuleReplacementPlugin(),
     new FriendlyErrorsWebpackPlugin({

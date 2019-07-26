@@ -24,7 +24,6 @@ const eslintCLIEngineConfig = {
   extensions: ['.js', '.jsx', '.vue']
 }
 
-
 module.exports = {
   pkg,
   rootDir,
@@ -39,5 +38,3 @@ module.exports = {
   eslintConfig,
   eslintCLIEngineConfig
 }
-
-new Date()

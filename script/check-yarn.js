@@ -5,6 +5,3 @@ if (process.env.npm_execpath.indexOf('yarn') === -1) {
   shell.exit(1)
 }
 shell.exit(0)
-
-
-new Date()

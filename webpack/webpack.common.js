@@ -1,7 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const formatter = require("eslint-formatter-friendly")
+const formatter = require('eslint-formatter-friendly')
 const { config, srcDir, staticDir, rootDir, eslintCLIEngineConfig } = require('../config')
 
 const isDevMode = process.env.NODE_ENV === 'development'

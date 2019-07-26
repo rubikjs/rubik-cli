@@ -1,14 +1,14 @@
 module.exports = {
   root: true,
-  "parserOptions": {
-    "parser": "babel-eslint",
+  'parserOptions': {
+    'parser': 'babel-eslint',
     ecmaVersion: 6,
-    "sourceType": "module"
+    'sourceType': 'module'
   },
-  "extends": [
-    "plugin:vue/essential",
-    "standard-jsx",
-    "standard",
-    "eslint:recommended"
+  'extends': [
+    'eslint:recommended',
+    'standard',
+    'standard-jsx',
+    'plugin:vue/essential'
   ]
 }

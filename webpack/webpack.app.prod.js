@@ -16,8 +16,8 @@ module.exports = merge.smart(app, {
       cacheGroups: {
         commons: {
           test: 'vendor',
-          name: "vendor",
-          chunks: "all"
+          name: 'vendor',
+          chunks: 'all'
         }
       }
     },

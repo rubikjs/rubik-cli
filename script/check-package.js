@@ -1,4 +1,4 @@
-const {  config} = require('../config')
+const { config } = require('../config')
 const shell = require('shelljs')
 const { log } = require('../lib/utils')
 if (!config.reInstallOnPkgChange) {

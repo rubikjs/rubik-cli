@@ -3,7 +3,6 @@ const common = require('./webpack.common.js')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { config, distDir } = require('../config')
 
-
 module.exports = merge.smart(common, {
   plugins: [
     new MiniCssExtractPlugin({
@@ -14,7 +13,7 @@ module.exports = merge.smart(common, {
   output: {
     publicPath: config.publicPath,
     filename: '[name].js',
-    libraryTarget: "umd",
+    libraryTarget: 'umd',
     path: distDir
   }
 })

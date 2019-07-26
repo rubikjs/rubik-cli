@@ -101,7 +101,7 @@
   },
   "lint-staged": {
     "**/*.js": [
-      "eslint --fix",
+      "yarn run lint",
       "git add"
     ]
   },
