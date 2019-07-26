@@ -12,7 +12,7 @@ class ServeCommand extends TakeVersionCommand {
     this.options = {
       lib: {
         type: 'boolean',
-        default: false,
+        default: null,
         description: 'whether library mode'
       }
     }
@@ -21,7 +21,8 @@ class ServeCommand extends TakeVersionCommand {
   async run ({ argv }) {
     setDevMode()
     let webpackConfig = ''
-    if ('lib' in argv) {
+    return
+    if (argv.lib) {
       if (!checkMock()) {
         return
       }

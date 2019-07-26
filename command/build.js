@@ -20,7 +20,7 @@ class BuildCommand extends TakeVersionCommand {
   async run ({ argv }) {
     setProdMode()
     let webpackConfig = ''
-    if ('lib' in argv) {
+    if (argv.lib) {
       setNoHashMode()
       webpackConfig = require('../webpack/webpack.lib.prod')
     } else {
