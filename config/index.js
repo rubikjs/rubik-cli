@@ -39,3 +39,5 @@ module.exports = {
   eslintConfig,
   eslintCLIEngineConfig
 }
+
+new Date()
