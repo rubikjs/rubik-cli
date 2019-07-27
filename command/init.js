@@ -7,10 +7,10 @@ const shell = require('shelljs')
 const { rootDir } = require('../config')
 const { log } = require('../lib/utils')
 const rep = {
-  pure: 'fancyboynet/rubik-pure-scaffold',
-  vue: 'fancyboynet/rubik-vue-scaffold',
-  react: 'fancyboynet/rubik-react-scaffold',
-  library: 'fancyboynet/rubik-library-scaffold'
+  pure: 'rubikjs/rubik-pure-scaffold',
+  vue: 'rubikjs/rubik-vue-scaffold',
+  react: 'rubikjs/rubik-react-scaffold',
+  library: 'rubikjs/rubik-library-scaffold'
 }
 
 class InitCommand extends TakeVersionCommand {
