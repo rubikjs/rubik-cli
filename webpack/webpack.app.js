@@ -2,7 +2,6 @@ const fs = require('fs')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const merge = require('webpack-merge')
 const common = require('./webpack.common.js')
 const { config, pageDir, staticDir } = require('../config')
@@ -31,7 +30,6 @@ pages.map((v) => {
     }
   }))
 })
-plugins.push(new VueLoaderPlugin())
 if (hasStaticRoot) {
   plugins.push(new CopyWebpackPlugin([{ from: staticDir, to: `${config.staticName}` }]))
 }

@@ -1,6 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const formatter = require('eslint-formatter-friendly')
 const { config, srcDir, staticDir, rootDir, eslintCLIEngineConfig } = require('../config')
 
@@ -10,9 +11,12 @@ const needEslint = config.openStandardJs
 
 module.exports = {
   context: rootDir,
-  plugins: [new webpack.DefinePlugin({
-    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-  })],
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+    }),
+    new VueLoaderPlugin()
+  ],
   resolve: {
     modules: [path.resolve(__dirname, '../node_modules'), srcDir, 'node_modules'],
     extensions: ['.js', '.jsx', '.vue', '.json']
