@@ -1,6 +1,6 @@
 {
   "name": "rubik-cli",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "description": "",
   "bin": {
     "rubik": "bin/rubik.js"
@@ -96,9 +96,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
-      "post-merge": "cross-env FORCE_COLOR=1 node ./script/check-package.js",
-      "post-checkout": "cross-env FORCE_COLOR=1 node ./script/check-package.js"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
