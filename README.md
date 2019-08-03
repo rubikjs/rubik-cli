@@ -14,6 +14,17 @@
   <a href="http://commitizen.github.io/cz-cli/"><img alt="commitizen" src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg"></a>
 </p>
 
+## Features
+
+- Only One structure in pure/vue/react/library development
+- Multiple pages app support (html-webpack-plugin)
+- Library development support (webpack-author-libraries)
+- Hot reload (webpack-dev-server)
+- Data Mock (webpack-dev-server)
+- Code style lint(![code style standard](https://img.shields.io/badge/code%20style-standard-sucess))
+- Auto re-install dependencies after `git commit/merge` if needed 
+- More
+
 ## Init
 ```
 $ mkdir project
