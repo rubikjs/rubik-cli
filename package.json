@@ -6,7 +6,8 @@
     "rubik": "bin/rubik.js"
   },
   "scripts": {
-    "lint": "eslint --fix -f friendly ."
+    "lint": "eslint --fix -f friendly .",
+    "commit": "git-cz"
   },
   "keywords": [
     "rubik",
@@ -96,7 +97,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "lint-staged": {
@@ -106,7 +108,16 @@
     ]
   },
   "devDependencies": {
+    "@commitlint/cli": "^8.1.0",
+    "@commitlint/config-conventional": "^8.1.0",
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "3.0.2",
     "husky": "^3.0.1",
     "lint-staged": "^9.2.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
