@@ -1,0 +1,11 @@
+{
+  "name": "rubik-cli-plugin-hello-word",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "rubik": "node ../../bin/rubik.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

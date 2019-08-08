@@ -12,5 +12,6 @@ module.exports = {
   openStandardJs: true,
   pageTemplateWithoutHtmlLoader: false,
   reInstallOnPkgChange: true,
-  notReInstallOnPkgChangeFeatures: []
+  notReInstallOnPkgChangeFeatures: [],
+  plugins: []
 }
