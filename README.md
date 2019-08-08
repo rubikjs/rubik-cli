@@ -125,3 +125,8 @@ module.exports = {
 
 ```
 
+## Todo
+
+- Commit lint
+- Plugin support
+
