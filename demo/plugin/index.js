@@ -1,5 +1,5 @@
 module.exports = (Command, options) => {
-  class C extends Command {
+  class SubCommand extends Command {
     async run () {
       console.log(options)
     }
@@ -7,5 +7,5 @@ module.exports = (Command, options) => {
       return 'hello word'
     }
   }
-  return C
+  return SubCommand
 }

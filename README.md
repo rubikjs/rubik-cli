@@ -14,7 +14,18 @@
   <a href="http://commitizen.github.io/cz-cli/"><img alt="commitizen" src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg"></a>
 </p>
 
-## Features
+
+## CLI Features
+- Plugin support
+
+## Init an app
+```
+$ mkdir project
+$ cd project
+$ npx rubik-cli init
+```
+
+## APP Features
 
 - Only One structure in pure/vue/react/library development
 - Multiple pages app support (html-webpack-plugin)
@@ -25,12 +36,6 @@
 - Auto re-install dependencies after `git commit/merge` if needed 
 - More
 
-## Init
-```
-$ mkdir project
-$ cd project
-$ npx rubik-cli init
-```
 
 ## App Structure
 
@@ -55,6 +60,25 @@ $ npx rubik-cli init
 ├── mock
 │       └── index.js
 │
+│
+├── rubik.config.js (optional)
+├── webpack.config.js (optional)
+├── .eslintrc.js (optional)
+│
+
+```
+
+## Library Structure
+
+```
+├── demo
+│       ├── index.html
+│       └── index.js
+├── src
+│       └── index.js
+│
+├── mock
+│       └── index.js
 │
 ├── rubik.config.js (optional)
 ├── webpack.config.js (optional)
@@ -92,7 +116,8 @@ module.exports = function (app) {
   "openStandardJs": true,
   "pageTemplateWithoutHtmlLoader": false,
   "reInstallOnPkgChange": true,
-  "notReInstallOnPkgChangeFeatures": []
+  "notReInstallOnPkgChangeFeatures": [],
+  "plugins": []
 }
 
 ```
@@ -106,27 +131,35 @@ module.exports = {
 
 ```
 
-## Library Structure
 
+## Plugin
+A plugin is a npm package with follow features:
+- The name must like `rubik-cli-plugin-<command-name>`
+- Need export a sub class of [common-bin](https://github.com/node-modules/common-bin)
+
+`rubik-cli-plugin-hello-word`
 ```
-├── demo
-│       ├── index.html
-│       └── index.js
-├── src
-│       └── index.js
-│
-├── mock
-│       └── index.js
-│
-├── rubik.config.js (optional)
-├── webpack.config.js (optional)
-├── .eslintrc.js (optional)
-│
-
+module.exports = (Command, options) => {
+  class SubCommand extends Command {
+    async run () {
+      console.log(options)
+    }
+    get description () {
+      return 'hello word'
+    }
+  }
+  return SubCommand
+}
+```
+`rubik.config.js`
+```
+plugins: [{
+    name: 'hello-word',
+    options: {
+      foo: 'bar'
+    }
+  }]
 ```
 
 ## Todo
-
 - Commit lint
-- Plugin support
-
