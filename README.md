@@ -162,4 +162,4 @@ plugins: [{
 ```
 
 ## Todo
-- Commit lint
+- App Commit lint
