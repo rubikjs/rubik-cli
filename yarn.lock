@@ -878,8 +878,8 @@
 
 "@types/dargs@^5.1.0":
   version "5.1.0"
-  resolved "https://registry.npm.taobao.org/@types/dargs/download/@types/dargs-5.1.0.tgz#06e2c943dadb9167967005ffd467a581a009d347"
-  integrity sha1-BuLJQ9rbkWeWcAX/1GelgaAJ00c=
+  resolved "https://registry.yarnpkg.com/@types/dargs/-/dargs-5.1.0.tgz#06e2c943dadb9167967005ffd467a581a009d347"
+  integrity sha512-2cXlO8pz13kVYMp6Zgr8Z5DACbaGfoBp7svqZqPGcO+qG3LQLWdB5BzPPASj+UI447XxGmFHi6KjLgUB0fzucQ==
 
 "@types/events@*":
   version "3.0.0"
@@ -906,9 +906,9 @@
   integrity sha1-5Gm0v50cmDKu5JB7qKBRSUNXwSw=
 
 "@types/node@^10.12.18":
-  version "10.14.13"
-  resolved "https://registry.npm.taobao.org/@types/node/download/@types/node-10.14.13.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fnode%2Fdownload%2F%40types%2Fnode-10.14.13.tgz#ac786d623860adf39a3f51d629480aacd6a6eec7"
-  integrity sha1-rHhtYjhgrfOaP1HWKUgKrNam7sc=
+  version "10.14.15"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.14.15.tgz#e8f7729b631be1b02ae130ff0b61f3e018000640"
+  integrity sha512-CBR5avlLcu0YCILJiDIXeU2pTw7UK/NIxfC63m7d7CVamho1qDEzXKkOtEauQRPMy6MI8mLozth+JJkas7HY6g==
 
 "@types/node@^12.0.2":
   version "12.6.9"
@@ -955,8 +955,8 @@
 
 "@types/yargs@^12.0.4":
   version "12.0.12"
-  resolved "https://registry.npm.taobao.org/@types/yargs/download/@types/yargs-12.0.12.tgz#45dd1d0638e8c8f153e87d296907659296873916"
-  integrity sha1-Rd0dBjjoyPFT6H0paQdlkpaHORY=
+  resolved "https://registry.yarnpkg.com/@types/yargs/-/yargs-12.0.12.tgz#45dd1d0638e8c8f153e87d296907659296873916"
+  integrity sha512-SOhuU4wNBxhhTHxYaiG5NY4HBhDIDnJF60GU+2LqHAdKKer86//e4yg69aENCtQ04n0ovz+tq2YPME5t5yp4pw==
 
 "@vue/component-compiler-utils@^3.0.0":
   version "3.0.0"
@@ -1962,8 +1962,8 @@ chalk@^1.0.0, chalk@^1.1.1, chalk@^1.1.3:
 
 change-case@^3.0.2:
   version "3.1.0"
-  resolved "https://registry.npm.taobao.org/change-case/download/change-case-3.1.0.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fchange-case%2Fdownload%2Fchange-case-3.1.0.tgz#0e611b7edc9952df2e8513b27b42de72647dd17e"
-  integrity sha1-DmEbftyZUt8uhROye0LecmR90X4=
+  resolved "https://registry.yarnpkg.com/change-case/-/change-case-3.1.0.tgz#0e611b7edc9952df2e8513b27b42de72647dd17e"
+  integrity sha512-2AZp7uJZbYEzRPsFoa+ijKdvp9zsrnnt6+yFokfwEpeJm0xuJDVoxiRCAaTzyJND8GJkofo2IcKWaUZ/OECVzw==
   dependencies:
     camel-case "^3.0.0"
     constant-case "^2.0.0"
@@ -2129,7 +2129,7 @@ clone@^2.1.1:
 
 co@^4.6.0:
   version "4.6.0"
-  resolved "https://registry.npm.taobao.org/co/download/co-4.6.0.tgz#6ea6bdf3d853ae54ccb8e47bfa0bf3f9031fb184"
+  resolved "https://registry.yarnpkg.com/co/-/co-4.6.0.tgz#6ea6bdf3d853ae54ccb8e47bfa0bf3f9031fb184"
   integrity sha1-bqa989hTrlTMuOR7+gvz+QMfsYQ=
 
 coa@^2.0.2:
@@ -2237,10 +2237,10 @@ commitizen@^4.0.3:
     strip-bom "4.0.0"
     strip-json-comments "3.0.1"
 
-common-bin@^2.8.1:
-  version "2.8.1"
-  resolved "https://registry.npm.taobao.org/common-bin/download/common-bin-2.8.1.tgz#445b9bcb0df97de2c90cc09d5b49b6f8c46d820d"
-  integrity sha1-RFubyw35feLJDMCdW0m2+MRtgg0=
+common-bin@^2.8.2:
+  version "2.8.2"
+  resolved "https://registry.yarnpkg.com/common-bin/-/common-bin-2.8.2.tgz#1e2b2211b6058ead36335f9797a03484037cab7a"
+  integrity sha512-v+GBwAi8BBRx2oioRqfQCG+YKTMPV6uw/nOUvjFV3CxY22MQHM0USH+4ewEWaQn3/mNXYH03AmVLGjC3mrhKmw==
   dependencies:
     "@types/dargs" "^5.1.0"
     "@types/node" "^10.12.18"
@@ -2342,7 +2342,7 @@ consolidate@^0.15.1:
 
 constant-case@^2.0.0:
   version "2.0.0"
-  resolved "https://registry.npm.taobao.org/constant-case/download/constant-case-2.0.0.tgz#4175764d389d3fa9c8ecd29186ed6005243b6a46"
+  resolved "https://registry.yarnpkg.com/constant-case/-/constant-case-2.0.0.tgz#4175764d389d3fa9c8ecd29186ed6005243b6a46"
   integrity sha1-QXV2TTidP6nI7NKRhu1gBSQ7akY=
   dependencies:
     snake-case "^2.1.0"
@@ -2774,8 +2774,8 @@ dargs@^4.0.1:
 
 dargs@^6.0.0:
   version "6.1.0"
-  resolved "https://registry.npm.taobao.org/dargs/download/dargs-6.1.0.tgz#1f3b9b56393ecf8caa7cbfd6c31496ffcfb9b272"
-  integrity sha1-HzubVjk+z4yqfL/WwxSW/8+5snI=
+  resolved "https://registry.yarnpkg.com/dargs/-/dargs-6.1.0.tgz#1f3b9b56393ecf8caa7cbfd6c31496ffcfb9b272"
+  integrity sha512-5dVBvpBLBnPwSsYXqfybFyehMmC/EenKEcf23AhCTgTf48JFBbmJKqoZBsERDnjL0FyiVTYWdFsRfTLHxLyKdQ==
 
 dashdash@^1.12.0:
   version "1.14.1"
@@ -3124,7 +3124,7 @@ domutils@^1.5.1, domutils@^1.7.0:
 
 dot-case@^2.1.0:
   version "2.1.1"
-  resolved "https://registry.npm.taobao.org/dot-case/download/dot-case-2.1.1.tgz#34dcf37f50a8e93c2b3bca8bb7fb9155c7da3bee"
+  resolved "https://registry.yarnpkg.com/dot-case/-/dot-case-2.1.1.tgz#34dcf37f50a8e93c2b3bca8bb7fb9155c7da3bee"
   integrity sha1-NNzzf1Co6TwrO8qLt/uRVcfaO+4=
   dependencies:
     no-case "^2.2.0"
@@ -4480,7 +4480,7 @@ he@1.2.x, he@^1.1.0:
 
 header-case@^1.0.0:
   version "1.0.1"
-  resolved "https://registry.npm.taobao.org/header-case/download/header-case-1.0.1.tgz#9535973197c144b09613cd65d317ef19963bd02d"
+  resolved "https://registry.yarnpkg.com/header-case/-/header-case-1.0.1.tgz#9535973197c144b09613cd65d317ef19963bd02d"
   integrity sha1-lTWXMZfBRLCWE81l0xfvGZY70C0=
   dependencies:
     no-case "^2.2.0"
@@ -4964,8 +4964,8 @@ is-ci@^2.0.0:
 
 is-class-hotfix@~0.0.6:
   version "0.0.6"
-  resolved "https://registry.npm.taobao.org/is-class-hotfix/download/is-class-hotfix-0.0.6.tgz#a527d31fb23279281dde5f385c77b5de70a72435"
-  integrity sha1-pSfTH7IyeSgd3l84XHe13nCnJDU=
+  resolved "https://registry.yarnpkg.com/is-class-hotfix/-/is-class-hotfix-0.0.6.tgz#a527d31fb23279281dde5f385c77b5de70a72435"
+  integrity sha512-0n+pzCC6ICtVr/WXnN2f03TK/3BfXY7me4cjCAqT8TYXEl0+JBRoqBo94JJHXcyDSLUeWbNX8Fvy5g5RJdAstQ==
 
 is-color-stop@^1.0.0:
   version "1.1.0"
@@ -5073,7 +5073,7 @@ is-glob@^4.0.0, is-glob@^4.0.1:
 
 is-lower-case@^1.1.0:
   version "1.1.3"
-  resolved "https://registry.npm.taobao.org/is-lower-case/download/is-lower-case-1.1.3.tgz#7e147be4768dc466db3bfb21cc60b31e6ad69393"
+  resolved "https://registry.yarnpkg.com/is-lower-case/-/is-lower-case-1.1.3.tgz#7e147be4768dc466db3bfb21cc60b31e6ad69393"
   integrity sha1-fhR75HaNxGbbO/shzGCzHmrWk5M=
   dependencies:
     lower-case "^1.1.0"
@@ -5203,8 +5203,8 @@ is-text-path@^1.0.0:
 
 is-type-of@^1.2.1:
   version "1.2.1"
-  resolved "https://registry.npm.taobao.org/is-type-of/download/is-type-of-1.2.1.tgz#e263ec3857aceb4f28c47130ec78db09a920f8c5"
-  integrity sha1-4mPsOFes608oxHEw7HjbCakg+MU=
+  resolved "https://registry.yarnpkg.com/is-type-of/-/is-type-of-1.2.1.tgz#e263ec3857aceb4f28c47130ec78db09a920f8c5"
+  integrity sha512-uK0kyX9LZYhSDS7H2sVJQJop1UnWPWmo5RvR3q2kFH6AUHYs7sOrVg0b4nyBHw29kRRNFofYN/JbHZDlHiItTA==
   dependencies:
     core-util-is "^1.0.2"
     is-class-hotfix "~0.0.6"
@@ -5217,7 +5217,7 @@ is-typedarray@~1.0.0:
 
 is-upper-case@^1.1.0:
   version "1.1.2"
-  resolved "https://registry.npm.taobao.org/is-upper-case/download/is-upper-case-1.1.2.tgz#8d0b1fa7e7933a1e58483600ec7d9661cbaf756f"
+  resolved "https://registry.yarnpkg.com/is-upper-case/-/is-upper-case-1.1.2.tgz#8d0b1fa7e7933a1e58483600ec7d9661cbaf756f"
   integrity sha1-jQsfp+eTOh5YSDYA7H2WYcuvdW8=
   dependencies:
     upper-case "^1.1.0"
@@ -5728,7 +5728,7 @@ loud-rejection@^1.0.0:
 
 lower-case-first@^1.0.0:
   version "1.0.2"
-  resolved "https://registry.npm.taobao.org/lower-case-first/download/lower-case-first-1.0.2.tgz#e5da7c26f29a7073be02d52bac9980e5922adfa1"
+  resolved "https://registry.yarnpkg.com/lower-case-first/-/lower-case-first-1.0.2.tgz#e5da7c26f29a7073be02d52bac9980e5922adfa1"
   integrity sha1-5dp8JvKacHO+AtUrrJmA5ZIq36E=
   dependencies:
     lower-case "^1.1.2"
@@ -6825,7 +6825,7 @@ parseurl@~1.3.2, parseurl@~1.3.3:
 
 pascal-case@^2.0.0:
   version "2.0.1"
-  resolved "https://registry.npm.taobao.org/pascal-case/download/pascal-case-2.0.1.tgz#2d578d3455f660da65eca18ef95b4e0de912761e"
+  resolved "https://registry.yarnpkg.com/pascal-case/-/pascal-case-2.0.1.tgz#2d578d3455f660da65eca18ef95b4e0de912761e"
   integrity sha1-LVeNNFX2YNpl7KGO+VtODekSdh4=
   dependencies:
     camel-case "^3.0.0"
@@ -6843,7 +6843,7 @@ path-browserify@0.0.1:
 
 path-case@^2.1.0:
   version "2.1.1"
-  resolved "https://registry.npm.taobao.org/path-case/download/path-case-2.1.1.tgz#94b8037c372d3fe2906e465bb45e25d226e8eea5"
+  resolved "https://registry.yarnpkg.com/path-case/-/path-case-2.1.1.tgz#94b8037c372d3fe2906e465bb45e25d226e8eea5"
   integrity sha1-lLgDfDctP+KQbkZbtF4l0ibo7qU=
   dependencies:
     no-case "^2.2.0"
@@ -8168,7 +8168,7 @@ send@0.17.1:
 
 sentence-case@^2.1.0:
   version "2.1.1"
-  resolved "https://registry.npm.taobao.org/sentence-case/download/sentence-case-2.1.1.tgz#1f6e2dda39c168bf92d13f86d4a918933f667ed4"
+  resolved "https://registry.yarnpkg.com/sentence-case/-/sentence-case-2.1.1.tgz#1f6e2dda39c168bf92d13f86d4a918933f667ed4"
   integrity sha1-H24t2jnBaL+S0T+G1KkYkz9mftQ=
   dependencies:
     no-case "^2.2.0"
@@ -8322,7 +8322,7 @@ slice-ansi@^2.1.0:
 
 snake-case@^2.1.0:
   version "2.1.0"
-  resolved "https://registry.npm.taobao.org/snake-case/download/snake-case-2.1.0.tgz#41bdb1b73f30ec66a04d4e2cad1b76387d4d6d9f"
+  resolved "https://registry.yarnpkg.com/snake-case/-/snake-case-2.1.0.tgz#41bdb1b73f30ec66a04d4e2cad1b76387d4d6d9f"
   integrity sha1-Qb2xtz8w7GagTU4srRt2OH1NbZ8=
   dependencies:
     no-case "^2.2.0"
@@ -8805,7 +8805,7 @@ svgo@^1.0.0:
 
 swap-case@^1.1.0:
   version "1.1.2"
-  resolved "https://registry.npm.taobao.org/swap-case/download/swap-case-1.1.2.tgz#c39203a4587385fad3c850a0bd1bcafa081974e3"
+  resolved "https://registry.yarnpkg.com/swap-case/-/swap-case-1.1.2.tgz#c39203a4587385fad3c850a0bd1bcafa081974e3"
   integrity sha1-w5IDpFhzhfrTyFCgvRvK+ggZdOM=
   dependencies:
     lower-case "^1.1.1"
@@ -8938,7 +8938,7 @@ timsort@^0.3.0:
 
 title-case@^2.1.0:
   version "2.1.1"
-  resolved "https://registry.npm.taobao.org/title-case/download/title-case-2.1.1.tgz#3e127216da58d2bc5becf137ab91dae3a7cd8faa"
+  resolved "https://registry.yarnpkg.com/title-case/-/title-case-2.1.1.tgz#3e127216da58d2bc5becf137ab91dae3a7cd8faa"
   integrity sha1-PhJyFtpY0rxb7PE3q5Ha46fNj6o=
   dependencies:
     no-case "^2.2.0"
@@ -9200,7 +9200,7 @@ upath@^1.1.1:
 
 upper-case-first@^1.1.0, upper-case-first@^1.1.2:
   version "1.1.2"
-  resolved "https://registry.npm.taobao.org/upper-case-first/download/upper-case-first-1.1.2.tgz#5d79bedcff14419518fd2edb0a0507c9b6859115"
+  resolved "https://registry.yarnpkg.com/upper-case-first/-/upper-case-first-1.1.2.tgz#5d79bedcff14419518fd2edb0a0507c9b6859115"
   integrity sha1-XXm+3P8UQZUY/S7bCgUHybaFkRU=
   dependencies:
     upper-case "^1.1.1"
