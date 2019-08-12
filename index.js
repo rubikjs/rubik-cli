@@ -1,6 +1,7 @@
-const config = require('./config')
 const path = require('path')
 const Command = require('common-bin')
+const config = require('./config')
+const api = require('./api')
 
 class MainCommand extends Command {
   constructor (rawArgv) {
@@ -18,7 +19,7 @@ class MainCommand extends Command {
       return
     }
     plugins.map((p) => {
-      this.add(p.name, require(`rubik-cli-plugin-${p.name}`)(Command, p.options))
+      this.add(p.name, require(`rubik-cli-plugin-${p.name}`)(api, p.options))
     })
   }
 }

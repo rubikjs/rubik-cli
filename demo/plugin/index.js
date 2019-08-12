@@ -1,5 +1,5 @@
-module.exports = (Command, options) => {
-  class SubCommand extends Command {
+module.exports = ({ TakeVersionCommand }, options) => {
+  class SubCommand extends TakeVersionCommand {
     async run () {
       console.log(options)
     }

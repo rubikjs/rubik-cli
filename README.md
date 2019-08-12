@@ -139,7 +139,7 @@ A plugin is a npm package with follow features:
 
 `rubik-cli-plugin-hello-word`
 ```
-module.exports = (Command, options) => {
+module.exports = ({ Command }, options) => {
   class SubCommand extends Command {
     async run () {
       console.log(options)

@@ -4,9 +4,8 @@ const TakeVersionCommand = require('../lib/take-version-command')
 const fs = require('fs')
 const path = require('path')
 const inquirer = require('inquirer')
-const { log } = require('../lib/utils')
+const { log, checkDir } = require('../lib/utils')
 const { pageDir } = require('../config')
-const { checkDir } = require('../lib/check-dir')
 
 class NewPageCommand extends TakeVersionCommand {
   constructor (rawArgv) {

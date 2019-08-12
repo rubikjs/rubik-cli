@@ -2,8 +2,7 @@
 
 const TakeVersionCommand = require('../lib/take-version-command')
 const webpack = require('webpack')
-const { checkDir } = require('../lib/check-dir')
-const { setProdMode, setNoHashMode } = require('../lib/utils')
+const { setProdMode, setNoHashMode, checkDir } = require('../lib/utils')
 
 class BuildCommand extends TakeVersionCommand {
   constructor (rawArgv) {
