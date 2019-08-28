@@ -8,6 +8,8 @@
     "build": "yarn run rubik build",
     "start": "yarn run rubik serve",
     "lint": "yarn run rubik lint",
+    "commit": "cross-env DEBUG=common-bin yarn run rubik commit",
+    "commit2": "node ../../bin/rubik-commit.js",
     "rubik": "node ../../bin/rubik.js"
   },
   "keywords": [

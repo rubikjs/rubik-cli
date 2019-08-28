@@ -3,7 +3,8 @@
   "version": "0.6.0",
   "description": "",
   "bin": {
-    "rubik": "bin/rubik.js"
+    "rubik": "bin/rubik.js",
+    "rubik-commit": "bin/rubik-commit.js"
   },
   "scripts": {
     "lint": "eslint --fix -f friendly .",
@@ -39,10 +40,12 @@
     "cache-loader": "^4.0.1",
     "chalk": "^2.4.1",
     "clean-webpack-plugin": "^3.0.0",
+    "commitizen": "^4.0.3",
     "common-bin": "^2.8.2",
     "copy-webpack-plugin": "^5.0.3",
     "cross-env": "^5.1.4",
     "css-loader": "^3.1.0",
+    "cz-conventional-changelog": "^3.0.2",
     "download-git-repo": "^2.0.0",
     "eslint": "^6.0.1",
     "eslint-config-standard": "^13.0.1",
@@ -98,7 +101,8 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
     }
   },
   "lint-staged": {
@@ -110,14 +114,12 @@
   "devDependencies": {
     "@commitlint/cli": "^8.1.0",
     "@commitlint/config-conventional": "^8.1.0",
-    "commitizen": "^4.0.3",
-    "cz-conventional-changelog": "3.0.2",
     "husky": "^3.0.1",
     "lint-staged": "^9.2.0"
   },
   "config": {
     "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+      "path": "cz-conventional-changelog"
     }
   }
 }
