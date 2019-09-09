@@ -2,7 +2,6 @@ const merge = require('webpack-merge')
 const app = require('./webpack.app.js')
 const custom = require('./webpack.custom.js')
 const webpack = require('webpack')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const ip = require('ip')
 const { config, mockDir, distDir } = require('../config')
@@ -30,10 +29,6 @@ module.exports = merge.smart(app, {
   mode: 'development',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename: '[name].css'
-    }),
     new FriendlyErrorsWebpackPlugin({
       compilationSuccessInfo: {
         messages: [`Your application is running here: http://${host}:${config.port}${config.publicPath}`]
