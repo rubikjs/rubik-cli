@@ -1,11 +1,11 @@
 'use strict'
 
-const TakeVersionCommand = require('../lib/take-version-command')
+const RubikCommand = require('../lib/rubik-command')
 const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
-const { setDevMode, setNoHashMode, checkDir, checkMock } = require('../lib/utils')
+const { setDevEnv, setNoHashEnv, checkDir, checkMock } = require('../lib/utils')
 
-class ServeCommand extends TakeVersionCommand {
+class ServeCommand extends RubikCommand {
   constructor (rawArgv) {
     super(rawArgv)
     this.options = {
@@ -13,18 +13,23 @@ class ServeCommand extends TakeVersionCommand {
         type: 'boolean',
         default: null,
         description: 'whether library mode'
+      },
+      mode: {
+        type: 'String',
+        default: 'development',
+        description: 'define the mode type(default development)'
       }
     }
   }
 
   async run ({ argv }) {
-    setDevMode()
+    setDevEnv()
     let webpackConfig = ''
     if (argv.lib) {
       if (!checkMock()) {
         return
       }
-      setNoHashMode()
+      setNoHashEnv()
       webpackConfig = require('../webpack/webpack.lib.dev')
     } else {
       if (!checkDir()) {
@@ -34,6 +39,9 @@ class ServeCommand extends TakeVersionCommand {
     }
     const compiler = webpack(webpackConfig)
     new webpack.ProgressPlugin().apply(compiler)
+    new webpack.DefinePlugin({
+      MODE: JSON.stringify(argv.mode)
+    }).apply(compiler)
     const server = new WebpackDevServer(compiler, webpackConfig.devServer)
     server.listen(webpackConfig.devServer.port, webpackConfig.devServer.host)
   }

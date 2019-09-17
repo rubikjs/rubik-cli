@@ -1,11 +1,11 @@
 'use strict'
 
-const TakeVersionCommand = require('../lib/take-version-command')
+const RubikCommand = require('../lib/rubik-command')
 const { srcDir, eslintCLIEngineConfig } = require('../config')
 const { CLIEngine } = require('eslint')
 const formatter = require('eslint-formatter-friendly')
 
-class LintCommand extends TakeVersionCommand {
+class LintCommand extends RubikCommand {
   constructor (rawArgv) {
     super(rawArgv)
   }

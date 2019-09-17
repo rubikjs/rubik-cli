@@ -1,12 +1,12 @@
 'use strict'
 
-const TakeVersionCommand = require('../lib/take-version-command')
+const RubikCommand = require('../lib/rubik-command')
 const { spawn } = require('child_process')
 const path = require('path')
 const { rootDir } = require('../config')
 const { log } = require('../lib/utils')
 
-class CheckPackageCommand extends TakeVersionCommand {
+class CheckPackageCommand extends RubikCommand {
   constructor (rawArgv) {
     super(rawArgv)
   }

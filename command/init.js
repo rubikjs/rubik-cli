@@ -1,6 +1,6 @@
 'use strict'
 
-const TakeVersionCommand = require('../lib/take-version-command')
+const RubikCommand = require('../lib/rubik-command')
 const inquirer = require('inquirer')
 const download = require('download-git-repo')
 const shell = require('shelljs')
@@ -13,7 +13,7 @@ const rep = {
   library: 'rubikjs/rubik-library-scaffold'
 }
 
-class InitCommand extends TakeVersionCommand {
+class InitCommand extends RubikCommand {
   constructor (rawArgv) {
     super(rawArgv)
   }

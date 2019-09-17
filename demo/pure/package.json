@@ -5,8 +5,10 @@
   "scripts": {
     "build-cdn": "cross-env CDN_ENV=true yarn run rubik build",
     "build-no-hash": "cross-env NO_HASH_ENV=true yarn run rubik build",
+    "build-qa": "yarn run rubik build --mode qa",
     "build": "yarn run rubik build",
     "start": "yarn run rubik serve",
+    "start-qa": "yarn run rubik serve --mode qa",
     "lint": "yarn run rubik lint",
     "rubik": "node ../../bin/rubik.js"
   },
