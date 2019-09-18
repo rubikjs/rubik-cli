@@ -12,7 +12,7 @@ const entry = {}
 const plugins = []
 
 if (config.vendor.length) {
-  entry['vendor'] = config.vendor
+  entry.vendor = config.vendor
 }
 
 // 遍历pages目录

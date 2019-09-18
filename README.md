@@ -189,5 +189,4 @@ plugins: [{
 ```
 
 ## Todo
-- Test unit
 - App Commit lint
