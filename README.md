@@ -131,6 +131,33 @@ module.exports = {
 
 ```
 
+## MODE
+The `build` and  `serve` command support the `mode` defined to distinguish different environment in the javascript if needed. 
+```
+rubik serve // development mode
+rubik serve --mode qa // define qa mode
+rubik serve --mode production // define production mode
+```
+```
+rubik build // production mode
+rubik build --mode qa // define qa mode
+rubik build --mode development // define development mode
+```
+api.js
+```
+switch(MODE){ // eslint-disable-line no-undef
+  case 'production':
+    api = "production"
+    break
+  case 'qa':
+    api = "qa"
+    break
+  case 'development':
+    api = "development"
+    break
+}
+```
+
 
 ## Plugin
 A plugin is a npm package with follow features:
@@ -162,4 +189,5 @@ plugins: [{
 ```
 
 ## Todo
+- Test unit
 - App Commit lint

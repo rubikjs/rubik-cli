@@ -73,11 +73,16 @@ module.exports = {
         ]
       },
       {
-        test: /\.scss/,
+        test: /\.s[ac]ss/,
         use: [
           isDevMode ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
-          'sass-loader'
+          {
+            loader: 'sass-loader',
+            options: {
+              implementation: require('sass')
+            }
+          }
         ]
       },
       {

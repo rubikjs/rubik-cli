@@ -1,10 +1,10 @@
 'use strict'
 
-const TakeVersionCommand = require('../lib/take-version-command')
+const RubikCommand = require('../lib/rubik-command')
 const webpack = require('webpack')
-const { setProdMode, setNoHashMode, checkDir } = require('../lib/utils')
+const { setProdEnv, setNoHashEnv, checkDir } = require('../lib/utils')
 
-class BuildCommand extends TakeVersionCommand {
+class BuildCommand extends RubikCommand {
   constructor (rawArgv) {
     super(rawArgv)
     this.options = {
@@ -12,15 +12,20 @@ class BuildCommand extends TakeVersionCommand {
         type: 'boolean',
         default: false,
         description: 'whether library mode'
+      },
+      mode: {
+        type: 'String',
+        default: 'production',
+        description: 'define the mode type(default production)'
       }
     }
   }
 
   async run ({ argv }) {
-    setProdMode()
+    setProdEnv()
     let webpackConfig = ''
     if (argv.lib) {
-      setNoHashMode()
+      setNoHashEnv()
       webpackConfig = require('../webpack/webpack.lib.prod')
     } else {
       if (!checkDir()) {
@@ -30,6 +35,9 @@ class BuildCommand extends TakeVersionCommand {
     }
     const compiler = webpack(webpackConfig)
     new webpack.ProgressPlugin().apply(compiler)
+    new webpack.DefinePlugin({
+      MODE: JSON.stringify(argv.mode)
+    }).apply(compiler)
     compiler.run()
   }
 
