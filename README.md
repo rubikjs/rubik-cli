@@ -99,38 +99,6 @@ module.exports = function (app) {
 }
 ```
 
-## Custom Config
-`rubik.config.js`
-```
-{
-  "output": "dist",
-  "staticName": "static",
-  "templateName": "",
-  "publicPath": "/",
-  "cdnPublicPath": "//",
-  "hashLength": 7,
-  "includePage": [],
-  "vendor": [],
-  "host": "0.0.0.0",
-  "port": 8081,
-  "openStandardJs": true,
-  "pageTemplateWithoutHtmlLoader": false,
-  "reInstallOnPkgChange": true,
-  "notReInstallOnPkgChangeFeatures": [],
-  "plugins": []
-}
-
-```
-
-## Custom Webpack Config
-`webpack.config.js`
-```
-module.exports = {
-  resolve: { alias: { vue: 'vue/dist/vue.esm.js' } }
-}
-
-```
-
 ## MODE
 The `build` and  `serve` command support the `mode` defined to distinguish different environment in the javascript if needed. 
 ```
@@ -156,6 +124,49 @@ switch(MODE){ // eslint-disable-line no-undef
     api = "development"
     break
 }
+```
+
+## Custom Config
+`rubik.config.js`
+```
+{
+  "output": "dist",
+  "staticName": "static",
+  "templateName": "",
+  "publicPath": "/",
+  "cdnPublicPath": "//",
+  "hashLength": 7,
+  "includePage": [],
+  "vendor": [],
+  "host": "0.0.0.0",
+  "port": 8081,
+  "openStandardJs": true,
+  "pageTemplateWithoutHtmlLoader": false,
+  "reInstallOnPkgChange": true,
+  "notReInstallOnPkgChangeFeatures": [],
+  "plugins": []
+}
+
+```
+
+## Custom Eslint
+`.eslintrc.js`
+```
+module.exports = {
+  "rules": {
+    "no-new": "error"
+  }
+}
+
+```
+
+## Custom Webpack Config
+`webpack.config.js`
+```
+module.exports = {
+  resolve: { alias: { vue: 'vue/dist/vue.esm.js' } }
+}
+
 ```
 
 
@@ -189,4 +200,4 @@ plugins: [{
 ```
 
 ## Todo
-- App Commit lint
+- [ ] App Commit lint
