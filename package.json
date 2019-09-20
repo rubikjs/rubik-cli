@@ -1,20 +1,21 @@
 {
   "name": "rubik-cli",
   "version": "0.9.1",
-  "description": "",
+  "description": "Only one command for web app development with Pure/Vue/React or javascript libraries.",
   "bin": {
     "rubik": "bin/rubik.js"
   },
   "scripts": {
     "lint": "eslint --fix -f friendly .",
     "commit": "git-cz",
-    "test": "jest"
+    "test": "yarn lint && jest"
   },
   "keywords": [
+    "vue",
+    "react",
     "rubik",
     "webpack",
-    "multiple",
-    "pages"
+    "multiple"
   ],
   "author": "Fancy <fancyboynet@gmail.com>",
   "license": "MIT",
