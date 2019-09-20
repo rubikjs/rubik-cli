@@ -1,6 +1,7 @@
 language: node_js
 node_js:
   - lts/*
+before_deploy: "yarn run test"
 deploy:
   provider: npm
   email: fancyboynet@gmail.com
@@ -11,3 +12,4 @@ deploy:
     repo: rubikjs/rubik-cli
     branch: master
     condition: $TRAVIS_TAG =~ ^v[0-9]+(\.[0-9]+)*$
+    skip_cleanup: true

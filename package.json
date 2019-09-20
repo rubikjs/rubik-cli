@@ -8,8 +8,7 @@
   "scripts": {
     "lint": "eslint --fix -f friendly .",
     "commit": "git-cz",
-    "test": "jest",
-    "prepublish": "yarn run test"
+    "test": "jest"
   },
   "keywords": [
     "rubik",
