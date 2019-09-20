@@ -12,6 +12,7 @@
   <a href="https://www.npmjs.com/package/rubik-cli"><img alt="npm" src="https://img.shields.io/npm/v/rubik-cli?color=sucess"></a>
   <a href="https://standardjs.com/"><img alt="standardjs" src="https://img.shields.io/badge/code%20style-standard-sucess"></a>
   <a href="http://commitizen.github.io/cz-cli/"><img alt="commitizen" src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg"></a>
+  <a href="https://travis-ci.com/"><img alt="travis" src="https://travis-ci.org/rubikjs/rubik-cli.svg?branch=master"></a>
 </p>
 
 ## Create Rubik App
