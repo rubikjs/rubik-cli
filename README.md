@@ -14,16 +14,23 @@
   <a href="http://commitizen.github.io/cz-cli/"><img alt="commitizen" src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg"></a>
 </p>
 
+## Create Rubik App
+[More about create-rubik-app](https://github.com/rubikjs/create-rubik-app)
+```
+$ npx create-rubik-app my-app
+```
+or
+```
+$ npx create-rubik-app my-app --type react
+```
+or
+```
+$ npx create-rubik-app my-app --repo git@xxx/xxx.git
+```
 
 ## CLI Features
 - Plugin support
 
-## Init an app
-```
-$ mkdir project
-$ cd project
-$ npx rubik-cli init
-```
 
 ## APP Features
 
