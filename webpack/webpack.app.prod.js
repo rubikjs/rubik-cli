@@ -34,7 +34,8 @@ module.exports = merge.smart(app, {
           output: {
             comments: false
           }
-        }
+        },
+        extractComments: false
       }),
       new OptimizeCssAssetsPlugin()
     ]

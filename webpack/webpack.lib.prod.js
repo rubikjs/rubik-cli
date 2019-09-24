@@ -23,7 +23,8 @@ module.exports = merge.smart(lib, {
           output: {
             comments: false
           }
-        }
+        },
+        extractComments: false
       }),
       new webpack.BannerPlugin(`${customPkg.name} v${customPkg.version}`),
       new OptimizeCssAssetsPlugin()
