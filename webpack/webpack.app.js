@@ -12,7 +12,7 @@ const entry = {}
 const plugins = []
 
 if (config.vendor.length) {
-  entry['vendor'] = config.vendor
+  entry.vendor = config.vendor
 }
 
 // 遍历pages目录
@@ -31,7 +31,18 @@ pages.map((v) => {
   }))
 })
 if (hasStaticRoot) {
-  plugins.push(new CopyWebpackPlugin([{ from: staticDir, to: `${config.staticName}` }]))
+  plugins.push(new CopyWebpackPlugin([
+    {
+      from: staticDir,
+      to: `${config.staticName}`,
+      ignore: ['*.html']
+    },
+    {
+      from: staticDir,
+      to: `${config.templateName}`,
+      ignore: ['!*.html']
+    }
+  ]))
 }
 
 module.exports = merge.smart(common, {

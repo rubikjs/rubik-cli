@@ -12,18 +12,26 @@
   <a href="https://www.npmjs.com/package/rubik-cli"><img alt="npm" src="https://img.shields.io/npm/v/rubik-cli?color=sucess"></a>
   <a href="https://standardjs.com/"><img alt="standardjs" src="https://img.shields.io/badge/code%20style-standard-sucess"></a>
   <a href="http://commitizen.github.io/cz-cli/"><img alt="commitizen" src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg"></a>
+  <a href="https://travis-ci.com/"><img alt="travis" src="https://travis-ci.org/rubikjs/rubik-cli.svg?branch=master"></a>
 </p>
 
+## Create Rubik App
+[More about create-rubik-app](https://github.com/rubikjs/create-rubik-app)
+```
+$ npx create-rubik-app my-app
+```
+or
+```
+$ npx create-rubik-app my-app --type react
+```
+or
+```
+$ npx create-rubik-app my-app --repo git@xxx/xxx.git
+```
 
 ## CLI Features
 - Plugin support
 
-## Init an app
-```
-$ mkdir project
-$ cd project
-$ npx rubik-cli init
-```
 
 ## APP Features
 
@@ -99,38 +107,6 @@ module.exports = function (app) {
 }
 ```
 
-## Custom Config
-`rubik.config.js`
-```
-{
-  "output": "dist",
-  "staticName": "static",
-  "templateName": "",
-  "publicPath": "/",
-  "cdnPublicPath": "//",
-  "hashLength": 7,
-  "includePage": [],
-  "vendor": [],
-  "host": "0.0.0.0",
-  "port": 8081,
-  "openStandardJs": true,
-  "pageTemplateWithoutHtmlLoader": false,
-  "reInstallOnPkgChange": true,
-  "notReInstallOnPkgChangeFeatures": [],
-  "plugins": []
-}
-
-```
-
-## Custom Webpack Config
-`webpack.config.js`
-```
-module.exports = {
-  resolve: { alias: { vue: 'vue/dist/vue.esm.js' } }
-}
-
-```
-
 ## MODE
 The `build` and  `serve` command support the `mode` defined to distinguish different environment in the javascript if needed. 
 ```
@@ -156,6 +132,49 @@ switch(MODE){ // eslint-disable-line no-undef
     api = "development"
     break
 }
+```
+
+## Custom Config
+`rubik.config.js`
+```
+{
+  "output": "dist",
+  "staticName": "static",
+  "templateName": "",
+  "publicPath": "/",
+  "cdnPublicPath": "//",
+  "hashLength": 7,
+  "includePage": [],
+  "vendor": [],
+  "host": "0.0.0.0",
+  "port": 8081,
+  "openStandardJs": true,
+  "pageTemplateWithoutHtmlLoader": false,
+  "reInstallOnPkgChange": true,
+  "notReInstallOnPkgChangeFeatures": [],
+  "plugins": []
+}
+
+```
+
+## Custom Eslint
+`.eslintrc.js`
+```
+module.exports = {
+  "rules": {
+    "no-new": "error"
+  }
+}
+
+```
+
+## Custom Webpack Config
+`webpack.config.js`
+```
+module.exports = {
+  resolve: { alias: { vue: 'vue/dist/vue.esm.js' } }
+}
+
 ```
 
 
@@ -189,5 +208,4 @@ plugins: [{
 ```
 
 ## Todo
-- Test unit
-- App Commit lint
+- [ ] App Commit lint
