@@ -1,6 +1,6 @@
 {
   "name": "rubik-cli",
-  "version": "0.9.2",
+  "version": "0.10.0",
   "description": "Only one command for web app development with Pure/Vue/React or javascript libraries.",
   "bin": {
     "rubik": "bin/rubik.js",
@@ -8,7 +8,7 @@
   },
   "scripts": {
     "lint": "eslint --fix -f friendly .",
-    "commit": "git-cz",
+    "commit": "commit",
     "test": "yarn lint && jest"
   },
   "keywords": [
@@ -103,8 +103,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "lint-staged": {
@@ -114,8 +113,9 @@
     ]
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.1.0",
-    "@commitlint/config-conventional": "^8.1.0",
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "@commitlint/prompt-cli": "^8.2.0",
     "husky": "^3.0.1",
     "jest": "^24.9.0",
     "lint-staged": "^9.2.0"
