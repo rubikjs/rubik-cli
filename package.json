@@ -47,12 +47,10 @@
     "cache-loader": "^4.0.1",
     "chalk": "^2.4.1",
     "clean-webpack-plugin": "^3.0.0",
-    "commitizen": "^4.0.3",
     "common-bin": "^2.8.2",
     "copy-webpack-plugin": "^5.0.3",
     "cross-env": "^5.1.4",
     "css-loader": "^3.1.0",
-    "cz-conventional-changelog": "^3.0.2",
     "download-git-repo": "^2.0.0",
     "eslint": "^6.0.1",
     "eslint-config-standard": "^14.1.0",
@@ -108,8 +106,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "commit-msg": "node bin/rubik-commit.js",
-      "commit-msg2": "commitlint -E HUSKY_GIT_PARAMS"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "lint-staged": {
@@ -122,10 +119,5 @@
     "husky": "^3.0.1",
     "jest": "^24.9.0",
     "lint-staged": "^9.2.0"
-  },
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
-    }
   }
 }
