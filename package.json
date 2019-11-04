@@ -35,6 +35,12 @@
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "@babel/runtime": "^7.5.5",
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "@commitlint/format": "^8.2.0",
+    "@commitlint/lint": "^8.2.0",
+    "@commitlint/load": "^8.2.0",
+    "@commitlint/read": "^8.2.0",
     "autoprefixer": "^9.5.1",
     "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.6",
@@ -103,7 +109,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+      "commit-msg": "node ./bin/rubik-commit.js"
     }
   },
   "lint-staged": {
@@ -113,9 +119,6 @@
     ]
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.2.0",
-    "@commitlint/config-conventional": "^8.2.0",
-    "@commitlint/prompt-cli": "^8.2.0",
     "husky": "^3.0.1",
     "jest": "^24.9.0",
     "lint-staged": "^9.2.0"

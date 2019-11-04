@@ -2,8 +2,13 @@
 
 const RubikCommand = require('../lib/rubik-command')
 // const { srcDir, eslintCLIEngineConfig } = require('../config')
-const bootstrap = require('commitizen/dist/cli/git-cz').bootstrap
-const path = require('path')
+const { formatResult } = require('@commitlint/format')
+const load = require('@commitlint/load')
+const lint = require('@commitlint/lint')
+
+const CONFIG = {
+  extends: ['@commitlint/config-conventional']
+}
 
 class CommitCommand extends RubikCommand {
   constructor (rawArgv) {
@@ -11,26 +16,17 @@ class CommitCommand extends RubikCommand {
   }
 
   async run () {
-    // https://github.com/commitizen/cz-cli/issues/667
-    Object.assign(process.env, {
-      CZ_TYPE: ' ',
-      CZ_SCOPE: ' ',
-      CZ_SUBJECT: ' ',
-      CZ_BODY: ' ',
-      CZ_ISSUES: ' ',
-      CZ_MAX_HEADER_WIDTH: 100,
-      CZ_MAX_LINE_WIDTH: 100
-    })
-    bootstrap({
-      cliPath: path.join(__dirname, '../node_modules/commitizen'),
-      config: {
-        path: 'cz-conventional-changelog'
-      }
-    })
+    load(CONFIG)
+      .then(opts => lint('foo: bar', opts.rules, opts.parserPreset ? { parserOpts: opts.parserPreset.parserOpts } : {}))
+      .then(report => {
+        const results = formatResult(report)
+        console.log(report, formatResult(report))
+        results.forEach(v => console.log(v))
+      })
   }
 
   get description () {
-    return 'Commit with Commitizen.'
+    return 'Commit lint.'
   }
 }
 
