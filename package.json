@@ -3,8 +3,7 @@
   "version": "0.10.0",
   "description": "Only one command for web app development with Pure/Vue/React or javascript libraries.",
   "bin": {
-    "rubik": "bin/rubik.js",
-    "rubik-commit": "bin/rubik-commit.js"
+    "rubik": "bin/rubik.js"
   },
   "scripts": {
     "lint": "eslint --fix -f friendly .",
@@ -109,7 +108,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "commit-msg": "node ./bin/rubik-commit.js"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "lint-staged": {

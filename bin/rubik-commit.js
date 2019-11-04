@@ -9,22 +9,17 @@ const read = require('@commitlint/read')
 const CONFIG = {
   extends: ['@commitlint/config-conventional']
 }
-// load(CONFIG)
-// .then(opts => lint('foo: bar', opts.rules, opts.parserPreset ? {parserOpts: opts.parserPreset.parserOpts} : {}))
-// .then(report => {
-//   const results = formatResult(report)
-//   console.log(report, formatResult(report))
-//   results.forEach(v => console.log(v))
-// })
-Promise.all([load(CONFIG), read({ from: 'HEAD~1' })])
-  .then(tasks => {
-    const [{ rules, parserPreset }, [commit]] = tasks
-    console.log(333, commit)
-    return lint(commit, rules, parserPreset ? { parserOpts: parserPreset.parserOpts } : {})
-  })
-  .then(result => {
-    if (!result.valid) {
-      console.log(result, formatResult(result))
-      throw new Error()
-    }
-  })
+Promise.all([load(CONFIG), read({ from: 'HEAD~1' })]).then(tasks => {
+  const [{ rules, parserPreset }, [commit]] = tasks
+  console.log(333, commit)
+  return lint(commit, rules,
+    parserPreset ? { parserOpts: parserPreset.parserOpts } : {})
+}).then(result => {
+  if (!result.valid) {
+    console.log(555, result, formatResult(result))
+    throw new Error()
+  }
+}).catch(err => {
+  console.log(444)
+  throw err
+})
