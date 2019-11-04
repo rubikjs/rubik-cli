@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 'use strict'
 
-// const { formatResult } = require('@commitlint/format')
+const { formatResult } = require('@commitlint/format')
 const load = require('@commitlint/load')
 const lint = require('@commitlint/lint')
 const read = require('@commitlint/read')
@@ -22,4 +22,9 @@ Promise.all([load(CONFIG), read({ from: 'HEAD~1' })])
     console.log(333, commit)
     return lint(commit, rules, parserPreset ? { parserOpts: parserPreset.parserOpts } : {})
   })
-  .then(result => console.log(result))
+  .then(result => {
+    if (!result.valid) {
+      console.log(result, formatResult(result))
+      throw new Error()
+    }
+  })
