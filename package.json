@@ -108,7 +108,8 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+      "commit-msg": "node bin/rubik-commit.js",
+      "commit-msg2": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "lint-staged": {
