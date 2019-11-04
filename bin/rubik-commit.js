@@ -16,9 +16,10 @@ const CONFIG = {
 //   console.log(report, formatResult(report))
 //   results.forEach(v => console.log(v))
 // })
-Promise.all([load(CONFIG), read({ from: 'HEAD~1' })])
+Promise.all([load(CONFIG), read({ from: 'HEAD' })])
   .then(tasks => {
     const [{ rules, parserPreset }, [commit]] = tasks
+    console.log(333, commit)
     return lint(commit, rules, parserPreset ? { parserOpts: parserPreset.parserOpts } : {})
   })
   .then(result => console.log(result))
