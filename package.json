@@ -7,7 +7,7 @@
   },
   "scripts": {
     "lint": "eslint --fix -f friendly .",
-    "commit": "git add . && git-cz",
+    "commit": "git-cz",
     "test": "yarn lint && jest"
   },
   "keywords": [

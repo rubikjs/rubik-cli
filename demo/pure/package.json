@@ -10,7 +10,6 @@
     "start": "yarn run rubik serve",
     "start-qa": "yarn run rubik serve --mode qa",
     "lint": "yarn run rubik lint",
-    "commitlint": "cross-env DEBUG=common-bin yarn run rubik commit",
     "rubik": "node ../../bin/rubik.js"
   },
   "keywords": [
@@ -37,7 +36,7 @@
       "pre-commit": "lint-staged",
       "post-merge": "rubik check-package",
       "post-checkout": "rubik check-package",
-      "commit-msg": "rubik commit"
+      "commit-msg": "rubik commitlint"
     }
   },
   "lint-staged": {
