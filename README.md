@@ -3,7 +3,7 @@
 </p>
 <h1 align="center"> rubik </h1>
 <p align="center">
-  <b >Only one command for web app development with Pure/Vue/React or javascript libraries.</b>
+  <b >Only one command for web app development with Pure|Vue|React or javascript libraries.</b>
 </p>
 
 <br>
@@ -29,20 +29,17 @@ or
 $ npx create-rubik-app my-app --repo git@xxx/xxx.git
 ```
 
-## CLI Features
-- Plugin support
-
-
 ## APP Features
 
-- Only One structure in pure/vue/react/library development
-- Multiple pages app support (html-webpack-plugin)
-- Library development support (webpack-author-libraries)
-- Hot reload (webpack-dev-server)
-- Data Mock (webpack-dev-server)
-- Code style lint(![code style standard](https://img.shields.io/badge/code%20style-standard-sucess))
-- Auto re-install dependencies after `git commit/merge` if needed 
-- More
+- [x] Same structure in all `pure|vue|react|library` development
+- [x] Multiple pages app support
+- [x] Library development support
+- [x] Hot reload
+- [x] Data Mock
+- [x] Auto re-install dependencies after `git commit/merge` if needed 
+- [x] Es lint
+- [x] Commit lint
+- [ ] CSS lint
 
 
 ## App Structure
@@ -177,8 +174,15 @@ module.exports = {
 
 ```
 
+## Custom Commitlint
+`commitlint.config.js`
+```
+module.exports = { extends: ['@commitlint/config-angular'] }
 
-## Plugin
+```
+
+
+## CLI Plugin
 A plugin is a npm package with follow features:
 - The name must like `rubik-cli-plugin-<command-name>`
 - Need export a sub class of [common-bin](https://github.com/node-modules/common-bin)
@@ -206,6 +210,3 @@ plugins: [{
     }
   }]
 ```
-
-## Todo
-- [ ] App Commit lint
