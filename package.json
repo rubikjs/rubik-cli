@@ -1,6 +1,6 @@
 {
   "name": "rubik-cli",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "description": "Only one command for web app development with Pure/Vue/React or javascript libraries.",
   "bin": {
     "rubik": "bin/rubik.js"
@@ -8,7 +8,8 @@
   "scripts": {
     "lint": "eslint --fix -f friendly .",
     "commit": "git-cz",
-    "test": "yarn lint && jest"
+    "test": "yarn lint && jest",
+    "release": "standard-version"
   },
   "keywords": [
     "vue",
@@ -116,11 +117,12 @@
     ]
   },
   "devDependencies": {
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "3.0.2",
     "husky": "^3.0.1",
     "jest": "^24.9.0",
     "lint-staged": "^9.2.0",
-    "commitizen": "^4.0.3",
-    "cz-conventional-changelog": "3.0.2"
+    "standard-version": "^7.0.0"
   },
   "config": {
     "commitizen": {
