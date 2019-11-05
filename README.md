@@ -39,7 +39,7 @@ $ npx create-rubik-app my-app --repo git@xxx/xxx.git
 - [x] Auto re-install dependencies after `git commit/merge` if needed 
 - [x] Es lint
 - [x] Commit lint
-- [ ] CSS lint
+- [ ] Style lint
 
 
 ## App Structure
@@ -69,6 +69,7 @@ $ npx create-rubik-app my-app --repo git@xxx/xxx.git
 ├── rubik.config.js (optional)
 ├── webpack.config.js (optional)
 ├── .eslintrc.js (optional)
+├── commitlint.config.js (optional)
 │
 
 ```
@@ -88,6 +89,7 @@ $ npx create-rubik-app my-app --repo git@xxx/xxx.git
 ├── rubik.config.js (optional)
 ├── webpack.config.js (optional)
 ├── .eslintrc.js (optional)
+├── commitlint.config.js (optional)
 │
 
 ```

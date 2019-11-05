@@ -2,8 +2,9 @@ const path = require('path')
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const StylelintPlugin = require('stylelint-webpack-plugin')
 const formatter = require('eslint-formatter-friendly')
-const { config, srcDir, staticDir, rootDir, eslintCLIEngineConfig } = require('../config')
+const { config, srcDir, staticDir, rootDir, eslintCLIEngineConfig, stylelintConfig } = require('../config')
 
 const isDevMode = process.env.NODE_ENV === 'development'
 const isNoHash = process.env.NO_HASH_ENV === 'true'
@@ -14,6 +15,13 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+    }),
+    new StylelintPlugin({
+      config: stylelintConfig,
+      context: srcDir,
+      files: '!(static)/**/*.{scss,sass,css,html,vue}',
+      syntax: 'scss',
+      fix: true
     }),
     new VueLoaderPlugin()
   ],
