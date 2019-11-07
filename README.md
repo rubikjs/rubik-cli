@@ -37,9 +37,9 @@ $ npx create-rubik-app my-app --repo git@xxx/xxx.git
 - [x] Hot reload
 - [x] Data Mock
 - [x] Auto re-install dependencies after `git commit/merge` if needed 
-- [x] Es lint
-- [x] Commit lint
-- [ ] Style lint
+- [x] [Es lint](https://github.com/eslint/eslint)
+- [x] [Style lint](https://github.com/stylelint/stylelint)
+- [x] [Commit lint](https://github.com/conventional-changelog/commitlint)
 
 
 ## App Structure
@@ -69,6 +69,7 @@ $ npx create-rubik-app my-app --repo git@xxx/xxx.git
 ├── rubik.config.js (optional)
 ├── webpack.config.js (optional)
 ├── .eslintrc.js (optional)
+├── .stylelintrc.js (optional)
 ├── commitlint.config.js (optional)
 │
 
@@ -89,6 +90,7 @@ $ npx create-rubik-app my-app --repo git@xxx/xxx.git
 ├── rubik.config.js (optional)
 ├── webpack.config.js (optional)
 ├── .eslintrc.js (optional)
+├── .stylelintrc.js (optional)
 ├── commitlint.config.js (optional)
 │
 
@@ -156,6 +158,15 @@ switch(MODE){ // eslint-disable-line no-undef
 
 ```
 
+## Custom Webpack
+`webpack.config.js`
+```
+module.exports = {
+  resolve: { alias: { vue: 'vue/dist/vue.esm.js' } }
+}
+
+```
+
 ## Custom Eslint
 `.eslintrc.js`
 ```
@@ -167,11 +178,16 @@ module.exports = {
 
 ```
 
-## Custom Webpack Config
-`webpack.config.js`
+## Custom Stylelint
+`.stylelintrc.js`
 ```
 module.exports = {
-  resolve: { alias: { vue: 'vue/dist/vue.esm.js' } }
+  rules: {
+    'max-nesting-depth': 4,
+    'selector-max-type': 2,
+    'selector-max-class': 3,
+    'selector-max-id': 1
+  }
 }
 
 ```

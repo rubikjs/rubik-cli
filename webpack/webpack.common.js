@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const StylelintPlugin = require('stylelint-webpack-plugin')
 const formatter = require('eslint-formatter-friendly')
+const stylelintFormatter = require('stylelint-formatter-pretty')
 const { config, srcDir, staticDir, rootDir, eslintCLIEngineConfig, stylelintConfig } = require('../config')
 
 const isDevMode = process.env.NODE_ENV === 'development'
@@ -19,8 +20,9 @@ module.exports = {
     new StylelintPlugin({
       config: stylelintConfig,
       context: srcDir,
-      files: '!(static)/**/*.{scss,sass,css,html,vue}',
-      syntax: 'scss',
+      files: '**/*.{scss,sass,css,less,html,vue}',
+      ignorePattern: 'static',
+      formatter: stylelintFormatter,
       fix: true
     }),
     new VueLoaderPlugin()

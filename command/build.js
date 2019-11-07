@@ -42,7 +42,7 @@ class BuildCommand extends RubikCommand {
   }
 
   get description () {
-    return 'Build'
+    return 'Build.'
   }
 }
 

@@ -9,6 +9,7 @@
     "build": "yarn run rubik build",
     "start": "yarn run rubik serve",
     "lint": "yarn run rubik lint",
+    "stylelint": "yarn run rubik stylelint",
     "rubik": "node ../../bin/rubik.js"
   },
   "author": "",

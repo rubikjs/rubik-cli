@@ -1,0 +1,30 @@
+$color: red;
+
+@mixin color {
+  margin: 0 auto;
+  color: $color;
+}
+
+div {
+  div {
+    div {
+      div {
+        div {
+          div {
+            color: $color;
+          }
+        }
+      }
+    }
+  }
+}
+
+.insert {
+  display: block
+}
+
+.alter:after {color: red; content: 'example'}
+
+.delete div div div div div div div div {
+  display: block;;
+}

@@ -1,7 +1,17 @@
 module.exports = {
-  processors: ['@mapbox/stylelint-processor-arbitrary-tags'],
-  extends: 'stylelint-config-standard',
+  plugins: [
+    'stylelint-scss'
+  ],
+  extends: [
+    'stylelint-config-standard',
+    'stylelint-prettier/recommended'
+  ],
   rules: {
-    'no-empty-source': null
+    'at-rule-no-unknown': null,
+    'scss/at-rule-no-unknown': true,
+    'max-nesting-depth': 4,
+    'selector-max-type': 2,
+    'selector-max-class': 3,
+    'selector-max-id': 1
   }
 }

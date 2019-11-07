@@ -1,5 +1,6 @@
 const path = require('path')
 const fs = require('fs')
+const merge = require('webpack-merge')
 const pkg = require('../package.json')
 const defaultConfig = require('./config')
 const defaultEslintConfig = require('./eslint')
@@ -14,13 +15,13 @@ const customPkgPath = path.resolve(rootDir, './package.json')
 const customCommitLintPath = path.resolve(rootDir, './commitlint.config.js')
 const customConfig = fs.existsSync(customPath) ? require(customPath) : {}
 const customEslintConfig = fs.existsSync(customEslintPath) ? require(customEslintPath) : {}
-const customStylelintConfig = fs.existsSync(customStylelintPath) ? require(customEslintPath) : {}
+const customStylelintConfig = fs.existsSync(customStylelintPath) ? require(customStylelintPath) : {}
 const customPkg = fs.existsSync(customPkgPath) ? require(customPkgPath) : {}
 const customCommitLintConfig = fs.existsSync(customCommitLintPath) ? require(customCommitLintPath) : {}
-const config = Object.assign(defaultConfig, customConfig)
-const eslintConfig = Object.assign(defaultEslintConfig, customEslintConfig)
-const stylelintConfig = Object.assign(defaultStylelintConfig, customStylelintConfig)
-const commitLintConfig = Object.assign(defaultCommitLintConfig, customCommitLintConfig)
+const config = merge(defaultConfig, customConfig)
+const eslintConfig = merge(defaultEslintConfig, customEslintConfig)
+const stylelintConfig = merge(defaultStylelintConfig, customStylelintConfig)
+const commitLintConfig = merge(defaultCommitLintConfig, customCommitLintConfig)
 const srcDir = path.resolve(rootDir, './src')
 const mockDir = path.resolve(rootDir, './mock')
 const pageDir = path.resolve(srcDir, './page')
@@ -31,7 +32,6 @@ const eslintCLIEngineConfig = {
   fix: true,
   extensions: ['.js', '.jsx', '.vue']
 }
-
 module.exports = {
   pkg,
   rootDir,
