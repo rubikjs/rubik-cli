@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.11.0](https://github.com/fancyboynet/rubik-cli/compare/v0.10.0...v0.11.0) (2019-11-07)
+
+
+### Features
+
+* add stylelint support ([4c54a9b](https://github.com/fancyboynet/rubik-cli/commit/4c54a9b13fa69db9552b08caa92aa632b57d86dd))
+* add stylelint-webpack-plugin ([964b05a](https://github.com/fancyboynet/rubik-cli/commit/964b05a48993f4c2579122fdc8367dfb43933c7b))
+
 ## [0.10.0](https://github.com/fancyboynet/rubik-cli/compare/v0.9.2...v0.10.0) (2019-11-05)
 
 
