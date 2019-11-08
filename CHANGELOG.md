@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.2](https://github.com/fancyboynet/rubik-cli/compare/v1.1.1...v1.1.2) (2019-11-08)
+
+
+### Bug Fixes
+
+* **commitlint:** fix path error ([68b505c](https://github.com/fancyboynet/rubik-cli/commit/68b505c408373c223c4f62e23aa9321d7112eb2a))
+
 ### [1.1.1](https://github.com/fancyboynet/rubik-cli/compare/v1.0.0...v1.1.1) (2019-11-08)
 
 
