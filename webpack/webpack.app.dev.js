@@ -2,11 +2,8 @@ const merge = require('webpack-merge')
 const app = require('./webpack.app.js')
 const custom = require('./webpack.custom.js')
 const webpack = require('webpack')
-const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
-const ip = require('ip')
 const { config, mockDir, distDir } = require('../config')
 const pages = require('../lib/pages')
-const host = config.host === '0.0.0.0' ? ip.address() : config.host
 
 function createDevHistoryApiFallback () {
   if (!pages || !pages.length) {
@@ -28,20 +25,7 @@ function createDevHistoryApiFallback () {
 module.exports = merge.smart(app, {
   mode: 'development',
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new FriendlyErrorsWebpackPlugin({
-      compilationSuccessInfo: {
-        messages: [`Your application is running here: http://${host}:${config.port}${config.publicPath}`]
-      },
-      onErrors: function (severity, errors) {
-        if (severity !== 'error') {
-          return
-        }
-        errors.map(v => {
-          console.log(v.message)
-        })
-      }
-    })
+    new webpack.HotModuleReplacementPlugin()
   ],
   devtool: 'inline-source-map',
   output: {

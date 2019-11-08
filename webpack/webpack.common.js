@@ -5,10 +5,13 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const StylelintPlugin = require('stylelint-webpack-plugin')
 const formatter = require('eslint-formatter-friendly')
 const stylelintFormatter = require('stylelint-formatter-pretty')
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
+const ip = require('ip')
 const { config, srcDir, staticDir, rootDir, eslintCLIEngineConfig, stylelintConfig } = require('../config')
 
 const isDevMode = process.env.NODE_ENV === 'development'
 const isNoHash = process.env.NO_HASH_ENV === 'true'
+const host = config.host === '0.0.0.0' ? ip.address() : config.host
 
 module.exports = {
   context: rootDir,
@@ -24,7 +27,20 @@ module.exports = {
       formatter: stylelintFormatter,
       fix: true
     }),
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new FriendlyErrorsWebpackPlugin({
+      compilationSuccessInfo: {
+        messages: isDevMode ? [`Your application is running here: http://${host}:${config.port}${config.publicPath}`] : ''
+      },
+      onErrors: function (severity, errors) {
+        if (severity !== 'error') {
+          return
+        }
+        errors.map(v => {
+          console.log(v.message)
+        })
+      }
+    })
   ],
   resolve: {
     modules: [path.resolve(__dirname, '../node_modules'), srcDir, 'node_modules'],

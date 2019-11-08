@@ -3,11 +3,8 @@ const merge = require('webpack-merge')
 const lib = require('./webpack.lib.js')
 const custom = require('./webpack.custom.js')
 const webpack = require('webpack')
-const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ip = require('ip')
 const { config, mockDir, distDir, rootDir } = require('../config')
-const host = config.host === '0.0.0.0' ? ip.address() : config.host
 
 module.exports = merge.smart(lib, {
   mode: 'development',
@@ -18,20 +15,7 @@ module.exports = merge.smart(lib, {
     new HtmlWebpackPlugin({
       template: path.resolve(rootDir, './demo/index.html')
     }),
-    new webpack.HotModuleReplacementPlugin(),
-    new FriendlyErrorsWebpackPlugin({
-      compilationSuccessInfo: {
-        messages: [`Your application is running here: http://${host}:${config.port}`]
-      },
-      onErrors: function (severity, errors) {
-        if (severity !== 'error') {
-          return
-        }
-        errors.map(v => {
-          console.log(v.message)
-        })
-      }
-    })
+    new webpack.HotModuleReplacementPlugin()
   ],
   devtool: 'inline-source-map',
   devServer: {

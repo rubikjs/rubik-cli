@@ -3,7 +3,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const app = require('./webpack.app.js')
 const custom = require('./webpack.custom.js')
 const { config, distDir } = require('../config')
@@ -45,16 +44,6 @@ module.exports = merge.smart(app, {
     new MiniCssExtractPlugin({
       filename: `${config.staticName}/[name].css`,
       chunkFilename: isNoHash ? `${config.staticName}/[name].css` : `${config.staticName}/[name].[chunkhash:${config.hashLength}].css`
-    }),
-    new FriendlyErrorsWebpackPlugin({
-      onErrors: function (severity, errors) {
-        if (severity !== 'error') {
-          return
-        }
-        errors.map(v => {
-          console.log(v.message)
-        })
-      }
     })
   ],
   output: {
