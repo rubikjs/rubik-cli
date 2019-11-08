@@ -16,7 +16,7 @@ class StyleLintCommand extends BaseCommand {
       globbyOptions: {
         cwd: srcDir
       },
-      files: '**/*.{scss,sass,css,less,html,vue}',
+      files: (argv._ && argv._.length) ? argv._ : '**/*.{scss,sass,css,less,html,vue}',
       ignorePattern: 'static',
       fix: argv.fix,
       formatter: stylelintFormatter

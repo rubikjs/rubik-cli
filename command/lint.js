@@ -10,13 +10,13 @@ class LintCommand extends BaseCommand {
     super(rawArgv)
   }
 
-  async run () {
+  async run ({ argv }) {
     const cli = new CLIEngine({
       ...eslintCLIEngineConfig,
       ignorePattern: ['static/**/*.*'],
       cwd: srcDir
     })
-    const report = cli.executeOnFiles([srcDir])
+    const report = cli.executeOnFiles((argv._ && argv._.length) ? argv._ : [srcDir])
     CLIEngine.outputFixes(report)
     const errorReport = CLIEngine.getErrorResults(report.results)
     console.log(formatter(errorReport))
