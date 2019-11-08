@@ -5,11 +5,11 @@
 const coffee = require('coffee')
 jest.setTimeout(30000)
 describe('commands', () => {
-  const rubik = require.resolve('../../bin/rubik.js')
+  const main = require.resolve('../../bin/main.js')
   const cwd = __dirname
   describe('stylelint', () => {
     it('should get error', done => {
-      coffee.fork(rubik, ['stylelint'], {
+      coffee.fork(main, ['stylelint'], {
         cwd
       })
         .debug()

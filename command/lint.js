@@ -1,11 +1,11 @@
 'use strict'
 
-const RubikCommand = require('../lib/rubik-command')
+const BaseCommand = require('../lib/base-command')
 const { srcDir, eslintCLIEngineConfig } = require('../config')
 const { CLIEngine } = require('eslint')
 const formatter = require('eslint-formatter-friendly')
 
-class LintCommand extends RubikCommand {
+class LintCommand extends BaseCommand {
   constructor (rawArgv) {
     super(rawArgv)
   }

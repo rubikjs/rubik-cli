@@ -1,10 +1,10 @@
 'use strict'
 
-const RubikCommand = require('../lib/rubik-command')
+const BaseCommand = require('../lib/base-command')
 const webpack = require('webpack')
 const { setProdEnv, setNoHashEnv, checkDir } = require('../lib/utils')
 
-class BuildCommand extends RubikCommand {
+class BuildCommand extends BaseCommand {
   constructor (rawArgv) {
     super(rawArgv)
     this.options = {

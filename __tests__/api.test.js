@@ -1,10 +1,10 @@
-const { Command, RubikCommand, utils } = require('../api')
+const { Command, BaseCommand, utils } = require('../api')
 describe('Api class', () => {
   it('Command class is defined', () => {
     expect(Command).toBeDefined()
   })
-  it('RubikCommand class is defined', () => {
-    expect(RubikCommand).toBeDefined()
+  it('BaseCommand class is defined', () => {
+    expect(BaseCommand).toBeDefined()
   })
 })
 

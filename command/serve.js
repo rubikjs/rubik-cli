@@ -1,11 +1,11 @@
 'use strict'
 
-const RubikCommand = require('../lib/rubik-command')
+const BaseCommand = require('../lib/base-command')
 const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
 const { setDevEnv, setNoHashEnv, checkDir, checkMock } = require('../lib/utils')
 
-class ServeCommand extends RubikCommand {
+class ServeCommand extends BaseCommand {
   constructor (rawArgv) {
     super(rawArgv)
     this.options = {

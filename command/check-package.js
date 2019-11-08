@@ -1,11 +1,11 @@
 'use strict'
 
-const RubikCommand = require('../lib/rubik-command')
+const BaseCommand = require('../lib/base-command')
 const { spawn } = require('child_process')
 const path = require('path')
 const { rootDir } = require('../config')
 
-class CheckPackageCommand extends RubikCommand {
+class CheckPackageCommand extends BaseCommand {
   constructor (rawArgv) {
     super(rawArgv)
   }

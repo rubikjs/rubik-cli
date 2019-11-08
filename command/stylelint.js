@@ -1,11 +1,11 @@
 'use strict'
 
-const RubikCommand = require('../lib/rubik-command')
+const BaseCommand = require('../lib/base-command')
 const { srcDir, stylelintConfig } = require('../config')
 const stylelint = require('stylelint')
 const stylelintFormatter = require('stylelint-formatter-pretty')
 
-class StyleLintCommand extends RubikCommand {
+class StyleLintCommand extends BaseCommand {
   constructor (rawArgv) {
     super(rawArgv)
   }

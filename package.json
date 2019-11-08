@@ -3,7 +3,7 @@
   "version": "0.11.0",
   "description": "Only one command for web app development with Pure/Vue/React or javascript libraries.",
   "bin": {
-    "rubik": "bin/rubik.js"
+    "rubik": "bin/main.js"
   },
   "scripts": {
     "lint": "eslint --fix -f friendly .",

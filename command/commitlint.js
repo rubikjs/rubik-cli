@@ -1,13 +1,13 @@
 'use strict'
 
-const RubikCommand = require('../lib/rubik-command')
+const BaseCommand = require('../lib/base-command')
 const { commitLintConfig } = require('../config')
 const { format } = require('@commitlint/format')
 const load = require('@commitlint/load')
 const lint = require('@commitlint/lint')
 const read = require('@commitlint/read')
 
-class CommitLintCommand extends RubikCommand {
+class CommitLintCommand extends BaseCommand {
   constructor (rawArgv) {
     super(rawArgv)
   }
