@@ -7,11 +7,24 @@ const formatter = require('eslint-formatter-friendly')
 const stylelintFormatter = require('stylelint-formatter-pretty')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const ip = require('ip')
-const { config, srcDir, staticDir, rootDir, eslintCLIEngineConfig, stylelintConfig } = require('../config')
+const { config, srcDir, staticDir, rootDir, eslintCLIEngineConfig, stylelintConfig } = require(
+  '../config')
 
 const isDevMode = process.env.NODE_ENV === 'development'
 const isNoHash = process.env.NO_HASH_ENV === 'true'
-const host = config.host === '0.0.0.0' ? ip.address() : config.host
+const isLocalHost = config.host === '0.0.0.0' || config.host === 'localhost'
+
+function createDevMessage () {
+  const messages = ['Application is running at']
+  const path = `:${config.port}${config.publicPath}`
+  if (isLocalHost) {
+    messages.push(`    Local: http://localhost${path}`)
+    messages.push(`    Network: http://${ip.address()}${path}`)
+  } else {
+    messages.push(`    Network: http://${config.host}${path}`)
+  }
+  return [messages.join('\n')]
+}
 
 module.exports = {
   context: rootDir,
@@ -30,7 +43,7 @@ module.exports = {
     new VueLoaderPlugin(),
     new FriendlyErrorsWebpackPlugin({
       compilationSuccessInfo: {
-        messages: isDevMode ? [`Your application is running here: http://${host}:${config.port}${config.publicPath}`] : ''
+        messages: isDevMode ? createDevMessage() : ''
       },
       onErrors: function (severity, errors) {
         if (severity !== 'error') {
@@ -43,7 +56,10 @@ module.exports = {
     })
   ],
   resolve: {
-    modules: [path.resolve(__dirname, '../node_modules'), srcDir, 'node_modules'],
+    modules: [
+      path.resolve(__dirname, '../node_modules'),
+      srcDir,
+      'node_modules'],
     extensions: ['.js', '.jsx', '.vue', '.json']
   },
   resolveLoader: {
@@ -64,7 +80,9 @@ module.exports = {
             options: {
               limit: 8192,
               context: srcDir,
-              name: isDevMode ? '[path][name].[ext]' : (isNoHash ? `${config.staticName}/[path][name].[ext]` : `${config.staticName}/[name].[hash:${config.hashLength}].[ext]`)
+              name: isDevMode ? '[path][name].[ext]' : (isNoHash
+                ? `${config.staticName}/[path][name].[ext]`
+                : `${config.staticName}/[name].[hash:${config.hashLength}].[ext]`)
             }
           }
         ]
@@ -113,13 +131,14 @@ module.exports = {
       {
         test: /\.(js|jsx|vue)$/,
         enforce: 'pre',
-        use: [{
-          loader: 'eslint-loader',
-          options: {
-            ...eslintCLIEngineConfig,
-            formatter
-          }
-        }],
+        use: [
+          {
+            loader: 'eslint-loader',
+            options: {
+              ...eslintCLIEngineConfig,
+              formatter
+            }
+          }],
         include: [
           srcDir
         ],
