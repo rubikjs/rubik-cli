@@ -15,7 +15,7 @@
   <a href="https://travis-ci.com/"><img alt="travis" src="https://travis-ci.org/rubikjs/rubik-cli.svg?branch=master"></a>
 </p>
 
-## Create Rubik App
+## Create an app
 [More about create-rubik-app](https://github.com/rubikjs/create-rubik-app)
 ```
 $ npx create-rubik-app my-app
@@ -29,7 +29,7 @@ or
 $ npx create-rubik-app my-app --repo git@xxx/xxx.git
 ```
 
-## APP Features
+## App features
 
 - [x] Same structure in all `pure|vue|react|library` development
 - [x] Multiple pages app support
@@ -42,7 +42,7 @@ $ npx create-rubik-app my-app --repo git@xxx/xxx.git
 - [x] [Commit lint](https://github.com/conventional-changelog/commitlint)
 
 
-## App Structure
+## App structure
 
 ```
 ├── src
@@ -75,7 +75,7 @@ $ npx create-rubik-app my-app --repo git@xxx/xxx.git
 
 ```
 
-## Library Structure
+## Library structure
 
 ```
 ├── demo
@@ -108,7 +108,7 @@ module.exports = function (app) {
 }
 ```
 
-## MODE
+## Mode
 The `build` and  `serve` command support the `mode` defined to distinguish different environment in the javascript if needed. 
 ```
 rubik serve // development mode
@@ -135,7 +135,7 @@ switch(MODE){ // eslint-disable-line no-undef
 }
 ```
 
-## Custom Config
+## Custom config
 `rubik.config.js`
 ```
 {
@@ -149,7 +149,6 @@ switch(MODE){ // eslint-disable-line no-undef
   "vendor": [],
   "host": "0.0.0.0",
   "port": 8081,
-  "openStandardJs": true,
   "pageTemplateWithoutHtmlLoader": false,
   "reInstallOnPkgChange": true,
   "notReInstallOnPkgChangeFeatures": [],
@@ -158,7 +157,7 @@ switch(MODE){ // eslint-disable-line no-undef
 
 ```
 
-## Custom Webpack
+## Custom webpack
 `webpack.config.js`
 ```
 module.exports = {
@@ -167,7 +166,7 @@ module.exports = {
 
 ```
 
-## Custom Eslint
+## Custom eslint
 `.eslintrc.js`
 ```
 module.exports = {
@@ -178,7 +177,7 @@ module.exports = {
 
 ```
 
-## Custom Stylelint
+## Custom stylelint
 `.stylelintrc.js`
 ```
 module.exports = {
@@ -192,7 +191,7 @@ module.exports = {
 
 ```
 
-## Custom Commitlint
+## Custom commitlint
 `commitlint.config.js`
 ```
 module.exports = { extends: ['@commitlint/config-angular'] }
@@ -200,7 +199,7 @@ module.exports = { extends: ['@commitlint/config-angular'] }
 ```
 
 
-## CLI Plugin
+## CLI plugin
 A plugin is a npm package with follow features:
 - The name must like `rubik-cli-plugin-<command-name>`
 - Need export a sub class of [common-bin](https://github.com/node-modules/common-bin)

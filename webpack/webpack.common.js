@@ -9,7 +9,6 @@ const { config, srcDir, staticDir, rootDir, eslintCLIEngineConfig, stylelintConf
 
 const isDevMode = process.env.NODE_ENV === 'development'
 const isNoHash = process.env.NO_HASH_ENV === 'true'
-const needEslint = config.openStandardJs
 
 module.exports = {
   context: rootDir,
@@ -98,13 +97,13 @@ module.exports = {
       {
         test: /\.(js|jsx|vue)$/,
         enforce: 'pre',
-        use: needEslint ? [{
+        use: [{
           loader: 'eslint-loader',
           options: {
             ...eslintCLIEngineConfig,
             formatter
           }
-        }] : [],
+        }],
         include: [
           srcDir
         ],

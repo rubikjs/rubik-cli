@@ -9,7 +9,6 @@ module.exports = {
   vendor: [],
   host: '0.0.0.0',
   port: 8081,
-  openStandardJs: true,
   pageTemplateWithoutHtmlLoader: false,
   reInstallOnPkgChange: true,
   notReInstallOnPkgChangeFeatures: [],
