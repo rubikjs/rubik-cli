@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0](https://github.com/fancyboynet/rubik-cli/compare/v0.11.0...v1.0.0) (2019-11-08)
+
+
+### Bug Fixes
+
+* fix the repeat prefix log in check-package command ([28f4914](https://github.com/fancyboynet/rubik-cli/commit/28f49148b3919cfb0990bf5f5f35a3e1018b0b48))
+
 ## [0.11.0](https://github.com/fancyboynet/rubik-cli/compare/v0.10.0...v0.11.0) (2019-11-07)
 
 
