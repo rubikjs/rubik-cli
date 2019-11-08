@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.1](https://github.com/fancyboynet/rubik-cli/compare/v1.0.0...v1.1.1) (2019-11-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* **config:** delete the openStandardJs config
+
+* **config:** remove the openStandardJs config ([e8429ae](https://github.com/fancyboynet/rubik-cli/commit/e8429ae32ee0d38a718dc2b5104852beb3b6eff4))
+
 ## [1.0.0](https://github.com/fancyboynet/rubik-cli/compare/v0.11.0...v1.0.0) (2019-11-08)
 
 
