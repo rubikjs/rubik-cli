@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "rubik": "node ../../bin/rubik.js"
+    "cli": "node ../../bin/main.js"
   },
   "author": "",
   "license": "ISC",

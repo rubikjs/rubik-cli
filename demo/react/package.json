@@ -1,15 +1,15 @@
 {
-  "name": "rubik-react",
+  "name": "cli-react",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build-cdn": "cross-env CDN_ENV=true yarn run rubik build",
-    "build-no-hash": "cross-env NO_HASH_ENV=true yarn run rubik build",
-    "build": "yarn run rubik build",
-    "start": "yarn run rubik serve",
-    "lint": "yarn run rubik lint",
-    "rubik": "node ../../bin/rubik.js"
+    "build-cdn": "cross-env CDN_ENV=true yarn run cli build",
+    "build-no-hash": "cross-env NO_HASH_ENV=true yarn run cli build",
+    "build": "yarn run cli build",
+    "start": "yarn run cli serve",
+    "lint": "yarn run cli lint",
+    "cli": "node ../../bin/main.js"
   },
   "author": "",
   "license": "ISC",

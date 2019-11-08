@@ -3,10 +3,10 @@
   "version": "0.0.1",
   "description": "",
   "scripts": {
-    "build": "yarn run rubik build --lib",
-    "start": "yarn run rubik serve --lib",
-    "lint": "yarn run rubik lint",
-    "rubik": "node ../../bin/rubik.js"
+    "build": "yarn run cli build --lib",
+    "start": "yarn run cli serve --lib",
+    "lint": "yarn run cli lint",
+    "cli": "node ../../bin/main.js"
   },
   "keywords": [],
   "author": "Fancy <fancyboynet@gmail.com>",
@@ -22,13 +22,13 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "post-merge": "rubik check-package",
-      "post-checkout": "rubik check-package"
+      "post-merge": "cli check-package",
+      "post-checkout": "cli check-package"
     }
   },
   "lint-staged": {
     "src/**/*.{js,jsx,vue}": [
-      "yarn run rubik lint",
+      "yarn run cli lint",
       "git add"
     ]
   }

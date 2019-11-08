@@ -1,17 +1,17 @@
 {
-  "name": "rubik-pure-scaffold",
+  "name": "cli-pure-scaffold",
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build-cdn": "cross-env CDN_ENV=true yarn run rubik build",
-    "build-no-hash": "cross-env NO_HASH_ENV=true yarn run rubik build",
-    "build-qa": "yarn run rubik build --mode qa",
-    "build": "yarn run rubik build",
-    "start": "yarn run rubik serve",
-    "start-qa": "yarn run rubik serve --mode qa",
-    "stylelint": "yarn run rubik stylelint --fix",
-    "lint": "yarn run rubik lint",
-    "rubik": "node ../../bin/rubik.js"
+    "build-cdn": "cross-env CDN_ENV=true yarn run cli build",
+    "build-no-hash": "cross-env NO_HASH_ENV=true yarn run cli build",
+    "build-qa": "yarn run cli build --mode qa",
+    "build": "yarn run cli build",
+    "start": "yarn run cli serve",
+    "start-qa": "yarn run cli serve --mode qa",
+    "stylelint": "yarn run cli stylelint --fix",
+    "lint": "yarn run cli lint",
+    "cli": "node ../../bin/main.js"
   },
   "keywords": [
     "webpack",
@@ -36,14 +36,14 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "post-merge": "rubik check-package",
-      "post-checkout": "rubik check-package",
-      "commit-msg": "rubik commitlint"
+      "post-merge": "cli check-package",
+      "post-checkout": "cli check-package",
+      "commit-msg": "cli commitlint"
     }
   },
   "lint-staged": {
     "src/**/*.js": [
-      "yarn run rubik lint",
+      "yarn run cli lint",
       "git add"
     ]
   }
