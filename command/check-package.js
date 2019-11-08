@@ -4,7 +4,6 @@ const RubikCommand = require('../lib/rubik-command')
 const { spawn } = require('child_process')
 const path = require('path')
 const { rootDir } = require('../config')
-const { log } = require('../lib/utils')
 
 class CheckPackageCommand extends RubikCommand {
   constructor (rawArgv) {
@@ -16,7 +15,7 @@ class CheckPackageCommand extends RubikCommand {
       cwd: rootDir
     })
     child.stdout.on('data', function (data) {
-      log.info(data.toString())
+      console.log(data.toString())
     })
   }
 
