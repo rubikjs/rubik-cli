@@ -16,7 +16,7 @@ class LintCommand extends BaseCommand {
       ignorePattern: ['static/**/*.*'],
       cwd: srcDir
     })
-    const report = cli.executeOnFiles((argv._ && argv._.length) ? argv._ : [srcDir])
+    const report = cli.executeOnFiles(argv._ || [srcDir])
     CLIEngine.outputFixes(report)
     const errorReport = CLIEngine.getErrorResults(report.results)
     console.log(formatter(errorReport))
