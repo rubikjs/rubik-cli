@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.3](https://github.com/fancyboynet/rubik-cli/compare/v1.1.2...v1.1.3) (2019-11-11)
+
+
+### Bug Fixes
+
+* **lint:** fix stylelint usaged in lint-staged ([488ed92](https://github.com/fancyboynet/rubik-cli/commit/488ed92037853c346b04e01508529b87328137be))
+
 ### [1.1.2](https://github.com/fancyboynet/rubik-cli/compare/v1.1.1...v1.1.2) (2019-11-08)
 
 
