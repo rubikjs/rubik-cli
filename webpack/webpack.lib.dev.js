@@ -20,6 +20,7 @@ module.exports = merge.smart(lib, {
   devtool: 'inline-source-map',
   devServer: {
     contentBase: [mockDir, distDir],
+    watchContentBase: true,
     hot: true,
     host: config.host,
     port: config.port,

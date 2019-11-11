@@ -35,7 +35,8 @@ module.exports = merge.smart(app, {
     path: distDir
   },
   devServer: {
-    contentBase: [mockDir, distDir],
+    contentBase: [mockDir],
+    watchContentBase: true,
     hot: true,
     host: config.host,
     port: config.port,
