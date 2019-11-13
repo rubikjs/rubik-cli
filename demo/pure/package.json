@@ -9,8 +9,8 @@
     "build": "yarn run cli build",
     "start": "yarn run cli serve",
     "start-qa": "yarn run cli serve --mode qa",
-    "stylelint": "yarn run cli stylelint --fix",
-    "lint": "yarn run cli lint",
+    "stylelint": "cross-env DEBUG=rubik yarn run cli stylelint --fix",
+    "lint": "cross-env DEBUG=common-bin,rubik yarn run cli lint",
     "cli": "node ../../bin/main.js"
   },
   "keywords": [
