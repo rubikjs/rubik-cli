@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/fancyboynet/rubik-cli/compare/v1.1.5...v1.2.0) (2019-11-13)
+
+
+### Features
+
+* **debug:** import debug module ([03b240b](https://github.com/fancyboynet/rubik-cli/commit/03b240b4661b8b9584545837e2ac2951d4c02e7f))
+
 ### [1.1.5](https://github.com/fancyboynet/rubik-cli/compare/v1.1.4...v1.1.5) (2019-11-11)
 
 ### [1.1.4](https://github.com/fancyboynet/rubik-cli/compare/v1.1.3...v1.1.4) (2019-11-11)
