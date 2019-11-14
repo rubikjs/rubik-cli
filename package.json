@@ -7,8 +7,9 @@
   },
   "scripts": {
     "lint": "eslint --fix -f friendly .",
-    "commit": "git-cz",
+    "commit": "yarn lint && git-cz",
     "test": "yarn lint && jest",
+    "test:utils": "cross-env DEBUG=rubik jest __tests__/utils.test.js",
     "release": "standard-version"
   },
   "keywords": [
