@@ -1,6 +1,6 @@
 const { config } = require('../config')
 const shell = require('shelljs')
-const { log, isYarn } = require('../lib/utils')
+const { log, isYarn, debug } = require('../lib/utils')
 if (!config.reInstallOnPkgChange) {
   shell.exit(0)
 }
@@ -16,13 +16,15 @@ if (Array.isArray(notReInstallOnPkgChangeFeatures) && notReInstallOnPkgChangeFea
   shell.exit(0)
 }
 const targetFiles = ['package.json']
+const changedFiles = stdout.split('\n')
 const noTargetChange = targetFiles.every((file) => {
-  return stdout.indexOf(file) === -1
+  return changedFiles.indexOf(file) === -1
 })
 if (noTargetChange) {
   log.info('The package.json file is not change.')
   shell.exit(0)
 }
 log.info('The package.json file has been changed, it will auto reinstall now.')
+debug('isYarn', isYarn())
 shell.exec(isYarn() ? 'yarn' : 'npm i')
 shell.exit(0)

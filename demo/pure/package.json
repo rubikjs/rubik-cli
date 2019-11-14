@@ -11,7 +11,7 @@
     "start-qa": "yarn run cli serve --mode qa",
     "stylelint": "cross-env DEBUG=rubik yarn run cli stylelint --fix",
     "lint": "cross-env DEBUG=common-bin,rubik yarn run cli lint",
-    "check-package": "yarn run cli check-package",
+    "check-package": "cross-env DEBUG=rubik yarn run cli check-package",
     "cli": "node ../../bin/main.js"
   },
   "keywords": [
