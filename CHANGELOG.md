@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.5](https://github.com/fancyboynet/rubik-cli/compare/v1.2.4...v1.2.5) (2019-11-14)
+
+
+### Bug Fixes
+
+* **check-package:** fix the wrong file map ([62d8811](https://github.com/fancyboynet/rubik-cli/commit/62d881184349471810b85137b26b841324602c93))
+
 ### [1.2.4](https://github.com/fancyboynet/rubik-cli/compare/v1.2.3...v1.2.4) (2019-11-13)
 
 ### [1.2.3](https://github.com/fancyboynet/rubik-cli/compare/v1.2.2...v1.2.3) (2019-11-13)
