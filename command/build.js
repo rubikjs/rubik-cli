@@ -43,6 +43,10 @@ class BuildCommand extends BaseCommand {
   get description () {
     return 'Build.'
   }
+
+  fetchLatestVersion () {
+    // ignore fetch latest version
+  }
 }
 
 module.exports = BuildCommand
