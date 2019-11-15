@@ -6,6 +6,8 @@ const merge = require('webpack-merge')
 const common = require('./webpack.common.js')
 const { config, pageDir, staticDir } = require('../config')
 const pages = require('../lib/pages')
+const { getPageEntry } = require('../lib/utils')
+
 const isDevMode = process.env.NODE_ENV === 'development'
 const hasStaticRoot = fs.existsSync(staticDir)
 const entry = {}
@@ -17,7 +19,7 @@ if (config.vendor.length) {
 
 // 遍历pages目录
 pages.map((v) => {
-  entry[v] = path.join(pageDir, `${v}/index.js`)
+  entry[v] = getPageEntry(v)
   plugins.push(new HtmlWebpackPlugin({
     publicPath: true,
     chunks: ['runtime', 'vendor', v],

@@ -10,7 +10,7 @@
     "commit": "yarn lint && git-cz",
     "test": "yarn lint && jest",
     "test:utils": "cross-env DEBUG=rubik jest __tests__/utils.test.js",
-    "release": "standard-version"
+    "release": "yarn test && standard-version"
   },
   "keywords": [
     "vue",
@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.7.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/plugin-transform-runtime": "^7.5.5",

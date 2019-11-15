@@ -3,6 +3,11 @@ import logo from './logo.svg'
 import './app.css'
 
 class App extends Component {
+  state = {
+    type: '',
+    action: ''
+  }
+
   render () {
     return (
       <div className='App'>
