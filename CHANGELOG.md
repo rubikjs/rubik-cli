@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/fancyboynet/rubik-cli/compare/v1.2.6...v1.3.0) (2019-11-15)
+
+
+### Features
+
+* **react:** improve the react support ([7590cb9](https://github.com/fancyboynet/rubik-cli/commit/7590cb996202296bd06532753e023e912a1e1ab8))
+
 ### [1.2.6](https://github.com/fancyboynet/rubik-cli/compare/v1.2.5...v1.2.6) (2019-11-14)
 
 ### [1.2.5](https://github.com/fancyboynet/rubik-cli/compare/v1.2.4...v1.2.5) (2019-11-14)
