@@ -1,7 +1,7 @@
 'use strict'
 
 const BaseCommand = require('../lib/base-command')
-const { srcDir, eslintCLIEngineConfig } = require('../config')
+const { rootDir, srcDir, eslintCLIEngineConfig } = require('../config')
 const { CLIEngine } = require('eslint')
 const formatter = require('eslint-formatter-friendly')
 
@@ -14,9 +14,10 @@ class LintCommand extends BaseCommand {
     const cli = new CLIEngine({
       ...eslintCLIEngineConfig,
       ignorePattern: ['static/**/*.*'],
-      cwd: srcDir
+      cwd: argv._.length ? rootDir : srcDir,
+      fix: argv.fix
     })
-    const report = cli.executeOnFiles(argv._ || [srcDir])
+    const report = cli.executeOnFiles(argv._.length ? argv._ : [srcDir])
     CLIEngine.outputFixes(report)
     const errorReport = CLIEngine.getErrorResults(report.results)
     console.log(formatter(errorReport))

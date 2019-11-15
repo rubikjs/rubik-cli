@@ -17,4 +17,14 @@ describe('commands', () => {
         .end(done)
     })
   })
+  describe('lint', () => {
+    it('should get error', done => {
+      coffee.fork(main, ['lint'], {
+        cwd
+      })
+        .debug()
+        .expect('code', 1)
+        .end(done)
+    })
+  })
 })

@@ -10,6 +10,7 @@
     "commit": "yarn lint && git-cz",
     "test": "yarn lint && jest",
     "test:utils": "cross-env DEBUG=rubik jest __tests__/utils.test.js",
+    "test:command": "cross-env DEBUG=rubik jest __tests__/app/command.test.js",
     "release": "yarn test && standard-version"
   },
   "keywords": [

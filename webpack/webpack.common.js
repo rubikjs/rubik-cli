@@ -44,14 +44,6 @@ module.exports = {
     new FriendlyErrorsWebpackPlugin({
       compilationSuccessInfo: {
         messages: isDevMode ? createDevMessage() : ''
-      },
-      onErrors: function (severity, errors) {
-        if (severity !== 'error') {
-          return
-        }
-        errors.map(v => {
-          console.log(v.message)
-        })
       }
     })
   ],
