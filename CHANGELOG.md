@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.1](https://github.com/fancyboynet/rubik-cli/compare/v1.3.0...v1.3.1) (2019-11-15)
+
+
+### Bug Fixes
+
+* **lint:** fix repeat message in webpack mode ([2816ad0](https://github.com/fancyboynet/rubik-cli/commit/2816ad00606f9fb2d013e2d719d333685f68b1e8))
+
 ## [1.3.0](https://github.com/fancyboynet/rubik-cli/compare/v1.2.6...v1.3.0) (2019-11-15)
 
 
