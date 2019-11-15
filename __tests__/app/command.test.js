@@ -9,7 +9,7 @@ describe('commands', () => {
   const cwd = __dirname
   describe('stylelint', () => {
     it('should get error', done => {
-      coffee.fork(main, ['stylelint'], {
+      coffee.fork(main, ['stylelint', '--ignore-version', '--quiet'], {
         cwd
       })
         .debug()
@@ -19,7 +19,7 @@ describe('commands', () => {
   })
   describe('lint', () => {
     it('should get error', done => {
-      coffee.fork(main, ['lint'], {
+      coffee.fork(main, ['lint', '--ignore-version', '--quiet'], {
         cwd
       })
         .debug()

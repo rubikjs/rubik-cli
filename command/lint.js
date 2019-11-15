@@ -8,6 +8,18 @@ const formatter = require('eslint-formatter-friendly')
 class LintCommand extends BaseCommand {
   constructor (rawArgv) {
     super(rawArgv)
+    this.options = {
+      fix: {
+        type: 'boolean',
+        default: false,
+        description: 'Automatically fix problems'
+      },
+      quiet: {
+        type: 'boolean',
+        default: false,
+        description: 'Whether not output the console verbose'
+      }
+    }
   }
 
   async run ({ argv }) {
@@ -20,7 +32,9 @@ class LintCommand extends BaseCommand {
     const report = cli.executeOnFiles(argv._.length ? argv._ : [srcDir])
     CLIEngine.outputFixes(report)
     const errorReport = CLIEngine.getErrorResults(report.results)
-    console.log(formatter(errorReport))
+    if (!argv.quiet) {
+      console.log(formatter(errorReport))
+    }
     if (errorReport.length) {
       process.exit(1)
     }
