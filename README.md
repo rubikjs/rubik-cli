@@ -3,7 +3,7 @@
 </p>
 <h1 align="center"> rubik </h1>
 <p align="center">
-  <b >Only one command for web app development with Pure|Vue|React or javascript libraries.</b>
+  <b >Only one command and one structure for web development with Pure|Vue|React|Electron|Libraries</b>
 </p>
 
 <br>
@@ -31,7 +31,7 @@ $ npx create-rubik-app my-app --repo git@xxx/xxx.git
 
 ## App features
 
-- [x] Same structure in all `pure|vue|react|library` development
+- [x] Same structure in all `pure|vue|react|library|electron` development
 - [x] Multiple pages app support
 - [x] Library development support
 - [x] Hot reload
