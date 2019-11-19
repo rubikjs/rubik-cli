@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.1](https://github.com/fancyboynet/rubik-cli/compare/v1.3.1...v1.4.1) (2019-11-19)
+
+
+### Bug Fixes
+
+* **stylelint:** fix webpack compile stop when no style files matched ([f113b40](https://github.com/fancyboynet/rubik-cli/commit/f113b4000777a6a9e8ce5af8ce49be909df02238))
+
 ### [1.3.1](https://github.com/fancyboynet/rubik-cli/compare/v1.3.0...v1.3.1) (2019-11-15)
 
 
