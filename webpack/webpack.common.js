@@ -96,7 +96,12 @@ module.exports = {
         use: [
           isDevMode ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
-          'less-loader'
+          {
+            loader: 'less-loader',
+            options: {
+              javascriptEnabled: true
+            }
+          }
         ]
       },
       {
