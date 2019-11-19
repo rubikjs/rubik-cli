@@ -2,12 +2,11 @@ const path = require('path')
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
-const StylelintPlugin = require('stylelint-webpack-plugin')
+const StylelintPlugin = require('./stylelint.plugin')
 const formatter = require('eslint-formatter-friendly')
-const stylelintFormatter = require('stylelint-formatter-pretty')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const ip = require('ip')
-const { config, srcDir, staticDir, rootDir, eslintCLIEngineConfig, stylelintConfig } = require(
+const { config, srcDir, staticDir, rootDir, eslintCLIEngineConfig } = require(
   '../config')
 
 const isDevMode = process.env.NODE_ENV === 'development'
@@ -32,14 +31,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     }),
-    new StylelintPlugin({
-      config: stylelintConfig,
-      context: srcDir,
-      files: '**/*.{scss,sass,css,less,html,vue}',
-      ignorePattern: 'static',
-      formatter: stylelintFormatter,
-      fix: true
-    }),
+    new StylelintPlugin(),
     new VueLoaderPlugin(),
     new FriendlyErrorsWebpackPlugin({
       compilationSuccessInfo: {

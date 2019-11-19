@@ -38,7 +38,7 @@ export default {
 </script>
 
 <style lang="scss">
-    /*路由过渡动画*/
+    /* 路由过渡动画 */
     .fade-enter-active,
     .fade-leave-active {
         transition: opacity .5s ease;

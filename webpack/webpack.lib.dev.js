@@ -4,7 +4,7 @@ const lib = require('./webpack.lib.js')
 const custom = require('./webpack.custom.js')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { config, mockDir, distDir, rootDir } = require('../config')
+const { config, mockDir, rootDir } = require('../config')
 
 module.exports = merge.smart(lib, {
   mode: 'development',
@@ -19,7 +19,7 @@ module.exports = merge.smart(lib, {
   ],
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: [mockDir, distDir],
+    contentBase: [mockDir],
     watchContentBase: true,
     hot: true,
     host: config.host,

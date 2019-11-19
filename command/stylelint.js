@@ -1,9 +1,8 @@
 'use strict'
 
 const BaseCommand = require('../lib/base-command')
-const { rootDir, srcDir, stylelintConfig } = require('../config')
-const stylelint = require('stylelint')
-const stylelintFormatter = require('stylelint-formatter-pretty')
+const { rootDir, srcDir } = require('../config')
+const { stylelint } = require('../lib/utils')
 
 class StyleLintCommand extends BaseCommand {
   constructor (rawArgv) {
@@ -13,27 +12,30 @@ class StyleLintCommand extends BaseCommand {
         type: 'boolean',
         default: false,
         description: 'Automatically fix problems'
+      },
+      quiet: {
+        type: 'boolean',
+        default: false,
+        description: 'Whether not output the console verbose'
       }
     }
   }
 
   async run ({ argv }) {
-    const result = await stylelint.lint({
-      config: stylelintConfig,
+    const result = await stylelint({
       globbyOptions: {
         cwd: argv._.length ? rootDir : srcDir
       },
       files: argv._.length ? argv._ : '**/*.{scss,sass,css,less,html,vue}',
-      ignorePattern: 'static',
-      fix: argv.fix,
-      formatter: stylelintFormatter
-    }).then((resultObject) => {
-      return resultObject
-    }).catch((err) => {
-      console.error(err.stack)
-      process.exit(1)
+      fix: argv.fix
     })
+    if (!result) {
+      process.exit(1)
+    }
     if (result.errored) {
+      if (!argv.quiet) {
+        console.log(result.output)
+      }
       process.exit(1)
     }
   }

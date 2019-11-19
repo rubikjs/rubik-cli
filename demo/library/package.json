@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "",
   "scripts": {
-    "build": "yarn run cli build --lib",
+    "build": "cross-env DEBUG=common-bin yarn run cli build --lib",
     "start": "yarn run cli serve --lib",
     "lint": "yarn run cli lint",
     "cli": "node ../../bin/main.js"
