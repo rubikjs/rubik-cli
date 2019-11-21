@@ -8,6 +8,9 @@ const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const ip = require('ip')
 const { config, srcDir, staticDir, rootDir, eslintCLIEngineConfig } = require(
   '../config')
+const { getLatestVersion, hasNewVersion } = require('../lib/utils')
+const chalk = require('chalk')
+const emoji = require('node-emoji')
 
 const isDevMode = process.env.NODE_ENV === 'development'
 const isNoHash = process.env.NO_HASH_ENV === 'true'
@@ -21,6 +24,9 @@ function createDevMessage () {
     messages.push(`    Network: http://${ip.address()}${path}`)
   } else {
     messages.push(`    Network: http://${config.host}${path}`)
+  }
+  if (hasNewVersion()) {
+    messages.push(`    ${chalk.red(emoji.get('heart'))} Tips: The version ${chalk.red('v' + getLatestVersion())} is available now.`)
   }
   return [messages.join('\n')]
 }
