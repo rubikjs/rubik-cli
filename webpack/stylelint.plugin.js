@@ -1,7 +1,9 @@
 const { stylelint } = require('../lib/utils')
 const pluginName = 'StylelintWebpackPlugin'
 async function lint (compilation, callback) {
-  const result = await stylelint()
+  const result = await stylelint({
+    fix: true
+  })
   callback()
   compilation.hooks.afterCompile.tapAsync(pluginName, (compilation, next) => {
     if (result && result.errored) {
