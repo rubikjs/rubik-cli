@@ -17,6 +17,7 @@ if (Array.isArray(notReInstallOnPkgChangeFeatures) && notReInstallOnPkgChangeFea
 }
 const targetFiles = ['package.json']
 const changedFiles = stdout.split('\n')
+debug('changedFiles', changedFiles)
 const noTargetChange = targetFiles.every((file) => {
   return changedFiles.indexOf(file) === -1
 })

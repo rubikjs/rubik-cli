@@ -23,8 +23,6 @@
   "license": "ISC",
   "devDependencies": {
     "cross-env": "^5.2.0",
-    "husky": "^3.0.0",
-    "lint-staged": "^9.1.0",
     "stylelint-config-recommended": "^3.0.0"
   },
   "dependencies": {
@@ -33,19 +31,5 @@
   "browserslist": [
     "> 1%",
     "last 2 versions"
-  ],
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "post-merge": "cli check-package",
-      "post-checkout": "cli check-package",
-      "commit-msg": "cli commitlint"
-    }
-  },
-  "lint-staged": {
-    "src/**/*.js": [
-      "yarn run cli lint",
-      "git add"
-    ]
-  }
+  ]
 }

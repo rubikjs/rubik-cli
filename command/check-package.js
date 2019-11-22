@@ -1,7 +1,7 @@
 'use strict'
 
 const BaseCommand = require('../lib/base-command')
-const { spawn } = require('child_process')
+const { fork } = require('child_process')
 const path = require('path')
 const { rootDir } = require('../config')
 
@@ -10,12 +10,13 @@ class CheckPackageCommand extends BaseCommand {
     super(rawArgv)
   }
 
-  async run () {
-    const child = spawn('node', [path.resolve(__dirname, '../script/check-package.js')], {
-      cwd: rootDir
+  async run ({ rawArgv }) {
+    const child = fork(path.resolve(__dirname, '../script/check-package.js'), {
+      cwd: rootDir,
+      execArgv: rawArgv
     })
-    child.stdout.on('data', function (data) {
-      console.log(data.toString())
+    child.on('message', function (msg) {
+      console.log(JSON.stringify(msg))
     })
   }
 
