@@ -39,7 +39,7 @@ class StylelintWebpackPlugin {
     } else {
       this.errorOutput = ''
     }
-    if (result.results) {
+    if (result && result.results) {
       this.updateLastErrorFiles(result.results)
     }
     if (this.isFirstRun) {
