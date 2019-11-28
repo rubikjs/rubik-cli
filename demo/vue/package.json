@@ -7,7 +7,7 @@
     "build-cdn": "cross-env CDN_ENV=true yarn run cli build",
     "build-no-hash": "cross-env NO_HASH_ENV=true yarn run cli build",
     "build": "yarn run cli build",
-    "start": "yarn run cli serve",
+    "start": "cross-env DEBUG=rubik yarn run cli serve",
     "lint": "yarn run cli lint",
     "stylelint": "yarn run cli stylelint",
     "cli": "node ../../bin/main.js"
