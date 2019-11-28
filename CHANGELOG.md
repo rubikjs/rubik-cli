@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.6](https://github.com/fancyboynet/rubik-cli/compare/v1.4.5...v1.4.6) (2019-11-28)
+
+
+### Bug Fixes
+
+* **stylelint:** fix error on the result is undefined ([a786a50](https://github.com/fancyboynet/rubik-cli/commit/a786a50343e286073e24873e586d4d9089aababa))
+
 ### [1.4.5](https://github.com/fancyboynet/rubik-cli/compare/v1.4.4...v1.4.5) (2019-11-28)
 
 
