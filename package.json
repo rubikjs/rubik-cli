@@ -1,6 +1,6 @@
 {
   "name": "rubik-cli",
-  "version": "1.4.4",
+  "version": "1.4.5",
   "description": "Only one command for web app development with Pure/Vue/React or javascript libraries.",
   "bin": {
     "rubik": "bin/main.js"

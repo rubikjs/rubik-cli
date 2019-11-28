@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.5](https://github.com/fancyboynet/rubik-cli/compare/v1.4.4...v1.4.5) (2019-11-28)
+
+
+### Bug Fixes
+
+* **check-package:** pass exeArgs to the child_progress ([1ff5f51](https://github.com/fancyboynet/rubik-cli/commit/1ff5f51024978cf8f14ae0da8e995df1f94b017e))
+
 ### [1.4.4](https://github.com/fancyboynet/rubik-cli/compare/v1.4.3...v1.4.4) (2019-11-22)
 
 
