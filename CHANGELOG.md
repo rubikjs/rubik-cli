@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.7](https://github.com/fancyboynet/rubik-cli/compare/v1.4.6...v1.4.7) (2019-12-03)
+
+
+### Bug Fixes
+
+* **html:** minify the css and js in style/script elements of the html ([90748d6](https://github.com/fancyboynet/rubik-cli/commit/90748d63de23819dbae2a4e1b3207fcf9741408c))
+
 ### [1.4.6](https://github.com/fancyboynet/rubik-cli/compare/v1.4.5...v1.4.6) (2019-11-28)
 
 
