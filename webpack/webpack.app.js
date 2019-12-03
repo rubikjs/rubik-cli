@@ -26,9 +26,14 @@ pages.map((v) => {
     filename: isDevMode ? `${v}.html` : `${config.templateName ? config.templateName + '/' : ''}${v}.html`,
     template: path.join(pageDir, `${v}/index.html`),
     minify: isDevMode ? false : {
-      removeComments: true,
       collapseWhitespace: true,
-      removeAttributeQuotes: true
+      removeComments: true,
+      removeRedundantAttributes: true,
+      removeScriptTypeAttributes: true,
+      removeStyleLinkTypeAttributes: true,
+      useShortDoctype: true,
+      minifyCSS: true,
+      minifyJS: true
     }
   }))
 })

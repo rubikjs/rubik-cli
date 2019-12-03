@@ -24,6 +24,7 @@ module.exports = merge.smart(app, {
     runtimeChunk: {
       name: 'runtime'
     },
+    minimize: true,
     minimizer: [
       new TerserPlugin({
         cache: true,
