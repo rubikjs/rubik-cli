@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/fancyboynet/rubik-cli/compare/v1.4.7...v1.5.0) (2019-12-06)
+
+
+### Features
+
+* **es:** add @babel/plugin-proposal-decorators ([3e0bd1d](https://github.com/fancyboynet/rubik-cli/commit/3e0bd1da9aa5f9be580b99f7f4489c2ba87763f4))
+
 ### [1.4.7](https://github.com/fancyboynet/rubik-cli/compare/v1.4.6...v1.4.7) (2019-12-03)
 
 
