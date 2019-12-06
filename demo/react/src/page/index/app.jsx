@@ -2,10 +2,19 @@ import React, { Component } from 'react'
 import logo from './logo.svg'
 import './app.css'
 
+function annotation (target) {
+  target.annotated = true
+}
+
+@annotation
 class App extends Component {
   state = {
     type: '',
     action: ''
+  }
+
+  componentDidMount () {
+    console.log(111, this.constructor.annotated)
   }
 
   render () {
