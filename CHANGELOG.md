@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/fancyboynet/rubik-cli/compare/v1.5.0...v1.6.0) (2019-12-13)
+
+
+### Features
+
+* **stylelint:** add formatter arg for styelint command ([48ac185](https://github.com/fancyboynet/rubik-cli/commit/48ac1858b692ede338cfee2484a95684d5aead61))
+
 ## [1.5.0](https://github.com/fancyboynet/rubik-cli/compare/v1.4.7...v1.5.0) (2019-12-06)
 
 
