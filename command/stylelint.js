@@ -17,6 +17,11 @@ class StyleLintCommand extends BaseCommand {
         type: 'boolean',
         default: false,
         description: 'Whether not output the console verbose'
+      },
+      formatter: {
+        type: 'string',
+        default: 'unix',
+        description: 'Specify the formatter "compact|json|string|unix|verbose , default is unix"'
       }
     }
   }
@@ -27,7 +32,8 @@ class StyleLintCommand extends BaseCommand {
         cwd: argv._.length ? rootDir : srcDir
       },
       files: argv._.length ? argv._ : '**/*.{scss,sass,css,less,html,vue}',
-      fix: argv.fix
+      fix: argv.fix,
+      formatter: argv.formatter
     })
     if (!result) {
       process.exit(1)
