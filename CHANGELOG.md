@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.7.0](https://github.com/fancyboynet/rubik-cli/compare/v1.6.0...v1.7.0) (2020-03-08)
+
+
+### Features
+
+* **build:** add progress info when build ([dbaf54d](https://github.com/fancyboynet/rubik-cli/commit/dbaf54d182f6b2c37d5934640a31491388c2f37b))
+
 ## [1.6.0](https://github.com/fancyboynet/rubik-cli/compare/v1.5.0...v1.6.0) (2019-12-13)
 
 
