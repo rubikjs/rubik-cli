@@ -7,7 +7,7 @@
   },
   "scripts": {
     "lint": "eslint --fix -f friendly .",
-    "commit": "yarn lint && git-cz",
+    "commit": "yarn lint && git add . && git-cz",
     "test": "yarn lint && jest",
     "test:utils": "jest __tests__/utils.test.js",
     "test:command": "jest __tests__/app/command.test.js",
