@@ -8,7 +8,7 @@ module.exports = {
   includePage: [],
   vendor: [],
   host: '0.0.0.0',
-  port: 8081,
+  port: 8080,
   pageTemplateWithoutHtmlLoader: false,
   reInstallOnPkgChange: true,
   notReInstallOnPkgChangeFeatures: [],

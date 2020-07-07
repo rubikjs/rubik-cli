@@ -4,32 +4,11 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const StylelintPlugin = require('./stylelint.plugin')
 const formatter = require('eslint-formatter-friendly')
-const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
-const ip = require('ip')
 const { config, srcDir, staticDir, rootDir, eslintCLIEngineConfig } = require(
   '../config')
-const { getLatestVersion, hasNewVersion } = require('../lib/utils')
-const chalk = require('chalk')
-const emoji = require('node-emoji')
 
 const isDevMode = process.env.NODE_ENV === 'development'
 const isNoHash = process.env.NO_HASH_ENV === 'true'
-const isLocalHost = config.host === '0.0.0.0' || config.host === 'localhost'
-
-function createDevMessage () {
-  const messages = ['Application is running at']
-  const path = `:${config.port}${config.publicPath}`
-  if (isLocalHost) {
-    messages.push(`    Local: http://localhost${path}`)
-    messages.push(`    Network: http://${ip.address()}${path}`)
-  } else {
-    messages.push(`    Network: http://${config.host}${path}`)
-  }
-  if (hasNewVersion()) {
-    messages.push(`    ${chalk.red(emoji.get('heart'))} Tips: The version ${chalk.red('v' + getLatestVersion())} is available now.`)
-  }
-  return [messages.join('\n')]
-}
 
 module.exports = {
   context: rootDir,
@@ -38,12 +17,7 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     }),
     new StylelintPlugin(),
-    new VueLoaderPlugin(),
-    new FriendlyErrorsWebpackPlugin({
-      compilationSuccessInfo: {
-        messages: isDevMode ? createDevMessage() : ''
-      }
-    })
+    new VueLoaderPlugin()
   ],
   resolve: {
     modules: [

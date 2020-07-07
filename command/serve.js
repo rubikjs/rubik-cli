@@ -3,7 +3,9 @@
 const BaseCommand = require('../lib/base-command')
 const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
-const { setDevEnv, setNoHashEnv, checkDir, checkMock } = require('../lib/utils')
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
+const portfinder = require('portfinder')
+const { setDevEnv, setNoHashEnv, checkDir, checkMock, createDevMessage } = require('../lib/utils')
 
 class ServeCommand extends BaseCommand {
   constructor (rawArgv) {
@@ -37,10 +39,21 @@ class ServeCommand extends BaseCommand {
       }
       webpackConfig = require('../webpack/webpack.app.dev')
     }
+    // 自动分配有效的端口
+    const basePort = webpackConfig.devServer.port
+    portfinder.basePort = basePort
+    const validPort = await portfinder.getPortPromise()
+    webpackConfig.devServer.port = validPort
+
     const compiler = webpack(webpackConfig)
     new webpack.ProgressPlugin().apply(compiler)
     new webpack.DefinePlugin({
       MODE: JSON.stringify(argv.mode)
+    }).apply(compiler)
+    new FriendlyErrorsWebpackPlugin({
+      compilationSuccessInfo: {
+        messages: createDevMessage(validPort)
+      }
     }).apply(compiler)
     const server = new WebpackDevServer(compiler, webpackConfig.devServer)
     server.listen(webpackConfig.devServer.port, webpackConfig.devServer.host)
