@@ -16,23 +16,31 @@
 </p>
 
 ## Create an app
-[More about create-rubik-app](https://github.com/rubikjs/create-rubik-app)
+
+create a pure app
 ```
 $ npx create-rubik-app my-app
 ```
-or
+create a vue app
+```
+$ npx create-rubik-app my-app --type vue
+```
+create a react app
 ```
 $ npx create-rubik-app my-app --type react
 ```
-or
+create from some rep
 ```
 $ npx create-rubik-app my-app --repo git@xxx/xxx.git
 ```
 
-## App features
+[More](https://github.com/rubikjs/create-rubik-app)
+
+## Features
 
 - [x] Same structure in all `pure|vue|react|library|electron` development
 - [x] Multiple pages app support
+- [x] Multiple `mode` support
 - [x] Library development support
 - [x] Hot reload
 - [x] Data Mock
@@ -41,189 +49,10 @@ $ npx create-rubik-app my-app --repo git@xxx/xxx.git
 - [x] [Style lint](https://github.com/stylelint/stylelint)
 - [x] [Commit lint](https://github.com/conventional-changelog/commitlint)
 
+[More](https://rubikjs.github.io/rubik-cli-doc/)
 
-## App structure
-
-```
-├── src
-│       │
-│       ├── page
-│       │       ├── app
-│       │       │       ├── index.html
-│       │       │       ├── index.js
-│       │       │       ├── style.css
-│       │       │       └── ...
-│       │       ├── home
-│       │       
-│       ├── static
-│       │       └── jquery
-│       │
-│       │
-│       ├── any-other
-│
-│
-├── mock
-│       └── index.js
-│
-│
-├── rubik.config.js (optional)
-├── webpack.config.js (optional)
-├── .eslintrc.js (optional)
-├── .stylelintrc.js (optional)
-├── commitlint.config.js (optional)
-│
+## Release
 
 ```
-
-## Library structure
-
-```
-├── demo
-│       ├── index.html
-│       └── index.js
-├── src
-│       └── index.js
-│
-├── mock
-│       └── index.js
-│
-├── rubik.config.js (optional)
-├── webpack.config.js (optional)
-├── .eslintrc.js (optional)
-├── .stylelintrc.js (optional)
-├── commitlint.config.js (optional)
-│
-
-```
-
-## Mock
-`mock/index.js`
-```js
-module.exports = function (app) {
-  app.get('/data', function (req, res) {
-    res.json({
-      'data': 'hello rubik'
-    })
-  })
-}
-```
-
-## Mode
-The `build` and  `serve` command support the `mode` defined to distinguish different environment in the javascript if needed. 
-```
-rubik serve // development mode
-rubik serve --mode qa // define qa mode
-rubik serve --mode production // define production mode
-```
-```
-rubik build // production mode
-rubik build --mode qa // define qa mode
-rubik build --mode development // define development mode
-```
-api.js
-```
-switch(MODE){ // eslint-disable-line no-undef
-  case 'production':
-    api = "production"
-    break
-  case 'qa':
-    api = "qa"
-    break
-  case 'development':
-    api = "development"
-    break
-}
-```
-
-## Custom config
-`rubik.config.js`
-```
-{
-  "output": "dist",
-  "staticName": "static",
-  "templateName": "",
-  "publicPath": "/",
-  "cdnPublicPath": "//",
-  "hashLength": 7,
-  "includePage": [],
-  "vendor": [],
-  "host": "0.0.0.0",
-  "port": 8081,
-  "pageTemplateWithoutHtmlLoader": false,
-  "reInstallOnPkgChange": true,
-  "notReInstallOnPkgChangeFeatures": [],
-  "plugins": []
-}
-
-```
-
-## Custom webpack
-`webpack.config.js`
-```
-module.exports = {
-  resolve: { alias: { vue: 'vue/dist/vue.esm.js' } }
-}
-
-```
-
-## Custom eslint
-`.eslintrc.js`
-```
-module.exports = {
-  "rules": {
-    "no-new": "error"
-  }
-}
-
-```
-
-## Custom stylelint
-`.stylelintrc.js`
-```
-module.exports = {
-  rules: {
-    'max-nesting-depth': 4,
-    'selector-max-type': 2,
-    'selector-max-class': 3,
-    'selector-max-id': 1
-  }
-}
-
-```
-
-## Custom commitlint
-`commitlint.config.js`
-```
-module.exports = { extends: ['@commitlint/config-angular'] }
-
-```
-
-
-## CLI plugin
-A plugin is a npm package with follow features:
-- The name must like `rubik-cli-plugin-<command-name>`
-- Need export a sub class of [common-bin](https://github.com/node-modules/common-bin)
-
-`rubik-cli-plugin-hello-word`
-```
-module.exports = ({ Command }, options) => {
-  class SubCommand extends Command {
-    async run () {
-      console.log(options)
-    }
-    get description () {
-      return 'hello word'
-    }
-  }
-  return SubCommand
-}
-```
-`rubik.config.js`
-```
-plugins: [{
-    name: 'hello-word',
-    options: {
-      foo: 'bar'
-    }
-  }]
+yarn release
 ```
