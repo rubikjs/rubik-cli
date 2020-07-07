@@ -4,12 +4,12 @@ node_js:
 if: tag IS present
 deploy:
   provider: npm
-  email: fancyboynet@gmail.com
+  email: 304009100@gmail.com
   api_key:
     secure: Y7xv+Tkl4DXnOL8bUzOv7QfakGHtMvVsenZmc1HkZaNvOEI8fX/kNTrZTC+dnRRcXG3rSW1WZyhxyNEMlsyeZiHH4BIyTk8/mOPsl2E4AhXW8B2iEKE180JM9Kitbc7ad9DJ5V5JrJGmHzjztA01Nw9refygmWYYNwYEFbNaPb5RTQxj2D0P0XzkYR/XI3o44U9FkfUxsrrg1BwNzhB+xk67r/7iuob/hUQmzEn8upEBRIfyMZdSx6RdGPpJbnE/Gly1MqgaeA2ttYlnci3wALx9lrdtfghKhMdpHj9+JtQWcqNMawA8Mrc2UdKOFckHFudkYzdB4gU2qqkFNnfwOvSHOMB5eODtqL+N8mRT0unOQyssmtq/35nMy3uK5wwJNWviU1YYz1c1q4y+RmpC9OOIVECE/HP23/rJIsZc6paikNa05DfbLVGik+JrOCLLRBVQ13cy2KfJXhpghotnEZ368doQHFiu9R1w+WWGOYREMEgbHHBdZRwq/9wAWiHTbH/eL+QugtXvzAVj2SF1XmYsYHB7ZbtXPbyB+93SOlyjUOWiLgLrPiQplfrtOPxvKEw481bLmOtviPRWCbiKJbSCUst35/Y1c+cklupNzA6FsyDTW3sURRgilZGoaLWatOjK+odFgNmb1A0pZZLEfFb4Qno6H3Gu9zbbH5wzd4E=
   on:
     tags: true
     repo: rubikjs/rubik-cli
-    branch: master
+    all_branches: true
     condition: $TRAVIS_TAG =~ ^v[0-9]+(\.[0-9]+)*$
     skip_cleanup: true
