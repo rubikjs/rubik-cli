@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.8.0](https://github.com/fancyboynet/rubik-cli/compare/v1.7.0...v1.8.0) (2020-07-07)
+
+
+### Features
+
+* add auto find valid port ([14cf540](https://github.com/fancyboynet/rubik-cli/commit/14cf5409864f522f31431ada537ab5d51420a90d))
+
 ## [1.7.0](https://github.com/fancyboynet/rubik-cli/compare/v1.6.0...v1.7.0) (2020-03-08)
 
 
