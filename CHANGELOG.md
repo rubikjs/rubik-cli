@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/fancyboynet/rubik-cli/compare/v1.8.0...v2.0.0) (2020-07-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* **mode:** Instead 'MODE', you need to use 'process.env.MODE' to get the '--mode' param in js
+file
+
+### Bug Fixes
+
+* travis config ([bb6c973](https://github.com/fancyboynet/rubik-cli/commit/bb6c973341b3abd106fd1bda9c37d490eaa35821))
+
+
+* **mode:** change the js variable from 'MODE' to 'process.env.MODE' ([3363234](https://github.com/fancyboynet/rubik-cli/commit/336323409ede3f6200822cd6fca79f4b1469ff9a))
+
 ## [1.8.0](https://github.com/fancyboynet/rubik-cli/compare/v1.7.0...v1.8.0) (2020-07-07)
 
 
