@@ -1,12 +1,12 @@
 const path = require('path')
-const merge = require('webpack-merge')
+const { merge } = require('webpack-merge')
 const lib = require('./webpack.lib.js')
 const custom = require('./webpack.custom.js')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { config, mockDir, rootDir } = require('../config')
 
-module.exports = merge.smart(lib, {
+module.exports = merge(lib, {
   mode: 'development',
   entry: {
     demo: path.resolve(rootDir, './demo/index.js')

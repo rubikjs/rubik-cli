@@ -36,7 +36,7 @@ class BuildCommand extends BaseCommand {
     const compiler = webpack(webpackConfig)
     new webpack.ProgressPlugin().apply(compiler)
     new webpack.DefinePlugin({
-      MODE: JSON.stringify(argv.mode)
+      'process.env.MODE': JSON.stringify(argv.mode)
     }).apply(compiler)
     compiler.run()
   }

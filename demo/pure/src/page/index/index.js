@@ -4,7 +4,8 @@ import data from './data.json' // import json file
 import partHtml from './part.html'
 import svgPlay from './play.svg'
 
-document.querySelector('#mode').textContent = MODE // eslint-disable-line no-undef
+document.querySelector('#mode').textContent = process.env.MODE // eslint-disable-line no-undef
+document.querySelector('#env').textContent = process.env.NODE_ENV // eslint-disable-line no-undef
 document.querySelector('#json').textContent = JSON.stringify(data)
 // 异步加载
 import('./print').then((printMe) => {

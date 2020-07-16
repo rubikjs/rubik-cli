@@ -7,7 +7,7 @@
     "build:no-hash": "cross-env DEBUG=rubiky,NO_HASH_ENV=true yarn run cli build",
     "build:dev": "cross-env DEBUG=rubiky yarn run cli build --mode development",
     "build": "cross-env DEBUG=rubik yarn run cli build",
-    "start": "cross-env DEBUG=rubik yarn run cli serve",
+    "start": "cross-env DEBUG=rubik yarn run cli serve --mode modeType",
     "start:prod": "cross-env DEBUG=rubik yarn run cli serve --mode production",
     "stylelint": "cross-env DEBUG=rubik yarn run cli stylelint --fix",
     "lint": "cross-env DEBUG=rubik yarn run cli lint",
@@ -26,7 +26,11 @@
     "stylelint-config-recommended": "^3.0.0"
   },
   "dependencies": {
-    "axios": "^0.19.0"
+    "axios": "^0.19.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.0.9"
   },
   "browserslist": [
     "> 1%",

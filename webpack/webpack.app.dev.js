@@ -1,4 +1,4 @@
-const merge = require('webpack-merge')
+const { merge } = require('webpack-merge')
 const app = require('./webpack.app.js')
 const custom = require('./webpack.custom.js')
 const webpack = require('webpack')
@@ -22,7 +22,7 @@ function createDevHistoryApiFallback () {
   }
 }
 
-module.exports = merge.smart(app, {
+module.exports = merge(app, {
   mode: 'development',
   plugins: [
     new webpack.HotModuleReplacementPlugin()

@@ -1,6 +1,6 @@
 const path = require('path')
 const fs = require('fs')
-const merge = require('webpack-merge')
+const { merge } = require('webpack-merge')
 const pkg = require('../package.json')
 const { CLI_NAME } = require('./cli')
 const defaultConfig = require('./config')

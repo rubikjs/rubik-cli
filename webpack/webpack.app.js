@@ -2,7 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const merge = require('webpack-merge')
+const { merge } = require('webpack-merge')
 const common = require('./webpack.common.js')
 const { config, pageDir, staticDir } = require('../config')
 const pages = require('../lib/pages')
@@ -52,7 +52,7 @@ if (hasStaticRoot) {
   ]))
 }
 
-module.exports = merge.smart(common, {
+module.exports = merge(common, {
   entry: entry,
   plugins: plugins
 })
