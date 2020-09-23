@@ -1,19 +1,19 @@
 module.exports = {
   root: true,
-  "env": {
-    "node": true,
-    "jest": true
+  env: {
+    node: true,
+    jest: true
   },
-  "parserOptions": {
+  parserOptions: {
     ecmaVersion: 2018,
-    "sourceType": "module"
+    sourceType: 'module'
   },
-  "extends": [
-    "eslint:recommended",
-    "standard"
+  extends: [
+    'eslint:recommended',
+    'standard'
   ],
   rules: {
-    "no-console": "off",
-    "no-useless-constructor": "off"
+    'no-console': 'off',
+    'no-useless-constructor': 'off'
   }
 }

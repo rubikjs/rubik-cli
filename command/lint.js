@@ -25,7 +25,6 @@ class LintCommand extends BaseCommand {
   async run ({ argv }) {
     const cli = new CLIEngine({
       ...eslintCLIEngineConfig,
-      ignorePattern: ['static/**/*.*'],
       cwd: argv._.length ? rootDir : srcDir,
       fix: argv.fix
     })

@@ -24,9 +24,9 @@ const eslintConfig = merge(defaultEslintConfig, customEslintConfig)
 const stylelintConfig = merge(defaultStylelintConfig, customStylelintConfig)
 const commitLintConfig = merge(defaultCommitLintConfig, customCommitLintConfig)
 const srcDir = path.resolve(rootDir, './src')
+const staticDir = path.resolve(rootDir, './static')
 const mockDir = path.resolve(rootDir, './mock')
 const pageDir = path.resolve(srcDir, './page')
-const staticDir = path.resolve(srcDir, './static')
 const distDir = path.resolve(rootDir, config.output)
 const eslintCLIEngineConfig = {
   baseConfig: eslintConfig,
