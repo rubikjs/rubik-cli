@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.0](https://github.com/fancyboynet/rubik-cli/compare/v2.0.0...v4.0.0) (2020-09-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* **static:** Change the static directory position.
+
+* **static:** move the static directory out from src ([020ef91](https://github.com/fancyboynet/rubik-cli/commit/020ef91d4227130daf3674ee73c516af2d161409))
+
 ## [2.0.0](https://github.com/fancyboynet/rubik-cli/compare/v1.8.0...v2.0.0) (2020-07-16)
 
 
