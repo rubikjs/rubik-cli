@@ -6,6 +6,7 @@ const StylelintPlugin = require('./stylelint.plugin')
 const formatter = require('eslint-formatter-friendly')
 const { config, srcDir, staticDir, rootDir, eslintCLIEngineConfig } = require(
   '../config')
+const { isAbsolutePublicPath } = require('../lib/utils')
 
 const isDevMode = process.env.NODE_ENV === 'development'
 const isNoHash = process.env.NO_HASH_ENV === 'true'
@@ -24,7 +25,10 @@ module.exports = {
       path.resolve(__dirname, '../node_modules'),
       srcDir,
       'node_modules'],
-    extensions: ['.js', '.jsx', '.vue', '.json']
+    extensions: ['.js', '.jsx', '.vue', '.json'],
+    alias: {
+      '@': srcDir
+    }
   },
   resolveLoader: {
     modules: [path.resolve(__dirname, '../node_modules'), 'node_modules']
@@ -58,7 +62,12 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          isDevMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+          isDevMode ? 'style-loader' : {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: isAbsolutePublicPath() ? config.publicPath : '..'
+            }
+          },
           'css-loader',
           {
             loader: 'postcss-loader',
@@ -74,7 +83,12 @@ module.exports = {
       {
         test: /\.less$/,
         use: [
-          isDevMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+          isDevMode ? 'style-loader' : {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: isAbsolutePublicPath() ? config.publicPath : '..'
+            }
+          },
           'css-loader',
           {
             loader: 'less-loader',
@@ -87,7 +101,12 @@ module.exports = {
       {
         test: /\.s[ac]ss/,
         use: [
-          isDevMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+          isDevMode ? 'style-loader' : {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: isAbsolutePublicPath() ? config.publicPath : '..'
+            }
+          },
           'css-loader',
           {
             loader: 'sass-loader',

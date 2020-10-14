@@ -4,18 +4,21 @@ const custom = require('./webpack.custom.js')
 const webpack = require('webpack')
 const { config, mockDir, distDir } = require('../config')
 const pages = require('../lib/pages')
+const { getDevPublicPath } = require('../lib/utils')
+
+const publicPath = getDevPublicPath()
 
 function createDevHistoryApiFallback () {
   if (!pages || !pages.length) {
     return true
   }
-  const reg = new RegExp('^' + config.publicPath + '(' + pages.join('|') + ')(\\/|$)')
+  const reg = new RegExp('^' + publicPath + '(' + pages.join('|') + ')(\\/|$)')
   return {
     rewrites: [
       {
         from: reg,
         to (context) {
-          return `${config.publicPath}${context.match[1]}.html`
+          return `${publicPath}${context.match[1]}.html`
         }
       }
     ]
@@ -29,7 +32,7 @@ module.exports = merge(app, {
   ],
   devtool: 'inline-source-map',
   output: {
-    publicPath: config.publicPath,
+    publicPath: publicPath,
     filename: '[name].js',
     chunkFilename: '[name].js',
     path: distDir
@@ -44,7 +47,7 @@ module.exports = merge(app, {
     historyApiFallback: createDevHistoryApiFallback(),
     quiet: true,
     before: require(mockDir),
-    publicPath: config.publicPath,
+    publicPath: publicPath,
     disableHostCheck: true,
     overlay: {
       warnings: false,

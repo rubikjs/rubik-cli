@@ -1,0 +1,136 @@
+@font-face {
+  font-family: "iconfont";
+  src: url("iconfont.ttf?t=1597113843427") format("truetype");
+}
+
+.iconfont {
+  font-family: "iconfont", serif !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-juxing::before {
+  content: "\e636";
+}
+
+.icon-tuceng::before {
+  content: "\e603";
+}
+
+.icon-arrowleftdl::before {
+  content: "\e6a5";
+}
+
+.icon-arrowrightdl::before {
+  content: "\e6aa";
+}
+
+.icon-spider::before {
+  content: "\e621";
+}
+
+.icon-listview::before {
+  content: "\e67b";
+}
+
+.icon-delete::before {
+  content: "\e68e";
+}
+
+.icon-menu::before {
+  content: "\e696";
+}
+
+.icon-total::before {
+  content: "\e69e";
+}
+
+.icon-chart::before {
+  content: "\e607";
+}
+
+.icon-text::before {
+  content: "\e768";
+}
+
+.icon-chakan::before {
+  content: "\e600";
+}
+
+.icon-file-excel::before {
+  content: "\e7b7";
+}
+
+.icon-file-pdf::before {
+  content: "\e7b8";
+}
+
+.icon-sql::before {
+  content: "\e910";
+}
+
+.icon-uicon_sql::before {
+  content: "\e634";
+}
+
+.icon-excel::before {
+  content: "\e700";
+}
+
+.icon-07::before {
+  content: "\e649";
+}
+
+.icon-pdf1::before {
+  content: "\e614";
+}
+
+.icon-database::before {
+  content: "\e60f";
+}
+
+.icon-gbase::before {
+  content: "\e632";
+}
+
+.icon-field::before {
+  content: "\e673";
+}
+
+.icon-number-123::before {
+  content: "\e602";
+}
+
+.icon-date::before {
+  content: "\e6c7";
+}
+
+.icon-pdf::before {
+  content: "\e637";
+}
+
+.icon-cubelifangti::before {
+  content: "\e6fc";
+}
+
+.icon-oracle::before {
+  content: "\e633";
+}
+
+.icon-mysql::before {
+  content: "\e67f";
+}
+
+.icon-string::before {
+  content: "\e6bd";
+}
+
+.icon-number::before {
+  content: "\e6be";
+}
+
+.icon-run::before {
+  content: "\e601";
+}

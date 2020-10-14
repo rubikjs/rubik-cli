@@ -1,8 +1,20 @@
+@import "~assets/font/iconfont.css";
+@font-face {
+  font-weight: 400;
+  font-family: vant-icon;
+  font-style: normal;
+  font-display: auto;
+  src: url(~assets/font/vant-icon-0c347b.woff2) format("woff2");
+}
+
 li {
   margin: 0 0 2em;
   border-bottom: 1px solid #ccc;
 }
 
+header {
+  font-family: vant-icon, serif;
+}
 .test-autoprefixer {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -13,4 +25,9 @@ li {
   -webkit-box-sizing: border-box;
   -webkit-text-decoration: underline dotted;
   box-sizing: border-box;
+}
+.bg {
+  width: 186px;
+  height: 186px;
+  background: url(~assets/image/bg.png) no-repeat 0 0;
 }
