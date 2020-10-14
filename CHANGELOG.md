@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.1.0](https://github.com/fancyboynet/rubik-cli/compare/v4.0.0...v4.1.0) (2020-10-14)
+
+
+### Features
+
+* 增加相对路径打包支持 ([6c65767](https://github.com/fancyboynet/rubik-cli/commit/6c65767a7a318efdd968649b00d884094f09baf6))
+
 ## [4.0.0](https://github.com/fancyboynet/rubik-cli/compare/v2.0.0...v4.0.0) (2020-09-23)
 
 
