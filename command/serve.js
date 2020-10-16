@@ -5,7 +5,7 @@ const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
-const { setDevEnv, setNoHashEnv, checkDir, checkMock, createDevMessage } = require('../lib/utils')
+const { setDevEnv, setNoHashEnv, checkDir, checkMock, createDevMessage, setModeEnv } = require('../lib/utils')
 
 class ServeCommand extends BaseCommand {
   constructor (rawArgv) {
@@ -26,6 +26,7 @@ class ServeCommand extends BaseCommand {
 
   async run ({ argv }) {
     setDevEnv()
+    setModeEnv(argv.mode)
     let webpackConfig = ''
     if (argv.lib) {
       if (!checkMock()) {

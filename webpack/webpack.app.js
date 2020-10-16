@@ -21,10 +21,9 @@ if (config.vendor.length) {
 pages.map((v) => {
   entry[v] = getPageEntry(v)
   plugins.push(new HtmlWebpackPlugin({
-    publicPath: true,
     chunks: ['runtime', 'vendor', v],
     filename: isDevMode ? `${v}.html` : `${config.templateName ? config.templateName + '/' : ''}${v}.html`,
-    template: path.join(pageDir, `${v}/index.html`),
+    template: path.join(pageDir, `${v}/index.${config.pageTemplateExtension}`),
     minify: isDevMode ? false : {
       collapseWhitespace: true,
       removeComments: true,
@@ -34,6 +33,9 @@ pages.map((v) => {
       useShortDoctype: true,
       minifyCSS: true,
       minifyJS: true
+    },
+    templateParameters: {
+      MODE: process.env.MODE
     }
   }))
 })

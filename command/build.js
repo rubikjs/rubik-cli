@@ -2,7 +2,7 @@
 
 const BaseCommand = require('../lib/base-command')
 const webpack = require('webpack')
-const { setProdEnv, setNoHashEnv, checkDir } = require('../lib/utils')
+const { setProdEnv, setNoHashEnv, checkDir, setModeEnv } = require('../lib/utils')
 
 class BuildCommand extends BaseCommand {
   constructor (rawArgv) {
@@ -23,6 +23,7 @@ class BuildCommand extends BaseCommand {
 
   async run ({ argv }) {
     setProdEnv()
+    setModeEnv(argv.mode)
     let webpackConfig = ''
     if (argv.lib) {
       setNoHashEnv()

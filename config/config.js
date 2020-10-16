@@ -10,6 +10,7 @@ module.exports = {
   host: '0.0.0.0',
   port: 8080,
   pageTemplateWithoutHtmlLoader: false,
+  pageTemplateExtension: 'html',
   reInstallOnPkgChange: true,
   notReInstallOnPkgChangeFeatures: [],
   plugins: []
