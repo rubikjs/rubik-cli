@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.2.0](https://github.com/fancyboynet/rubik-cli/compare/v4.1.0...v4.2.0) (2020-10-16)
+
+
+### Features
+
+* 增加ejs模板支持 ([4ba3ef5](https://github.com/fancyboynet/rubik-cli/commit/4ba3ef5823e521928607331511a4df246a2598cc))
+
 ## [4.1.0](https://github.com/fancyboynet/rubik-cli/compare/v4.0.0...v4.1.0) (2020-10-14)
 
 
